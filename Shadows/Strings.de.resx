@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConfirmExitCaption" xml:space="preserve">
+    <value>Verlassen bestätigen</value>
+  </data>
+  <data name="ConfirmExitText" xml:space="preserve">
+    <value>Möchten Sie Shadows wirklich beenden?</value>
+  </data>
+  <data name="ConfirmFileDeletionCaption" xml:space="preserve">
+    <value>Löschen bestätigen</value>
+  </data>
+  <data name="ConfirmFileDeletionText" xml:space="preserve">
+    <value>Möchten Sie die ausgewählten Dateien wirklich in den Papierkorb verschieben?</value>
+  </data>
+  <data name="ErrorFolderAlreadyAddedCaption" xml:space="preserve">
+    <value>Bereits hinzugefügt</value>
+  </data>
+  <data name="ErrorFolderAlreadyAddedText" xml:space="preserve">
+    <value>Der Ordner "{0}" wurde bereits hinzugefügt.</value>
+  </data>
+  <data name="ErrorIncorrectCustomFileTypesCaption" xml:space="preserve">
+    <value>Ungültige benutzerdefinierte Dateitypen</value>
+  </data>
+  <data name="ErrorIncorrectCustomFileTypesText" xml:space="preserve">
+    <value>Die benutzerdefinierten Dateitypen wurden nicht korrekt angegeben. Bitte überprüfen Sie sie und versuchen Sie es erneut.</value>
+  </data>
+  <data name="ErrorInvalidRegexEnteredCaption" xml:space="preserve">
+    <value>Ungültiger regulärer Ausdruck</value>
+  </data>
+  <data name="ErrorInvalidRegexEnteredText" xml:space="preserve">
+    <value>Der angegebene reguläre Ausdruck ist nicht gültig.</value>
+  </data>
+  <data name="ErrorLogfileNotFoundCaption" xml:space="preserve">
+    <value>Datei nicht gefunden</value>
+  </data>
+  <data name="ErrorLogfileNotFoundText" xml:space="preserve">
+    <value>Die Logdatei konnte nicht gefunden werden. Vielleicht wurde noch nichts geloggt oder die Datei gelöscht.</value>
+  </data>
+  <data name="ErrorNoComparisonCriterionCheckedCaption" xml:space="preserve">
+    <value>Kein Vergleichskriterium</value>
+  </data>
+  <data name="ErrorNoComparisonCriterionCheckedText" xml:space="preserve">
+    <value>Sie müssen mindestens ein Vergleichskriterium angeben.</value>
+  </data>
+  <data name="ErrorNoFileTypesSpecifiedCaption" xml:space="preserve">
+    <value>Keine Dateitypen</value>
+  </data>
+  <data name="ErrorNoFileTypesSpecifiedText" xml:space="preserve">
+    <value>Sie müssen mindestens einen Dateityp angeben.</value>
+  </data>
+  <data name="ErrorNoFoldersAddedCaption" xml:space="preserve">
+    <value>Keine Ordner hinzugefügt</value>
+  </data>
+  <data name="ErrorNoFoldersAddedText" xml:space="preserve">
+    <value>Sie müssen mindestens einen Ordner zum Durchsuchen hinzufügen.</value>
+  </data>
+  <data name="ErrorParentFolderAlreadyAddedCaption" xml:space="preserve">
+    <value>Bereits hinzugefügt</value>
+  </data>
+  <data name="ErrorParentFolderAlreadyAddedText" xml:space="preserve">
+    <value>Dieser Ordner ist ein Unterordner von "{0}" und daher bereits in der Suche einbezogen.</value>
+  </data>
+  <data name="ErrorRecycledFolderAddedCaption" xml:space="preserve">
+    <value>Gelöschter Ordner</value>
+  </data>
+  <data name="ErrorRecycledFolderAddedText" xml:space="preserve">
+    <value>Dieser Ordner wurde gelöscht und kann nicht durchsucht werden.</value>
+  </data>
+  <data name="ErrorSystemFilesWithoutAdminPrivilegesCaption" xml:space="preserve">
+    <value>Keine Administratorrechte</value>
+  </data>
+  <data name="ErrorSystemFilesWithoutAdminPrivilegesText" xml:space="preserve">
+    <value>Administratorrechte werden benötigt, um Systemdateien zu durchsuchen. Bitte beenden Sie das Programm und starten es erneut mit Administratorrechten.</value>
+  </data>
+  <data name="ErrorUnableToAccessFolderCaption" xml:space="preserve">
+    <value>Konnte Ordner nicht öffnen</value>
+  </data>
+  <data name="ErrorUnableToAccessFolderText" xml:space="preserve">
+    <value>Der Ordner "{0}" konnte nicht geöffnet werden. Vielleicht haben Sie keine Zugriffsrechte oder er wurde umbenannt oder gelöscht.</value>
+  </data>
+  <data name="ErrorUnableToDeleteFileCaption" xml:space="preserve">
+    <value>Konnte Datei nicht löschen</value>
+  </data>
+  <data name="ErrorUnableToDeleteFileText" xml:space="preserve">
+    <value>Konnte Datei "{0}" nicht löschen - {1}</value>
+  </data>
+  <data name="ErrorUnableToOpenFolderCaption" xml:space="preserve">
+    <value>Konnte Ordner nicht öffnen</value>
+  </data>
+  <data name="ErrorUnableToOpenFolderText" xml:space="preserve">
+    <value>Konnte Ordner "{0}" nicht öffnen - {1}</value>
+  </data>
+  <data name="ErrorUnableToRenameFileCaption" xml:space="preserve">
+    <value>Konnte Datei nicht umbenennen</value>
+  </data>
+  <data name="ErrorUnableToRenameFileText" xml:space="preserve">
+    <value>Konnte Datei "{0}" nicht umbenennen - {1}</value>
+  </data>
+  <data name="ErrorUnableToStartProcessCaption" xml:space="preserve">
+    <value>Konnte Datei nicht öffnen</value>
+  </data>
+  <data name="ErrorUnableToStartProcessText" xml:space="preserve">
+    <value>Konnte Datei "{0}" nicht öffnen - {1}</value>
+  </data>
+  <data name="ErrorVirtualFolderAddedCaption" xml:space="preserve">
+    <value>Virtueller Ordner</value>
+  </data>
+  <data name="ErrorVirtualFolderAddedText" xml:space="preserve">
+    <value>Virtuelle Ordner können nicht zur Suche hinzugefügt werden.</value>
+  </data>
+  <data name="SearchCompletedBalloonText" xml:space="preserve">
+    <value>{0} Schatten wurden gefunden.</value>
+  </data>
+  <data name="SearchCompletedBalloonTitle" xml:space="preserve">
+    <value>Suche abgeschlossen</value>
+  </data>
+  <data name="SearchCountingFiles" xml:space="preserve">
+    <value>Berechne Dateianzahl ...</value>
+  </data>
+  <data name="SearchFileXOfY" xml:space="preserve">
+    <value>Datei {0} von {1}</value>
+  </data>
+  <data name="SearchNotScanningYet" xml:space="preserve">
+    <value>Scanne noch nichts</value>
+  </data>
+  <data name="SearchProgress" xml:space="preserve">
+    <value>{0}% fertiggestellt</value>
+  </data>
+  <data name="SearchScanningFiles" xml:space="preserve">
+    <value>Dateien werden gescannt ...</value>
+  </data>
+  <data name="SearchScanningFolder" xml:space="preserve">
+    <value>Scanne {0}</value>
+  </data>
+  <data name="SearchSkippingFileOrDirectory" xml:space="preserve">
+    <value>Überspringe {0} - {1}</value>
+  </data>
+  <data name="SearchStatusAborted" xml:space="preserve">
+    <value>Status: Abgebrochen</value>
+  </data>
+  <data name="SearchStatusActive" xml:space="preserve">
+    <value>Status: Aktiv</value>
+  </data>
+  <data name="SearchStatusCompleted" xml:space="preserve">
+    <value>Status: Abgeschlossen</value>
+  </data>
+  <data name="SearchStatusPaused" xml:space="preserve">
+    <value>Status: Pausiert</value>
+  </data>
+  <data name="SearchXFilesScanned" xml:space="preserve">
+    <value>{0} Dateien gescannt</value>
+  </data>
+  <data name="SearchXShadowsFound" xml:space="preserve">
+    <value>{0} Schatten gefunden</value>
+  </data>
+  <data name="WarningManyFoldersOpeningCaption" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="WarningManyFoldersOpeningText" xml:space="preserve">
+    <value>Diese Aktion wird viele Ordner öffnen und könnte den PC verlangsamen. Möchten Sie wirklich fortfahren?</value>
+  </data>
+  <data name="WarningMultipleSubfoldersAlreadyAddedText" xml:space="preserve">
+    <value>Sie haben bereits mehrere Ordner hinzugefügt, die Unterordner von "{0}" sind. Wenn Sie diesen Ordner hinzufügen, werden die alten Ordner aus der Liste entfernt, sind aber dennoch in der Suche einbezogen.
+
+Möchten Sie den neuen Ordner hinzufügen?</value>
+  </data>
+  <data name="WarningSingleSubfolderAlreadyAddedText" xml:space="preserve">
+    <value>Sie haben bereits den Ordner "{0}" hinzugefügt, der ein Unterordner von "{1}" ist. Wenn Sie diesen Ordner hinzufügen, wird der alte Ordner aus der Liste entfernt, ist aber dennoch in der Suche einbezogen.
+
+Möchten Sie den neuen Ordner hinzufügen?</value>
+  </data>
+  <data name="WarningSubfolderAlreadyAddedCaption" xml:space="preserve">
+    <value>Bereits teilweise hinzugefügt</value>
+  </data>
+  <data name="WorkingInBackgroundBalloonText" xml:space="preserve">
+    <value>Sie werden benachrichtigt, sobald die Suche abgeschlossen ist.</value>
+  </data>
+  <data name="WorkingInBackgroundBalloonTitle" xml:space="preserve">
+    <value>Shadows arbeitet im Hintergrund</value>
+  </data>
+</root>

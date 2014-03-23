@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="buttonUseDefaultLogFolder.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="checkboxConfirmExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 17</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitAll.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="buttonSelectLogFolder.Text" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="labelLogSize2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="splitAll.Panel1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;groupLogging.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkboxAutoRemoveGroups.ToolTip" xml:space="preserve">
+    <value>This happens when all other files in a group have been deleted by the user. When left unchecked,
+file groups will only be hidden when all files they contained have been deleted.</value>
+  </data>
+  <data name="numericUpDownLogSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 20</value>
+  </data>
+  <data name="splitAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 4</value>
+  </data>
+  <data name="&gt;&gt;labelLogDirectory.Name" xml:space="preserve">
+    <value>labelLogDirectory</value>
+  </data>
+  <data name="&gt;&gt;labelLogSize1.Name" xml:space="preserve">
+    <value>labelLogSize1</value>
+  </data>
+  <data name="checkboxAutoRemoveGroups.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 70</value>
+  </data>
+  <data name="&gt;&gt;buttonUseDefaultLogFolder.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="checkboxAutoExpand.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelLogDirectory.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="groupLogging.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 124</value>
+  </data>
+  <data name="labelLogDirectory.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="splitAll.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labelLogArchives1.Text" xml:space="preserve">
+    <value>Archive:</value>
+  </data>
+  <data name="&gt;&gt;labelLogSize2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="buttonUseDefaultLogFolder.Text" xml:space="preserve">
+    <value>Use default</value>
+  </data>
+  <data name="labelLogSize2.Text" xml:space="preserve">
+    <value>KB (maximum per file)</value>
+  </data>
+  <data name="labelLogSize1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 13</value>
+  </data>
+  <data name="checkboxAutoRemoveGroups.Text" xml:space="preserve">
+    <value>Hide file groups when only one file is left</value>
+  </data>
+  <data name="&gt;&gt;groupLogging.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelLogArchives2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="folderBrowserDialogLogFolder.Description" xml:space="preserve">
+    <value>Choose a directory for Shadows' logfiles</value>
+  </data>
+  <data name="&gt;&gt;buttonSelectLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="labelLogArchives2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelLogArchives2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 71</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelLogArchives2.Text" xml:space="preserve">
+    <value>older log files</value>
+  </data>
+  <data name="groupLogging.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="buttonUseDefaultLogFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="numericUpDownLogSize.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tooltipDefault.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownLogArchives.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelLogSize2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownLogSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel1.Name" xml:space="preserve">
+    <value>splitAll.Panel1</value>
+  </data>
+  <data name="&gt;&gt;checkboxAutoExpand.Name" xml:space="preserve">
+    <value>checkboxAutoExpand</value>
+  </data>
+  <data name="&gt;&gt;labelLogSize1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDialogLogFolder.Name" xml:space="preserve">
+    <value>folderBrowserDialogLogFolder</value>
+  </data>
+  <data name="checkboxAutoExpand.Size" type="System.Drawing.Size, System.Drawing">
+    <value>300, 17</value>
+  </data>
+  <data name="&gt;&gt;groupGeneral.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textboxLogFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 20</value>
+  </data>
+  <data name="&gt;&gt;groupLogging.Parent" xml:space="preserve">
+    <value>splitAll.Panel2</value>
+  </data>
+  <data name="checkboxAutoRemoveGroups.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 17</value>
+  </data>
+  <data name="groupGeneral.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelLogSize1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 47</value>
+  </data>
+  <data name="&gt;&gt;groupGeneral.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelLogSize1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitAll.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>470, 284</value>
+  </data>
+  <data name="buttonUseDefaultLogFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="groupGeneral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 110</value>
+  </data>
+  <data name="checkboxAutoExpand.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelLogDirectory.Text" xml:space="preserve">
+    <value>Log folder:</value>
+  </data>
+  <data name="checkboxConfirmExit.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelLogDirectory.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 23</value>
+  </data>
+  <data name="checkboxAutoExpand.Text" xml:space="preserve">
+    <value>Expand all file groups immediately as they appear in the list</value>
+  </data>
+  <data name="labelLogSize1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;textboxLogFolder.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="labelLogArchives1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="&gt;&gt;labelLogArchives1.Name" xml:space="preserve">
+    <value>labelLogArchives1</value>
+  </data>
+  <data name="&gt;&gt;checkboxAutoExpand.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelLogDirectory.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;numericUpDownLogSize.Name" xml:space="preserve">
+    <value>numericUpDownLogSize</value>
+  </data>
+  <data name="labelLogDirectory.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>454, 246</value>
+  </data>
+  <data name="groupGeneral.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="groupLogging.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel2.Parent" xml:space="preserve">
+    <value>splitAll</value>
+  </data>
+  <data name="labelLogSize2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>470, 284</value>
+  </data>
+  <data name="&gt;&gt;labelLogSize2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;labelLogDirectory.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;checkboxAutoRemoveGroups.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="groupGeneral.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;checkboxConfirmExit.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkboxAutoExpand.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textboxLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textboxLogFolder.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="splitAll.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupLogging.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;checkboxConfirmExit.Name" xml:space="preserve">
+    <value>checkboxConfirmExit</value>
+  </data>
+  <data name="labelLogArchives1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;buttonUseDefaultLogFolder.Name" xml:space="preserve">
+    <value>buttonUseDefaultLogFolder</value>
+  </data>
+  <data name="&gt;&gt;buttonSelectLogFolder.Name" xml:space="preserve">
+    <value>buttonSelectLogFolder</value>
+  </data>
+  <data name="labelLogSize2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 13</value>
+  </data>
+  <data name="splitAll.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupGeneral.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownLogSize.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="buttonSelectLogFolder.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelLogArchives1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 71</value>
+  </data>
+  <data name="labelLogArchives1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textboxLogFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 20</value>
+  </data>
+  <data name="&gt;&gt;groupGeneral.Parent" xml:space="preserve">
+    <value>splitAll.Panel1</value>
+  </data>
+  <data name="&gt;&gt;checkboxConfirmExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelLogArchives1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;labelLogSize2.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="groupLogging.Text" xml:space="preserve">
+    <value>Logging</value>
+  </data>
+  <data name="labelLogSize1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownLogArchives.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 4, 7, 4</value>
+  </data>
+  <data name="&gt;&gt;groupLogging.Name" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="&gt;&gt;checkboxAutoRemoveGroups.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelLogSize2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 47</value>
+  </data>
+  <data name="checkboxConfirmExit.Text" xml:space="preserve">
+    <value>Ask for confirmation when closing the application</value>
+  </data>
+  <data name="labelLogSize1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonSelectLogFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>278, 18</value>
+  </data>
+  <data name="&gt;&gt;labelLogArchives2.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownLogArchives.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="&gt;&gt;buttonUseDefaultLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkboxAutoRemoveGroups.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;labelLogDirectory.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textboxLogFolder.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelLogSize1.Text" xml:space="preserve">
+    <value>Size:</value>
+  </data>
+  <data name="&gt;&gt;labelLogSize2.Name" xml:space="preserve">
+    <value>labelLogSize2</value>
+  </data>
+  <data name="checkboxConfirmExit.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel2.Name" xml:space="preserve">
+    <value>splitAll.Panel2</value>
+  </data>
+  <data name="groupLogging.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelLogArchives2.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkboxConfirmExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 22</value>
+  </data>
+  <data name="labelLogArchives2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 13</value>
+  </data>
+  <data name="&gt;&gt;labelLogSize1.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="&gt;&gt;buttonSelectLogFolder.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="&gt;&gt;textboxLogFolder.Name" xml:space="preserve">
+    <value>textboxLogFolder</value>
+  </data>
+  <data name="splitAll.Panel2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;checkboxAutoExpand.Parent" xml:space="preserve">
+    <value>groupGeneral</value>
+  </data>
+  <data name="&gt;&gt;labelLogArchives1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="numericUpDownLogArchives.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 20</value>
+  </data>
+  <data name="labelLogArchives2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;labelLogArchives2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splitAll.SplitterDistance" type="System.Int32, mscorlib">
+    <value>110</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownLogSize.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownLogArchives.Name" xml:space="preserve">
+    <value>numericUpDownLogArchives</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="buttonUseDefaultLogFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>359, 18</value>
+  </data>
+  <data name="&gt;&gt;checkboxAutoRemoveGroups.Name" xml:space="preserve">
+    <value>checkboxAutoRemoveGroups</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupGeneral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="labelLogDirectory.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonUseDefaultLogFolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupGeneral.Name" xml:space="preserve">
+    <value>groupGeneral</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Name" xml:space="preserve">
+    <value>splitAll</value>
+  </data>
+  <data name="numericUpDownLogArchives.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="numericUpDownLogArchives.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;labelLogArchives2.Name" xml:space="preserve">
+    <value>labelLogArchives2</value>
+  </data>
+  <data name="buttonSelectLogFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="buttonSelectLogFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="splitAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>440, 238</value>
+  </data>
+  <data name="checkboxConfirmExit.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textboxLogFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;labelLogArchives1.Parent" xml:space="preserve">
+    <value>groupLogging</value>
+  </data>
+  <data name="numericUpDownLogSize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 45</value>
+  </data>
+  <data name="&gt;&gt;folderBrowserDialogLogFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="numericUpDownLogArchives.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 69</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splitAll.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxAutoExpand.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="numericUpDownLogSize.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;checkboxAutoRemoveGroups.Parent" xml:space="preserve">
+    <value>groupGeneral</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel1.Parent" xml:space="preserve">
+    <value>splitAll</value>
+  </data>
+  <data name="&gt;&gt;checkboxConfirmExit.Parent" xml:space="preserve">
+    <value>groupGeneral</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;buttonSelectLogFolder.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;tooltipDefault.Name" xml:space="preserve">
+    <value>tooltipDefault</value>
+  </data>
+  <data name="&gt;&gt;labelLogArchives1.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="checkboxAutoRemoveGroups.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxAutoExpand.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 46</value>
+  </data>
+  <metadata name="tooltipDefault.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="folderBrowserDialogLogFolder.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>144, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>
