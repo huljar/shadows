@@ -125,11 +125,12 @@
             this.contextMenuRenameFile = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuDeleteFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.contextMenuOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuShowInExplorerEntry = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuShowAllInFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuGroupHeader = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuExpandCollapse = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.contextMenuOpenFolders = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuShowInExplorerHeader = new System.Windows.Forms.ToolStripMenuItem();
             this.nofityIconMinimized = new System.Windows.Forms.NotifyIcon(this.components);
             this.splitAll.Panel1.SuspendLayout();
             this.splitAll.Panel2.SuspendLayout();
@@ -916,7 +917,8 @@
             this.contextMenuRenameFile,
             this.contextMenuDeleteFile,
             this.toolStripMenuItem4,
-            this.contextMenuOpenFolder});
+            this.contextMenuShowInExplorerEntry,
+            this.contextMenuShowAllInFolder});
             this.contextMenuGroupEntry.Name = "contextMenuGroupEntry";
             resources.ApplyResources(this.contextMenuGroupEntry, "contextMenuGroupEntry");
             this.contextMenuGroupEntry.Opening += new System.ComponentModel.CancelEventHandler(this.onContextMenuGroupEntryOpening);
@@ -944,18 +946,24 @@
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
             // 
-            // contextMenuOpenFolder
+            // contextMenuShowInExplorerEntry
             // 
-            this.contextMenuOpenFolder.Name = "contextMenuOpenFolder";
-            resources.ApplyResources(this.contextMenuOpenFolder, "contextMenuOpenFolder");
-            this.contextMenuOpenFolder.Click += new System.EventHandler(this.onContextMenuOpenFolderClick);
+            this.contextMenuShowInExplorerEntry.Name = "contextMenuShowInExplorerEntry";
+            resources.ApplyResources(this.contextMenuShowInExplorerEntry, "contextMenuShowInExplorerEntry");
+            this.contextMenuShowInExplorerEntry.Click += new System.EventHandler(this.onContextMenuShowInExplorerEntryClick);
+            // 
+            // contextMenuShowAllInFolder
+            // 
+            this.contextMenuShowAllInFolder.Name = "contextMenuShowAllInFolder";
+            resources.ApplyResources(this.contextMenuShowAllInFolder, "contextMenuShowAllInFolder");
+            this.contextMenuShowAllInFolder.Click += new System.EventHandler(this.onContextMenuShowAllInFolderClick);
             // 
             // contextMenuGroupHeader
             // 
             this.contextMenuGroupHeader.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.contextMenuExpandCollapse,
             this.toolStripMenuItem5,
-            this.contextMenuOpenFolders});
+            this.contextMenuShowInExplorerHeader});
             this.contextMenuGroupHeader.Name = "contextMenuGroupHeader";
             resources.ApplyResources(this.contextMenuGroupHeader, "contextMenuGroupHeader");
             this.contextMenuGroupHeader.Opening += new System.ComponentModel.CancelEventHandler(this.onContextMenuGroupHeaderOpening);
@@ -971,11 +979,11 @@
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
             // 
-            // contextMenuOpenFolders
+            // contextMenuShowInExplorerHeader
             // 
-            this.contextMenuOpenFolders.Name = "contextMenuOpenFolders";
-            resources.ApplyResources(this.contextMenuOpenFolders, "contextMenuOpenFolders");
-            this.contextMenuOpenFolders.Click += new System.EventHandler(this.onContextMenuOpenFoldersClick);
+            this.contextMenuShowInExplorerHeader.Name = "contextMenuShowInExplorerHeader";
+            resources.ApplyResources(this.contextMenuShowInExplorerHeader, "contextMenuShowInExplorerHeader");
+            this.contextMenuShowInExplorerHeader.Click += new System.EventHandler(this.onContextMenuShowInExplorerHeaderClick);
             // 
             // nofityIconMinimized
             // 
@@ -1131,16 +1139,17 @@
         private System.Windows.Forms.ToolStripMenuItem contextMenuRenameFile;
         private System.Windows.Forms.ToolStripMenuItem contextMenuDeleteFile;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem contextMenuOpenFolder;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuShowInExplorerEntry;
         private System.Windows.Forms.ToolStripMenuItem contextMenuExpandCollapse;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem contextMenuOpenFolders;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuShowInExplorerHeader;
         private System.Windows.Forms.DataGridViewImageColumn gridcolumnExpand;
         private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnName;
         private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnPath;
         private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnSize;
         private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnModDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnType;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuShowAllInFolder;
     }
 }
 

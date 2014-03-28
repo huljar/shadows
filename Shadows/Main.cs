@@ -244,7 +244,7 @@ namespace Shadows {
 
         private void onMenuItemGettingStartedClick(object sender, EventArgs e) {
             // TODO: Getting started
-            MessageBox.Show("Not yet implemented. Sorry!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Not yet implemented.", "Sorry!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void onMenuItemAboutShadowsClick(object sender, EventArgs e) {
@@ -749,7 +749,7 @@ namespace Shadows {
 
         void onDirWatcherChanged(object sender, FileSystemEventArgs e) {
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
-                IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.FullPath);
+                IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.FullPath, true);
                 foreach(ResultsTableViewEntry entry in entries) {
                     RemoveGroupEntry(entry);
                 }
@@ -757,7 +757,7 @@ namespace Shadows {
         }
 
         void onDirWatcherRenamed(object sender, RenamedEventArgs e) {
-            IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.OldFullPath);
+            IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.OldFullPath, true);
             foreach(ResultsTableViewEntry entry in entries) {
                 DataGridViewCell pathCell = entry.Cells[(int)GridColumnIndices.Path];
                 pathCell.Value = ((string)pathCell.Value).Replace(e.OldFullPath, e.FullPath);
@@ -776,13 +776,20 @@ namespace Shadows {
             return null;
         }
 
-        private IList<ResultsTableViewEntry> SearchEntriesByDirectoryName(string fullName) {
+        private IList<ResultsTableViewEntry> SearchEntriesByDirectoryName(string fullName, bool includeSubdirectories) {
             string startString = fullName + "\\";
             IList<ResultsTableViewEntry> ret = new List<ResultsTableViewEntry>();
             foreach(ResultsGroup group in tableViewResults.GetGroups()) {
                 foreach(ResultsTableViewEntry entry in group.Entries) {
-                    if(entry.FileAssociated.File.FullName.StartsWith(startString)) {
-                        ret.Add(entry);
+                    if(includeSubdirectories) {
+                        if(entry.FileAssociated.File.FullName.StartsWith(startString)) {
+                            ret.Add(entry);
+                        }
+                    }
+                    else {
+                        if(entry.FileAssociated.File.DirectoryName == fullName) {
+                            ret.Add(entry);
+                        }
                     }
                 }
             }
@@ -791,17 +798,20 @@ namespace Shadows {
 
         private void RemoveGroupEntry(ResultsTableViewEntry entry) {
             if(entry.ContainerGroup.Expanded) {
-                try {
-                    if(tableViewResults.InvokeRequired) {
-                        tableViewResults.Invoke((MethodInvoker)delegate {
+                if(tableViewResults.InvokeRequired) {
+                    tableViewResults.Invoke((MethodInvoker)delegate {
+                        try {
                             tableViewResults.Rows.Remove(entry);
-                        });
-                    }
-                    else {
+                        }
+                        catch(ArgumentException) { } // TODO: find out why this happens (file watcher event gets triggered more than once sometimes)
+                    });
+                }
+                else {
+                    try {
                         tableViewResults.Rows.Remove(entry);
                     }
+                    catch(ArgumentException) { }
                 }
-                catch(ArgumentException) { } // TODO: find out why this happens (file watcher event gets triggered more than once sometimes)
             }
             entry.ContainerGroup.Entries.Remove(entry);
             if(entry.ContainerGroup.Entries.Count < 1 || entry.ContainerGroup.Entries.Count < 2 && Settings.Default.RemoveGroupsWithOneEntry) {
@@ -822,12 +832,7 @@ namespace Shadows {
         private FileSystemWatcher CreateFileSystemWatcher(string path, bool isDirectoryWatcher, bool activate = true) {
             FileSystemWatcher ret = new FileSystemWatcher(path);
             ret.IncludeSubdirectories = true;
-            if(isDirectoryWatcher) {
-                ret.NotifyFilter = NotifyFilters.DirectoryName;
-            }
-            else {
-                ret.NotifyFilter = NotifyFilters.FileName;
-            }
+            ret.NotifyFilter = isDirectoryWatcher ? NotifyFilters.DirectoryName : NotifyFilters.FileName;
             ret.EnableRaisingEvents = activate;
             return ret;
         }
@@ -967,13 +972,14 @@ namespace Shadows {
             contextMenuOpenWithDefaultProgram.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuRenameFile.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuDeleteFile.Enabled = onlyEntriesSelected;
-            contextMenuOpenFolder.Enabled = onlyEntriesSelected;
+            contextMenuShowInExplorerEntry.Enabled = onlyEntriesSelected;
+            contextMenuShowAllInFolder.Enabled = tableViewResults.SelectedRows.Count == 1;
         }
 
         private void onContextMenuGroupHeaderOpening(object sender, CancelEventArgs e) {
             bool onlyHeadersSelected = OnlyHeadersSelected();
             contextMenuExpandCollapse.Enabled = onlyHeadersSelected;
-            contextMenuOpenFolders.Enabled = onlyHeadersSelected;
+            contextMenuShowInExplorerHeader.Enabled = onlyHeadersSelected;
         }
 
         private bool OnlyHeadersSelected() {
@@ -995,7 +1001,7 @@ namespace Shadows {
         }
 
         private void onContextMenuOpenWithDefaultProgramClick(object sender, EventArgs e) {
-            if(tableViewResults.SelectedRows.Count == 1) {
+            if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
                 ResultsTableViewEntry entry = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
                 if(entry != null) {
                     OpenFileDefaultProgram(entry.FileAssociated.File.FullName);
@@ -1056,13 +1062,27 @@ namespace Shadows {
             return Util.DeletionResult.Success;
         }
 
-        private void onContextMenuOpenFolderClick(object sender, EventArgs e) {
-            if(OnlyEntriesSelected()) {
+        private void onContextMenuShowInExplorerEntryClick(object sender, EventArgs e) {
+            if(OnlyEntriesSelected()) { // TODO: rethink counting entries / count different paths
                 if(tableViewResults.SelectedRows.Count < 10 || MessageBox.Show(Strings.WarningManyFoldersOpeningText, Strings.WarningManyFoldersOpeningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                    IList<FileSystemInfo> files = new List<FileSystemInfo>();
                     foreach(ResultsTableViewEntry entry in tableViewResults.SelectedRows) {
-                        OpenFolder(entry.FileAssociated.File);
+                        files.Add(entry.FileAssociated.File);
                     }
+                    Util.OpenExplorerAndSelect(files);
                 }
+            }
+        }
+
+        private void onContextMenuShowAllInFolderClick(object sender, EventArgs e) {
+            if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
+                ResultsTableViewEntry selected = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
+                IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(selected.FileAssociated.File.DirectoryName, false);
+                IList<FileSystemInfo> files = new List<FileSystemInfo>(entries.Count);
+                foreach(ResultsTableViewEntry entry in entries) {
+                    files.Add(entry.FileAssociated.File);
+                }
+                Util.OpenExplorerAndSelect(files);
             }
         }
 
@@ -1074,28 +1094,21 @@ namespace Shadows {
             }
         }
 
-        private void onContextMenuOpenFoldersClick(object sender, EventArgs e) {
+        private void onContextMenuShowInExplorerHeaderClick(object sender, EventArgs e) {
             if(OnlyHeadersSelected()) {
                 int selectedEntries = 0;
                 foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
                     selectedEntries += header.ContainerGroup.Entries.Count;
-                }
+                } // TODO: rethink counting entries / count different paths
                 if(selectedEntries < 10 || MessageBox.Show(Strings.WarningManyFoldersOpeningText, Strings.WarningManyFoldersOpeningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                    IList<FileSystemInfo> files = new List<FileSystemInfo>();
                     foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
                         foreach(ResultsTableViewEntry entry in header.ContainerGroup.Entries) {
-                            OpenFolder(entry.FileAssociated.File);
+                            files.Add(entry.FileAssociated.File);
                         }
                     }
+                    Util.OpenExplorerAndSelect(files);
                 }
-            }
-        }
-
-        private void OpenFolder(FileInfo file) {
-            try {
-                System.Diagnostics.Process.Start("explorer.exe", "/n,/select,\"" + file.FullName + "\"");
-            }
-            catch(Win32Exception e) {
-                MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderText, file.DirectoryName, e.Message), Strings.ErrorUnableToOpenFolderCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion
@@ -1117,13 +1130,13 @@ namespace Shadows {
 
         internal void AddShadowThreadSafe(IList<FileInfoWrapper> shadowSet) {
             tableViewResults.Invoke((MethodInvoker)delegate {
-                ResultsTableViewHeader header = CreateGroupHeader(shadowSet, tableViewResults);
+                ResultsTableViewHeader header = CreateGroupHeader(shadowSet, tableViewResults, Settings.Default.ResultsInitiallyExpanded);
                 IList<ResultsTableViewEntry> entries = CreateGroupEntries(shadowSet, tableViewResults);
                 tableViewResults.AddGroup(new ResultsGroup(header, entries), Settings.Default.ResultsInitiallyExpanded);
             });
         }
 
-        private ResultsTableViewHeader CreateGroupHeader(IList<FileInfoWrapper> shadowSet, DataGridView table) {
+        private ResultsTableViewHeader CreateGroupHeader(IList<FileInfoWrapper> shadowSet, DataGridView table, bool expanded) {
             ResultsTableViewHeader ret = new ResultsTableViewHeader();
 
             string name = BuildHeaderName(shadowSet);
@@ -1137,7 +1150,7 @@ namespace Shadows {
             }
 
             ret.CreateCells(table);
-            ret.Cells[(int)GridColumnIndices.Expand].Value = Resources.IconExpand;
+            ret.Cells[(int)GridColumnIndices.Expand].Value = expanded ? Resources.IconCollapse : Resources.IconExpand;
             ret.Cells[(int)GridColumnIndices.Name].Value = name;
             ret.Cells[(int)GridColumnIndices.Path].Value = "";
             ret.Cells[(int)GridColumnIndices.Size].Value = size;

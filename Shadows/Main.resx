@@ -910,7 +910,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageFileTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 134</value>
+    <value>394, 135</value>
   </data>
   <data name="tabPageFileTypes.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1048,7 +1048,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPageAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 134</value>
+    <value>394, 135</value>
   </data>
   <data name="tabPageAdvancedSettings.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1948,34 +1948,40 @@
     <value>914, 17</value>
   </metadata>
   <data name="contextMenuOpenWithDefaultProgram.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>237, 22</value>
   </data>
   <data name="contextMenuOpenWithDefaultProgram.Text" xml:space="preserve">
     <value>&amp;Open (with default program)</value>
   </data>
   <data name="contextMenuRenameFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>237, 22</value>
   </data>
   <data name="contextMenuRenameFile.Text" xml:space="preserve">
     <value>&amp;Rename</value>
   </data>
   <data name="contextMenuDeleteFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>237, 22</value>
   </data>
   <data name="contextMenuDeleteFile.Text" xml:space="preserve">
     <value>&amp;Delete</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 6</value>
+    <value>234, 6</value>
   </data>
-  <data name="contextMenuOpenFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+  <data name="contextMenuShowInExplorerEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
   </data>
-  <data name="contextMenuOpenFolder.Text" xml:space="preserve">
-    <value>Open &amp;folder</value>
+  <data name="contextMenuShowInExplorerEntry.Text" xml:space="preserve">
+    <value>&amp;Show in Explorer</value>
+  </data>
+  <data name="contextMenuShowAllInFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="contextMenuShowAllInFolder.Text" xml:space="preserve">
+    <value>Show &amp;all Shadows in this folder</value>
   </data>
   <data name="contextMenuGroupEntry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 98</value>
+    <value>238, 120</value>
   </data>
   <data name="&gt;&gt;contextMenuGroupEntry.Name" xml:space="preserve">
     <value>contextMenuGroupEntry</value>
@@ -1995,11 +2001,11 @@
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 6</value>
   </data>
-  <data name="contextMenuOpenFolders.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="contextMenuShowInExplorerHeader.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 22</value>
   </data>
-  <data name="contextMenuOpenFolders.Text" xml:space="preserve">
-    <value>Open &amp;folders</value>
+  <data name="contextMenuShowInExplorerHeader.Text" xml:space="preserve">
+    <value>&amp;Show in Explorer</value>
   </data>
   <data name="contextMenuGroupHeader.Size" type="System.Drawing.Size, System.Drawing">
     <value>163, 54</value>
@@ -2331,10 +2337,16 @@
   <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;contextMenuOpenFolder.Name" xml:space="preserve">
-    <value>contextMenuOpenFolder</value>
+  <data name="&gt;&gt;contextMenuShowInExplorerEntry.Name" xml:space="preserve">
+    <value>contextMenuShowInExplorerEntry</value>
   </data>
-  <data name="&gt;&gt;contextMenuOpenFolder.Type" xml:space="preserve">
+  <data name="&gt;&gt;contextMenuShowInExplorerEntry.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuShowAllInFolder.Name" xml:space="preserve">
+    <value>contextMenuShowAllInFolder</value>
+  </data>
+  <data name="&gt;&gt;contextMenuShowAllInFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;contextMenuExpandCollapse.Name" xml:space="preserve">
@@ -2349,10 +2361,10 @@
   <data name="&gt;&gt;toolStripMenuItem5.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;contextMenuOpenFolders.Name" xml:space="preserve">
-    <value>contextMenuOpenFolders</value>
+  <data name="&gt;&gt;contextMenuShowInExplorerHeader.Name" xml:space="preserve">
+    <value>contextMenuShowInExplorerHeader</value>
   </data>
-  <data name="&gt;&gt;contextMenuOpenFolders.Type" xml:space="preserve">
+  <data name="&gt;&gt;contextMenuShowInExplorerHeader.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nofityIconMinimized.Name" xml:space="preserve">
