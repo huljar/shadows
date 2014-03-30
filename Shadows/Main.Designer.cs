@@ -285,11 +285,15 @@
             // 
             // listboxFoldersAdded
             // 
+            this.listboxFoldersAdded.AllowDrop = true;
             this.listboxFoldersAdded.ContextMenuStrip = this.contextMenuAddedFolders;
             resources.ApplyResources(this.listboxFoldersAdded, "listboxFoldersAdded");
             this.listboxFoldersAdded.FormattingEnabled = true;
             this.listboxFoldersAdded.Name = "listboxFoldersAdded";
             this.listboxFoldersAdded.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listboxFoldersAdded.DragDrop += new System.Windows.Forms.DragEventHandler(this.onListboxFoldersAddedDragDrop);
+            this.listboxFoldersAdded.DragEnter += new System.Windows.Forms.DragEventHandler(this.onListboxFoldersAddedDragEnter);
+            this.listboxFoldersAdded.DragLeave += new System.EventHandler(this.onListboxFoldersAddedDragLeave);
             // 
             // contextMenuAddedFolders
             // 

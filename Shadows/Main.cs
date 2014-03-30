@@ -332,6 +332,28 @@ namespace Shadows {
             target.Items.Remove(toRemove);
         }
 
+        private void onListboxFoldersAddedDragEnter(object sender, DragEventArgs e) {
+            if(Util.CheckDragDropOnlyDirectories(e.Data)) {
+                e.Effect = DragDropEffects.Link;
+                listboxFoldersAdded.BackColor = SystemColors.GradientActiveCaption;
+            }
+        }
+
+        private void onListboxFoldersAddedDragLeave(object sender, EventArgs e) {
+            listboxFoldersAdded.BackColor = SystemColors.Window;
+        }
+
+        private void onListboxFoldersAddedDragDrop(object sender, DragEventArgs e) {
+            listboxFoldersAdded.BackColor = SystemColors.Window;
+
+            if(Util.CheckDragDropOnlyDirectories(e.Data)) {
+                string[] directories = (string[])e.Data.GetData(DataFormats.FileDrop);
+                foreach(string dir in directories) {
+                    AddFolderWithChecks(new FolderItem(dir), listboxFoldersAdded);
+                }
+            }
+        }
+
         private void onContextItemShowHiddenFoldersClick(object sender, EventArgs e) {
             ExpTreeLib.CShItem selectedNode = expTreeFolders.SelectedItem;
             contextItemShowHiddenFolders.Checked = !contextItemShowHiddenFolders.Checked;

@@ -85,6 +85,24 @@ namespace Shadows {
             return String.Format("{0:0.##} {1}", length, sizes[unit]);
         }
 
+        public static bool CheckDragDropOnlyDirectories(System.Windows.Forms.IDataObject dragData) {
+            if(!dragData.GetDataPresent(DataFormats.FileDrop)) {
+                return false;
+            }
+            string[] files = (string[])dragData.GetData(DataFormats.FileDrop);
+            try {
+                foreach(string file in files) {
+                    if((File.GetAttributes(file) & FileAttributes.Directory) != FileAttributes.Directory) {
+                        return false;
+                    }
+                }
+            }
+            catch(Exception) {
+                return false;
+            }
+            return true;
+        }
+
         #region show selected files in explorer
         [Flags]
         private enum SHCONT : ushort {

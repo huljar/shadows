@@ -11,6 +11,10 @@ namespace ShadowsLib {
             _node = node;
         }
 
+        public FolderItem(string path) {
+            _node = new ExpTreeLib.CShItem(path);
+        }
+
         public ExpTreeLib.CShItem Node {
             get { return _node; }
         }
