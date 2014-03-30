@@ -731,9 +731,15 @@ namespace Shadows {
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
                 // Handle file deletion
                 // TODO: add pre-filtering using search criteria
-                ResultsTableViewEntry entry = SearchEntryByFileName(e.FullPath);
-                if(entry != null) {
-                    RemoveGroupEntry(entry);
+                // TODO: better exception handling + thread safety
+                try {
+                    ResultsTableViewEntry entry = SearchEntryByFileName(e.FullPath);
+                    if(entry != null) {
+                        RemoveGroupEntry(entry);
+                    }
+                }
+                catch(Exception ex) {
+                    MessageBox.Show(ex.Message + "\n\n" + ex.StackTrace + (ex.InnerException != null ? "\n\n" + ex.InnerException.Message + "\n\n" + ex.InnerException.StackTrace : ""), "Exception thrown while handling file deletions!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -741,7 +747,7 @@ namespace Shadows {
         private void onFileWatcherRenamed(object sender, RenamedEventArgs e) {
             ResultsTableViewEntry entry = SearchEntryByFileName(e.OldFullPath);
             if(entry != null) {
-                entry.Cells[(int)GridColumnIndices.Name].Value = e.Name;
+                entry.Cells[(int)GridColumnIndices.Name].Value = Path.GetFileName(e.FullPath);
                 entry.FileAssociated = new FileInfoWrapper(new FileInfo(e.FullPath));
                 entry.ContainerGroup.Header.Cells[(int)GridColumnIndices.Name].Value = BuildHeaderName(entry.ContainerGroup.GetFilesAssociated());
             }
@@ -833,6 +839,7 @@ namespace Shadows {
             FileSystemWatcher ret = new FileSystemWatcher(path);
             ret.IncludeSubdirectories = true;
             ret.NotifyFilter = isDirectoryWatcher ? NotifyFilters.DirectoryName : NotifyFilters.FileName;
+            ret.InternalBufferSize = isDirectoryWatcher ? 8192 : 32768;
             ret.EnableRaisingEvents = activate;
             return ret;
         }
