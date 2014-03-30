@@ -739,12 +739,23 @@ namespace Shadows {
                 fileWatcher.Created += new FileSystemEventHandler(onFileWatcherChanged);
                 fileWatcher.Deleted += new FileSystemEventHandler(onFileWatcherChanged);
                 fileWatcher.Renamed += new RenamedEventHandler(onFileWatcherRenamed);
+                fileSystemWatchers.Add(fileWatcher);
 
                 FileSystemWatcher dirWatcher = CreateFileSystemWatcher(folder.Node.Path, true);
                 dirWatcher.Changed += new FileSystemEventHandler(onDirWatcherChanged);
                 dirWatcher.Created += new FileSystemEventHandler(onDirWatcherChanged);
                 dirWatcher.Deleted += new FileSystemEventHandler(onDirWatcherChanged);
                 dirWatcher.Renamed += new RenamedEventHandler(onDirWatcherRenamed);
+                fileSystemWatchers.Add(dirWatcher);
+
+                FileSystemWatcher parentWatcher = CreateParentWatcher(folder.Node.Path);
+                if(parentWatcher != null) {
+                    parentWatcher.Changed += new FileSystemEventHandler(onDirWatcherChanged);
+                    parentWatcher.Created += new FileSystemEventHandler(onDirWatcherChanged);
+                    parentWatcher.Deleted += new FileSystemEventHandler(onDirWatcherChanged);
+                    parentWatcher.Renamed += new RenamedEventHandler(onDirWatcherRenamed);
+                    fileSystemWatchers.Add(parentWatcher);
+                }
             }
         }
 
@@ -864,6 +875,19 @@ namespace Shadows {
             ret.InternalBufferSize = isDirectoryWatcher ? 8192 : 32768;
             ret.EnableRaisingEvents = activate;
             return ret;
+        }
+
+        private FileSystemWatcher CreateParentWatcher(string path, bool activate = true) {
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            if(dirInfo.Parent != null) {
+                FileSystemWatcher ret = new FileSystemWatcher(dirInfo.Parent.FullName);
+                ret.IncludeSubdirectories = false;
+                ret.NotifyFilter = NotifyFilters.DirectoryName;
+                ret.Filter = dirInfo.Name;
+                ret.EnableRaisingEvents = activate;
+                return ret;
+            }
+            return null;
         }
 
         private void onButtonMinimizeClick(object sender, EventArgs e) {
@@ -1098,7 +1122,12 @@ namespace Shadows {
                     foreach(ResultsTableViewEntry entry in tableViewResults.SelectedRows) {
                         files.Add(entry.FileAssociated.File);
                     }
-                    Util.OpenExplorerAndSelect(files);
+                    try {
+                        Util.OpenExplorerAndSelect(files);
+                    }
+                    catch(System.Runtime.InteropServices.COMException ex) {
+                        MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

@@ -201,6 +201,15 @@
   <data name="ErrorUnableToDeleteFileText" xml:space="preserve">
     <value>Cannot delete file "{0}" - {1}</value>
   </data>
+  <data name="ErrorUnableToOpenFolderAndSelectItemsCaption" xml:space="preserve">
+    <value>Error while opening folder</value>
+  </data>
+  <data name="ErrorUnableToOpenFolderAndSelectItemsText" xml:space="preserve">
+    <value>Cannot open the requested folder.
+
+Error Code: {0}
+Error Message: {1}</value>
+  </data>
   <data name="ErrorUnableToOpenFolderCaption" xml:space="preserve">
     <value>Unable to open folder</value>
   </data>

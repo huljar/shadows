@@ -313,6 +313,27 @@ namespace Shadows {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error while opening folder ähnelt.
+        /// </summary>
+        internal static string ErrorUnableToOpenFolderAndSelectItemsCaption {
+            get {
+                return ResourceManager.GetString("ErrorUnableToOpenFolderAndSelectItemsCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cannot open the requested folder.
+        ///
+        ///Error Code: {0}
+        ///Error Message: {1} ähnelt.
+        /// </summary>
+        internal static string ErrorUnableToOpenFolderAndSelectItemsText {
+            get {
+                return ResourceManager.GetString("ErrorUnableToOpenFolderAndSelectItemsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Unable to open folder ähnelt.
         /// </summary>
         internal static string ErrorUnableToOpenFolderCaption {
