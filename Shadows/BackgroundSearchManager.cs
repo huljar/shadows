@@ -25,6 +25,8 @@ namespace Shadows {
         private IList<string> _Extensions = new List<string>();
         private SearchEngine.ExtensionSearchType _ExtensionMode;
 
+        private bool _Completed = false;
+
         public BackgroundSearchManager(Main owningForm) {
             _MainForm = owningForm;
 
@@ -49,6 +51,7 @@ namespace Shadows {
 
             SearchResult result = engine.Run();
 
+            _Completed = true;
             e.Result = result;
         }
 
@@ -190,6 +193,10 @@ namespace Shadows {
                 }
                 return false;
             }
+        }
+
+        public bool Completed {
+            get { return _Completed; }
         }
 
         public Main MainForm {

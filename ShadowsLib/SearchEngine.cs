@@ -354,12 +354,8 @@ namespace ShadowsLib {
         }
 
         public void Dispose() {
-            folders = null;
-            extensions = null;
-            allFiles = null;
-            allShadows = null;
-            pauseEvent = null;
-            cancelEvent = null;
+            pauseEvent.Close();
+            cancelEvent.Close();
         }
     }
 }

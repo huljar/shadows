@@ -25,8 +25,8 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitAll = new System.Windows.Forms.SplitContainer();
             this.splitTop = new System.Windows.Forms.SplitContainer();
             this.groupFolders = new System.Windows.Forms.GroupBox();
@@ -115,7 +115,7 @@
             this.menuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemGettingStarted = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemAboutShadows = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusBarBottom = new System.Windows.Forms.StatusStrip();
             this.statuslabelProgramName = new System.Windows.Forms.ToolStripStatusLabel();
             this.progressBarSearchProgress = new System.Windows.Forms.ToolStripProgressBar();
             this.statusLabelInfos = new System.Windows.Forms.ToolStripStatusLabel();
@@ -129,6 +129,7 @@
             this.contextMenuShowAllInFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuGroupHeader = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuExpandCollapse = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuHide = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuShowInExplorerHeader = new System.Windows.Forms.ToolStripMenuItem();
             this.nofityIconMinimized = new System.Windows.Forms.NotifyIcon(this.components);
@@ -160,7 +161,7 @@
             this.splitTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableViewResults)).BeginInit();
             this.mainMenu.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.statusBarBottom.SuspendLayout();
             this.contextMenuGroupEntry.SuspendLayout();
             this.contextMenuGroupHeader.SuspendLayout();
             this.SuspendLayout();
@@ -611,8 +612,8 @@
             this.tableViewResults.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableViewResults.RowHeadersVisible = false;
             this.tableViewResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tableViewResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableViewResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellClick);
             this.tableViewResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellDoubleClick);
@@ -623,8 +624,8 @@
             // gridcolumnExpand
             // 
             this.gridcolumnExpand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridcolumnExpand.Frozen = true;
             resources.ApplyResources(this.gridcolumnExpand, "gridcolumnExpand");
             this.gridcolumnExpand.Name = "gridcolumnExpand";
@@ -885,14 +886,14 @@
             resources.ApplyResources(this.menuItemAboutShadows, "menuItemAboutShadows");
             this.menuItemAboutShadows.Click += new System.EventHandler(this.onMenuItemAboutShadowsClick);
             // 
-            // statusStrip1
+            // statusBarBottom
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusBarBottom.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statuslabelProgramName,
             this.progressBarSearchProgress,
             this.statusLabelInfos});
-            resources.ApplyResources(this.statusStrip1, "statusStrip1");
-            this.statusStrip1.Name = "statusStrip1";
+            resources.ApplyResources(this.statusBarBottom, "statusBarBottom");
+            this.statusBarBottom.Name = "statusBarBottom";
             // 
             // statuslabelProgramName
             // 
@@ -966,6 +967,7 @@
             // 
             this.contextMenuGroupHeader.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.contextMenuExpandCollapse,
+            this.contextMenuHide,
             this.toolStripMenuItem5,
             this.contextMenuShowInExplorerHeader});
             this.contextMenuGroupHeader.Name = "contextMenuGroupHeader";
@@ -977,6 +979,12 @@
             this.contextMenuExpandCollapse.Name = "contextMenuExpandCollapse";
             resources.ApplyResources(this.contextMenuExpandCollapse, "contextMenuExpandCollapse");
             this.contextMenuExpandCollapse.Click += new System.EventHandler(this.onContextMenuExpandCollapseClick);
+            // 
+            // contextMenuHide
+            // 
+            this.contextMenuHide.Name = "contextMenuHide";
+            resources.ApplyResources(this.contextMenuHide, "contextMenuHide");
+            this.contextMenuHide.Click += new System.EventHandler(this.onContextMenuHideClick);
             // 
             // toolStripMenuItem5
             // 
@@ -1000,7 +1008,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitAll);
             this.Controls.Add(this.mainMenu);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusBarBottom);
             this.MainMenuStrip = this.mainMenu;
             this.Name = "Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.onMainFormClosing);
@@ -1038,8 +1046,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tableViewResults)).EndInit();
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.statusBarBottom.ResumeLayout(false);
+            this.statusBarBottom.PerformLayout();
             this.contextMenuGroupEntry.ResumeLayout(false);
             this.contextMenuGroupHeader.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1082,7 +1090,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuItemAboutShadows;
         private System.Windows.Forms.SplitContainer splitAll;
         private System.Windows.Forms.SplitContainer splitTop;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusBarBottom;
         private System.Windows.Forms.GroupBox groupFolders;
         private System.Windows.Forms.SplitContainer splitFolderSelection;
         private ExpTreeLib.ExpTree expTreeFolders;
@@ -1154,6 +1162,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnModDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnType;
         private System.Windows.Forms.ToolStripMenuItem contextMenuShowAllInFolder;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuHide;
     }
 }
 

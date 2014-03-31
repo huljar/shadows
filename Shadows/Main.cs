@@ -16,6 +16,9 @@ namespace Shadows {
         private bool showMinimizedInfo = true;
         private bool _MinimizedToSystemTray = false;
 
+        private readonly object _resultsLocker = new object();
+        private readonly object _labelLocker = new object();
+
         private enum GridColumnIndices {
             Expand = 0,
             Name = 1,
@@ -146,46 +149,46 @@ namespace Shadows {
         }
 
         private void onMenuItemTransparency0Click(object sender, EventArgs e) {
-            changeWindowOpacity(1.0d, menuItemTransparency0);
+            ChangeWindowOpacity(1.0d, menuItemTransparency0);
         }
 
         private void onMenuItemTransparency10Click(object sender, EventArgs e) {
-            changeWindowOpacity(0.9d, menuItemTransparency10);
+            ChangeWindowOpacity(0.9d, menuItemTransparency10);
         }
 
         private void onMenuItemTransparency20Click(object sender, EventArgs e) {
-            changeWindowOpacity(0.8d, menuItemTransparency20);
+            ChangeWindowOpacity(0.8d, menuItemTransparency20);
         }
 
         private void onMenuItemTransparency30Click(object sender, EventArgs e) {
-            changeWindowOpacity(0.7d, menuItemTransparency30);
+            ChangeWindowOpacity(0.7d, menuItemTransparency30);
         }
 
         private void onMenuItemTransparency40Click(object sender, EventArgs e) {
-            changeWindowOpacity(0.6d, menuItemTransparency40);
+            ChangeWindowOpacity(0.6d, menuItemTransparency40);
         }
 
         private void onMenuItemTransparency50Click(object sender, EventArgs e) {
-            changeWindowOpacity(0.5d, menuItemTransparency50);
+            ChangeWindowOpacity(0.5d, menuItemTransparency50);
         }
 
         private void onMenuItemTransparency60Click(object sender, EventArgs e) {
-            changeWindowOpacity(0.4d, menuItemTransparency60);
+            ChangeWindowOpacity(0.4d, menuItemTransparency60);
         }
 
         private void onMenuItemTransparency70Click(object sender, EventArgs e) {
-            changeWindowOpacity(0.3d, menuItemTransparency70);
+            ChangeWindowOpacity(0.3d, menuItemTransparency70);
         }
 
         private void onMenuItemTransparency80Click(object sender, EventArgs e) {
-            changeWindowOpacity(0.2d, menuItemTransparency80);
+            ChangeWindowOpacity(0.2d, menuItemTransparency80);
         }
 
         private void onMenuItemTransparency90Click(object sender, EventArgs e) {
-            changeWindowOpacity(0.1d, menuItemTransparency90);
+            ChangeWindowOpacity(0.1d, menuItemTransparency90);
         }
 
-        private void changeWindowOpacity(double opacity, ToolStripMenuItem correspondingMenuEntry) {
+        private void ChangeWindowOpacity(double opacity, ToolStripMenuItem correspondingMenuEntry) {
             Opacity = opacity;
             menuItemTransparency0.Checked = false;
             menuItemTransparency10.Checked = false;
@@ -207,22 +210,22 @@ namespace Shadows {
         }
 
         private void onMenuItemLogLevelFatalClick(object sender, EventArgs e) {
-            changeLogLevel(3, menuItemLogLevelFatal);
+            ChangeLogLevel(3, menuItemLogLevelFatal);
         }
 
         private void onMenuItemLogLevelErrorClick(object sender, EventArgs e) {
-            changeLogLevel(2, menuItemLogLevelError);
+            ChangeLogLevel(2, menuItemLogLevelError);
         }
 
         private void onMenuItemLogLevelWarningClick(object sender, EventArgs e) {
-            changeLogLevel(1, menuItemLogLevelWarning);
+            ChangeLogLevel(1, menuItemLogLevelWarning);
         }
 
         private void onMenuItemLogLevelInfoClick(object sender, EventArgs e) {
-            changeLogLevel(0, menuItemLogLevelInfo);
+            ChangeLogLevel(0, menuItemLogLevelInfo);
         }
 
-        private void changeLogLevel(byte logLevel, ToolStripMenuItem correspondingMenuEntry) {
+        private void ChangeLogLevel(byte logLevel, ToolStripMenuItem correspondingMenuEntry) {
             Settings.Default.LogLevel = logLevel;
             menuItemLogLevelInfo.Checked = false;
             menuItemLogLevelWarning.Checked = false;
@@ -764,43 +767,45 @@ namespace Shadows {
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
                 // Handle file deletion
                 // TODO: add pre-filtering using search criteria
-                // TODO: better exception handling + thread safety
-                try {
+                lock(_resultsLocker) {
                     ResultsTableViewEntry entry = SearchEntryByFileName(e.FullPath);
                     if(entry != null) {
                         RemoveGroupEntry(entry);
                     }
                 }
-                catch(Exception ex) {
-                    MessageBox.Show(ex.Message + "\n\n" + ex.StackTrace + (ex.InnerException != null ? "\n\n" + ex.InnerException.Message + "\n\n" + ex.InnerException.StackTrace : ""), "Exception thrown while handling file deletions!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
         }
 
         private void onFileWatcherRenamed(object sender, RenamedEventArgs e) {
-            ResultsTableViewEntry entry = SearchEntryByFileName(e.OldFullPath);
-            if(entry != null) {
-                entry.Cells[(int)GridColumnIndices.Name].Value = Path.GetFileName(e.FullPath);
-                entry.FileAssociated = new FileInfoWrapper(new FileInfo(e.FullPath));
-                entry.ContainerGroup.Header.Cells[(int)GridColumnIndices.Name].Value = BuildHeaderName(entry.ContainerGroup.GetFilesAssociated());
+            lock(_resultsLocker) {
+                ResultsTableViewEntry entry = SearchEntryByFileName(e.OldFullPath);
+                if(entry != null) {
+                    entry.Cells[(int)GridColumnIndices.Name].Value = Path.GetFileName(e.FullPath);
+                    entry.FileAssociated = new FileInfoWrapper(new FileInfo(e.FullPath));
+                    entry.ContainerGroup.Header.Cells[(int)GridColumnIndices.Name].Value = BuildHeaderName(entry.ContainerGroup.GetFilesAssociated());
+                }
             }
         }
 
         void onDirWatcherChanged(object sender, FileSystemEventArgs e) {
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
-                IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.FullPath, true);
-                foreach(ResultsTableViewEntry entry in entries) {
-                    RemoveGroupEntry(entry);
+                lock(_resultsLocker) {
+                    IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.FullPath, true);
+                    foreach(ResultsTableViewEntry entry in entries) {
+                        RemoveGroupEntry(entry);
+                    }
                 }
             }
         }
 
         void onDirWatcherRenamed(object sender, RenamedEventArgs e) {
-            IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.OldFullPath, true);
-            foreach(ResultsTableViewEntry entry in entries) {
-                DataGridViewCell pathCell = entry.Cells[(int)GridColumnIndices.Path];
-                pathCell.Value = ((string)pathCell.Value).Replace(e.OldFullPath, e.FullPath);
-                entry.FileAssociated = new FileInfoWrapper(new FileInfo(entry.FileAssociated.File.FullName.Replace(e.OldFullPath, e.FullPath)));
+            lock(_resultsLocker) {
+                IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.OldFullPath, true);
+                foreach(ResultsTableViewEntry entry in entries) {
+                    DataGridViewCell pathCell = entry.Cells[(int)GridColumnIndices.Path];
+                    pathCell.Value = ((string)pathCell.Value).Replace(e.OldFullPath, e.FullPath);
+                    entry.FileAssociated = new FileInfoWrapper(new FileInfo(entry.FileAssociated.File.FullName.Replace(e.OldFullPath, e.FullPath)));
+                }
             }
         }
 
@@ -948,13 +953,15 @@ namespace Shadows {
         }
 
         private void ToggleExpandState(ResultsGroup group) {
-            if(group.Expanded) {
-                tableViewResults.CollapseGroup(group);
-                group.Header.Cells[(int)GridColumnIndices.Expand].Value = Resources.IconExpand;
-            }
-            else {
-                tableViewResults.ExpandGroup(group);
-                group.Header.Cells[(int)GridColumnIndices.Expand].Value = Resources.IconCollapse;
+            lock(_resultsLocker) {
+                if(group.Expanded) {
+                    tableViewResults.CollapseGroup(group);
+                    group.Header.Cells[(int)GridColumnIndices.Expand].Value = Resources.IconExpand;
+                }
+                else {
+                    tableViewResults.ExpandGroup(group);
+                    group.Header.Cells[(int)GridColumnIndices.Expand].Value = Resources.IconCollapse;
+                }
             }
         }
 
@@ -1026,12 +1033,13 @@ namespace Shadows {
             contextMenuRenameFile.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuDeleteFile.Enabled = onlyEntriesSelected;
             contextMenuShowInExplorerEntry.Enabled = onlyEntriesSelected;
-            contextMenuShowAllInFolder.Enabled = tableViewResults.SelectedRows.Count == 1;
+            contextMenuShowAllInFolder.Enabled = tableViewResults.SelectedRows.Count == 1 && backgroundSearcher != null && backgroundSearcher.Completed;
         }
 
         private void onContextMenuGroupHeaderOpening(object sender, CancelEventArgs e) {
             bool onlyHeadersSelected = OnlyHeadersSelected();
             contextMenuExpandCollapse.Enabled = onlyHeadersSelected;
+            contextMenuHide.Enabled = onlyHeadersSelected;
             contextMenuShowInExplorerHeader.Enabled = onlyHeadersSelected;
         }
 
@@ -1118,8 +1126,29 @@ namespace Shadows {
         private void onContextMenuShowInExplorerEntryClick(object sender, EventArgs e) {
             if(OnlyEntriesSelected()) { // TODO: rethink counting entries / count different paths
                 if(tableViewResults.SelectedRows.Count < 10 || MessageBox.Show(Strings.WarningManyFoldersOpeningText, Strings.WarningManyFoldersOpeningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                    IList<FileSystemInfo> files = new List<FileSystemInfo>();
-                    foreach(ResultsTableViewEntry entry in tableViewResults.SelectedRows) {
+                    lock(_resultsLocker) {
+                        IList<FileSystemInfo> files = new List<FileSystemInfo>();
+                        foreach(ResultsTableViewEntry entry in tableViewResults.SelectedRows) {
+                            files.Add(entry.FileAssociated.File);
+                        }
+                        try {
+                            Util.OpenExplorerAndSelect(files);
+                        }
+                        catch(System.Runtime.InteropServices.COMException ex) {
+                            MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void onContextMenuShowAllInFolderClick(object sender, EventArgs e) {
+            if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
+                lock(_resultsLocker) {
+                    ResultsTableViewEntry selected = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
+                    IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(selected.FileAssociated.File.DirectoryName, false);
+                    IList<FileSystemInfo> files = new List<FileSystemInfo>(entries.Count);
+                    foreach(ResultsTableViewEntry entry in entries) {
                         files.Add(entry.FileAssociated.File);
                     }
                     try {
@@ -1132,22 +1161,22 @@ namespace Shadows {
             }
         }
 
-        private void onContextMenuShowAllInFolderClick(object sender, EventArgs e) {
-            if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
-                ResultsTableViewEntry selected = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
-                IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(selected.FileAssociated.File.DirectoryName, false);
-                IList<FileSystemInfo> files = new List<FileSystemInfo>(entries.Count);
-                foreach(ResultsTableViewEntry entry in entries) {
-                    files.Add(entry.FileAssociated.File);
+        private void onContextMenuExpandCollapseClick(object sender, EventArgs e) {
+            if(OnlyHeadersSelected()) {
+                lock(_resultsLocker) {
+                    foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
+                        ToggleExpandState(header.ContainerGroup);
+                    }
                 }
-                Util.OpenExplorerAndSelect(files);
             }
         }
 
-        private void onContextMenuExpandCollapseClick(object sender, EventArgs e) {
+        private void onContextMenuHideClick(object sender, EventArgs e) {
             if(OnlyHeadersSelected()) {
-                foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
-                    ToggleExpandState(header.ContainerGroup);
+                lock(_resultsLocker) {
+                    foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
+                        tableViewResults.RemoveGroup(header.ContainerGroup);
+                    }
                 }
             }
         }
@@ -1165,7 +1194,12 @@ namespace Shadows {
                             files.Add(entry.FileAssociated.File);
                         }
                     }
-                    Util.OpenExplorerAndSelect(files);
+                    try {
+                        Util.OpenExplorerAndSelect(files);
+                    }
+                    catch(System.Runtime.InteropServices.COMException ex) {
+                        MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -1187,10 +1221,12 @@ namespace Shadows {
         #endregion
 
         internal void AddShadowThreadSafe(IList<FileInfoWrapper> shadowSet) {
-            tableViewResults.Invoke((MethodInvoker)delegate {
-                ResultsTableViewHeader header = CreateGroupHeader(shadowSet, tableViewResults, Settings.Default.ResultsInitiallyExpanded);
-                IList<ResultsTableViewEntry> entries = CreateGroupEntries(shadowSet, tableViewResults);
-                tableViewResults.AddGroup(new ResultsGroup(header, entries), Settings.Default.ResultsInitiallyExpanded);
+            tableViewResults.BeginInvoke((MethodInvoker)delegate {
+                lock(_resultsLocker) {
+                    ResultsTableViewHeader header = CreateGroupHeader(shadowSet, tableViewResults, Settings.Default.ResultsInitiallyExpanded);
+                    IList<ResultsTableViewEntry> entries = CreateGroupEntries(shadowSet, tableViewResults);
+                    tableViewResults.AddGroup(new ResultsGroup(header, entries), Settings.Default.ResultsInitiallyExpanded);
+                }
             });
         }
 
@@ -1268,14 +1304,18 @@ namespace Shadows {
         }
 
         internal void SetLabelTextThreadSafe(Label label, string newText) {
-            label.Invoke((MethodInvoker)delegate {
-                label.Text = newText;
+            label.BeginInvoke((MethodInvoker)delegate {
+                lock(_labelLocker) {
+                    label.Text = newText;
+                }
             });
         }
 
         internal void SetLabelTextThreadSafe(ToolStripStatusLabel label, string newText) {
-            Invoke((MethodInvoker)delegate {
-                label.Text = newText;
+            label.Owner.BeginInvoke((MethodInvoker)delegate {
+                lock(_labelLocker) {
+                    label.Text = newText;
+                }
             });
         }
 
