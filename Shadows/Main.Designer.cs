@@ -25,8 +25,8 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitAll = new System.Windows.Forms.SplitContainer();
             this.splitTop = new System.Windows.Forms.SplitContainer();
             this.groupFolders = new System.Windows.Forms.GroupBox();
@@ -112,6 +112,8 @@
             this.menuItemLogLevelInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemOpenLogFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemExtras = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemEmptyFoldersTool = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemGettingStarted = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemAboutShadows = new System.Windows.Forms.ToolStripMenuItem();
@@ -612,8 +614,8 @@
             this.tableViewResults.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableViewResults.RowHeadersVisible = false;
             this.tableViewResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.tableViewResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableViewResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellClick);
             this.tableViewResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellDoubleClick);
@@ -624,8 +626,8 @@
             // gridcolumnExpand
             // 
             this.gridcolumnExpand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle1;
             this.gridcolumnExpand.Frozen = true;
             resources.ApplyResources(this.gridcolumnExpand, "gridcolumnExpand");
             this.gridcolumnExpand.Name = "gridcolumnExpand";
@@ -676,6 +678,7 @@
             this.menuItemProgram,
             this.menuItemView,
             this.menuItemLogging,
+            this.menuItemExtras,
             this.menuItemHelp});
             resources.ApplyResources(this.mainMenu, "mainMenu");
             this.mainMenu.Name = "mainMenu";
@@ -865,6 +868,19 @@
             this.menuItemOpenLogFile.Name = "menuItemOpenLogFile";
             resources.ApplyResources(this.menuItemOpenLogFile, "menuItemOpenLogFile");
             this.menuItemOpenLogFile.Click += new System.EventHandler(this.onMenuItemOpenLogFileClick);
+            // 
+            // menuItemExtras
+            // 
+            this.menuItemExtras.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemEmptyFoldersTool});
+            this.menuItemExtras.Name = "menuItemExtras";
+            resources.ApplyResources(this.menuItemExtras, "menuItemExtras");
+            // 
+            // menuItemEmptyFoldersTool
+            // 
+            this.menuItemEmptyFoldersTool.Name = "menuItemEmptyFoldersTool";
+            resources.ApplyResources(this.menuItemEmptyFoldersTool, "menuItemEmptyFoldersTool");
+            this.menuItemEmptyFoldersTool.Click += new System.EventHandler(this.onMenuItemEmptyFoldersToolClick);
             // 
             // menuItemHelp
             // 
@@ -1163,6 +1179,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnType;
         private System.Windows.Forms.ToolStripMenuItem contextMenuShowAllInFolder;
         private System.Windows.Forms.ToolStripMenuItem contextMenuHide;
+        private System.Windows.Forms.ToolStripMenuItem menuItemExtras;
+        private System.Windows.Forms.ToolStripMenuItem menuItemEmptyFoldersTool;
     }
 }
 

@@ -129,6 +129,33 @@
   <data name="ConfirmFileDeletionText" xml:space="preserve">
     <value>Do you really want to move the selected files to the recycle bin?</value>
   </data>
+  <data name="EmptyFoldersDeletedFolder" xml:space="preserve">
+    <value>Deleted {0}</value>
+  </data>
+  <data name="EmptyFoldersErrorNoFolderSelectedCaption" xml:space="preserve">
+    <value>No folder selected</value>
+  </data>
+  <data name="EmptyFoldersErrorNoFolderSelectedText" xml:space="preserve">
+    <value>You must specify a folder to search.</value>
+  </data>
+  <data name="EmptyFoldersScanningFolder" xml:space="preserve">
+    <value>Scanning {0}</value>
+  </data>
+  <data name="EmptyFoldersSearching" xml:space="preserve">
+    <value>Searching ...</value>
+  </data>
+  <data name="EmptyFoldersSearchInProgressCaption" xml:space="preserve">
+    <value>Search in progress</value>
+  </data>
+  <data name="EmptyFoldersSearchInProgressText" xml:space="preserve">
+    <value>You are currently searching and deleting empty folders. Are you sure you wish to abort the search?</value>
+  </data>
+  <data name="EmptyFoldersXFoldersDeleted" xml:space="preserve">
+    <value>{0} folders deleted</value>
+  </data>
+  <data name="EmptyFoldersXFoldersScanned" xml:space="preserve">
+    <value>{0} folders scanned</value>
+  </data>
   <data name="ErrorFolderAlreadyAddedCaption" xml:space="preserve">
     <value>Already added</value>
   </data>

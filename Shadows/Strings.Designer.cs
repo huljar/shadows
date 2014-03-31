@@ -97,6 +97,87 @@ namespace Shadows {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Deleted {0} ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersDeletedFolder {
+            get {
+                return ResourceManager.GetString("EmptyFoldersDeletedFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No folder selected ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersErrorNoFolderSelectedCaption {
+            get {
+                return ResourceManager.GetString("EmptyFoldersErrorNoFolderSelectedCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die You must specify a folder to search. ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersErrorNoFolderSelectedText {
+            get {
+                return ResourceManager.GetString("EmptyFoldersErrorNoFolderSelectedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Scanning {0} ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersScanningFolder {
+            get {
+                return ResourceManager.GetString("EmptyFoldersScanningFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Searching ... ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersSearching {
+            get {
+                return ResourceManager.GetString("EmptyFoldersSearching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Search in progress ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersSearchInProgressCaption {
+            get {
+                return ResourceManager.GetString("EmptyFoldersSearchInProgressCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die You are currently searching and deleting empty folders. Are you sure you wish to abort the search? ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersSearchInProgressText {
+            get {
+                return ResourceManager.GetString("EmptyFoldersSearchInProgressText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} folders deleted ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersXFoldersDeleted {
+            get {
+                return ResourceManager.GetString("EmptyFoldersXFoldersDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0} folders scanned ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersXFoldersScanned {
+            get {
+                return ResourceManager.GetString("EmptyFoldersXFoldersScanned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Already added ähnelt.
         /// </summary>
         internal static string ErrorFolderAlreadyAddedCaption {

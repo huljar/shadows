@@ -49,7 +49,7 @@ namespace Shadows {
             ApplySavedSettings();
 
             // Set icons of components
-            this.Icon = Resources.ShadowsIcon;
+            Icon = Resources.ShadowsIcon;
             nofityIconMinimized.Icon = Resources.ShadowsIcon;
 
             // Set version in status label
@@ -243,6 +243,11 @@ namespace Shadows {
             else {
                 MessageBox.Show(Strings.ErrorLogfileNotFoundText, Strings.ErrorLogfileNotFoundCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void onMenuItemEmptyFoldersToolClick(object sender, EventArgs e) {
+            EmptyFolders emptyFolders = new EmptyFolders();
+            emptyFolders.ShowDialog();
         }
 
         private void onMenuItemGettingStartedClick(object sender, EventArgs e) {

@@ -58,6 +58,12 @@
       <DependentUpon>AboutShadows.cs</DependentUpon>
     </Compile>
     <Compile Include="BackgroundSearchManager.cs" />
+    <Compile Include="EmptyFolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmptyFolders.Designer.cs">
+      <DependentUpon>EmptyFolders.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogHelper.cs" />
     <Compile Include="LogMessages.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -91,6 +97,9 @@
     <Compile Include="Util.cs" />
     <EmbeddedResource Include="AboutShadows.resx">
       <DependentUpon>AboutShadows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmptyFolders.resx">
+      <DependentUpon>EmptyFolders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

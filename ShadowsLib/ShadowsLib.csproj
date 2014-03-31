@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ChecksumComputingException.cs" />
     <Compile Include="ComparisonStartedEventArgs.cs" />
+    <Compile Include="EmptyFoldersSearchResult.cs" />
     <Compile Include="FileInfoWrapper.cs" />
     <Compile Include="FileSkippedEventArgs.cs" />
     <Compile Include="FolderItem.cs" />

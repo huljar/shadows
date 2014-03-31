@@ -412,6 +412,12 @@
   <data name="menuItemOpenLogFile.Text" xml:space="preserve">
     <value>Log&amp;datei öffnen</value>
   </data>
+  <data name="menuItemEmptyFoldersTool.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="menuItemEmptyFoldersTool.Text" xml:space="preserve">
+    <value>&amp;Leere-Ordner-Lösch-Werkzeug</value>
+  </data>
   <data name="menuItemHelp.Text" xml:space="preserve">
     <value>&amp;Hilfe</value>
   </data>
@@ -466,6 +472,9 @@
   <data name="contextMenuShowAllInFolder.Text" xml:space="preserve">
     <value>&amp;Alle Schatten in diesem Ordner zeigen</value>
   </data>
+  <data name="contextMenuGroupHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 76</value>
+  </data>
   <data name="contextMenuExpandCollapse.Size" type="System.Drawing.Size, System.Drawing">
     <value>219, 22</value>
   </data>
@@ -486,8 +495,5 @@
   </data>
   <data name="contextMenuShowInExplorerHeader.Text" xml:space="preserve">
     <value>In Explorer &amp;zeigen</value>
-  </data>
-  <data name="contextMenuGroupHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 76</value>
   </data>
 </root>

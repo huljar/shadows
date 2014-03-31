@@ -138,6 +138,279 @@
   <data name="splitTop.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 3</value>
   </data>
+  <data name="splitFolderSelection.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitFolderSelection.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="splitFolderSelection.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 18</value>
+  </data>
+  <metadata name="contextMenuFolderTree.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>243, 17</value>
+  </metadata>
+  <data name="contextItemShowHiddenFolders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 22</value>
+  </data>
+  <data name="contextItemShowHiddenFolders.Text" xml:space="preserve">
+    <value>Show &amp;hidden folders</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 6</value>
+  </data>
+  <data name="contextItemRefreshTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 22</value>
+  </data>
+  <data name="contextItemRefreshTree.Text" xml:space="preserve">
+    <value>&amp;Refresh directory tree</value>
+  </data>
+  <data name="contextMenuFolderTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 54</value>
+  </data>
+  <data name="&gt;&gt;contextMenuFolderTree.Name" xml:space="preserve">
+    <value>contextMenuFolderTree</value>
+  </data>
+  <data name="&gt;&gt;contextMenuFolderTree.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="expTreeFolders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="expTreeFolders.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="expTreeFolders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 159</value>
+  </data>
+  <data name="expTreeFolders.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;expTreeFolders.Name" xml:space="preserve">
+    <value>expTreeFolders</value>
+  </data>
+  <data name="&gt;&gt;expTreeFolders.Type" xml:space="preserve">
+    <value>ExpTreeLib.ExpTree, ExpTreeLib, Version=2.12.4758.28976, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;expTreeFolders.Parent" xml:space="preserve">
+    <value>splitFolderSelection.Panel1</value>
+  </data>
+  <data name="&gt;&gt;expTreeFolders.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFolderSelection.Panel1.Name" xml:space="preserve">
+    <value>splitFolderSelection.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFolderSelection.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitFolderSelection.Panel1.Parent" xml:space="preserve">
+    <value>splitFolderSelection</value>
+  </data>
+  <data name="&gt;&gt;splitFolderSelection.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitFoldersAdded.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitFoldersAdded.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="splitFoldersAdded.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="buttonAddFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="buttonAddFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonAddFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 37</value>
+  </data>
+  <data name="buttonAddFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 35</value>
+  </data>
+  <data name="buttonAddFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="buttonAddFolder.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <metadata name="tooltipDefault.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>624, 17</value>
+  </metadata>
+  <data name="buttonAddFolder.ToolTip" xml:space="preserve">
+    <value>Add selected folder in the directory tree to the search.</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFolder.Name" xml:space="preserve">
+    <value>buttonAddFolder</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFolder.Parent" xml:space="preserve">
+    <value>splitFoldersAdded.Panel1</value>
+  </data>
+  <data name="&gt;&gt;buttonAddFolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonRemoveFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="buttonRemoveFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonRemoveFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 78</value>
+  </data>
+  <data name="buttonRemoveFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 35</value>
+  </data>
+  <data name="buttonRemoveFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonRemoveFolder.Text" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="buttonRemoveFolder.ToolTip" xml:space="preserve">
+    <value>Remove selected folder in the list from the search.</value>
+  </data>
+  <data name="&gt;&gt;buttonRemoveFolder.Name" xml:space="preserve">
+    <value>buttonRemoveFolder</value>
+  </data>
+  <data name="&gt;&gt;buttonRemoveFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonRemoveFolder.Parent" xml:space="preserve">
+    <value>splitFoldersAdded.Panel1</value>
+  </data>
+  <data name="&gt;&gt;buttonRemoveFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Panel1.Name" xml:space="preserve">
+    <value>splitFoldersAdded.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Panel1.Parent" xml:space="preserve">
+    <value>splitFoldersAdded</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="contextMenuAddedFolders.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>425, 17</value>
+  </metadata>
+  <data name="contextItemSelectAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="contextItemSelectAll.Text" xml:space="preserve">
+    <value>Select &amp;all</value>
+  </data>
+  <data name="contextItemSelectNone.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="contextItemSelectNone.Text" xml:space="preserve">
+    <value>Select &amp;none</value>
+  </data>
+  <data name="contextItemInvertSelection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 22</value>
+  </data>
+  <data name="contextItemInvertSelection.Text" xml:space="preserve">
+    <value>&amp;Invert selection</value>
+  </data>
+  <data name="contextMenuAddedFolders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 70</value>
+  </data>
+  <data name="&gt;&gt;contextMenuAddedFolders.Name" xml:space="preserve">
+    <value>contextMenuAddedFolders</value>
+  </data>
+  <data name="&gt;&gt;contextMenuAddedFolders.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="listboxFoldersAdded.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="listboxFoldersAdded.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="listboxFoldersAdded.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="listboxFoldersAdded.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 159</value>
+  </data>
+  <data name="listboxFoldersAdded.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;listboxFoldersAdded.Name" xml:space="preserve">
+    <value>listboxFoldersAdded</value>
+  </data>
+  <data name="&gt;&gt;listboxFoldersAdded.Type" xml:space="preserve">
+    <value>ShadowsLib.FolderListView, ShadowsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;listboxFoldersAdded.Parent" xml:space="preserve">
+    <value>splitFoldersAdded.Panel2</value>
+  </data>
+  <data name="&gt;&gt;listboxFoldersAdded.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Panel2.Name" xml:space="preserve">
+    <value>splitFoldersAdded.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Panel2.Parent" xml:space="preserve">
+    <value>splitFoldersAdded</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitFoldersAdded.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 159</value>
+  </data>
+  <data name="splitFoldersAdded.SplitterDistance" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="splitFoldersAdded.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Name" xml:space="preserve">
+    <value>splitFoldersAdded</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.Parent" xml:space="preserve">
+    <value>splitFolderSelection.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFoldersAdded.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitFolderSelection.Panel2.Name" xml:space="preserve">
+    <value>splitFolderSelection.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitFolderSelection.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitFolderSelection.Panel2.Parent" xml:space="preserve">
+    <value>splitFolderSelection</value>
+  </data>
+  <data name="&gt;&gt;splitFolderSelection.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitFolderSelection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>556, 159</value>
+  </data>
+  <data name="splitFolderSelection.SplitterDistance" type="System.Int32, mscorlib">
+    <value>286</value>
+  </data>
+  <data name="splitFolderSelection.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;splitFolderSelection.Name" xml:space="preserve">
     <value>splitFolderSelection</value>
   </data>
@@ -193,6 +466,618 @@
     <value>splitTop</value>
   </data>
   <data name="&gt;&gt;splitTop.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkboxCompareFileName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxCompareFileName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxCompareFileName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 10</value>
+  </data>
+  <data name="checkboxCompareFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 17</value>
+  </data>
+  <data name="checkboxCompareFileName.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="checkboxCompareFileName.Text" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileName.Name" xml:space="preserve">
+    <value>checkboxCompareFileName</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileName.Parent" xml:space="preserve">
+    <value>tabPageComparisonCriteria</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileName.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkboxCaseSensitive.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxCaseSensitive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxCaseSensitive.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 34</value>
+  </data>
+  <data name="checkboxCaseSensitive.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 17</value>
+  </data>
+  <data name="checkboxCaseSensitive.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="checkboxCaseSensitive.Text" xml:space="preserve">
+    <value>Case sensitive</value>
+  </data>
+  <data name="&gt;&gt;checkboxCaseSensitive.Name" xml:space="preserve">
+    <value>checkboxCaseSensitive</value>
+  </data>
+  <data name="&gt;&gt;checkboxCaseSensitive.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxCaseSensitive.Parent" xml:space="preserve">
+    <value>tabPageComparisonCriteria</value>
+  </data>
+  <data name="&gt;&gt;checkboxCaseSensitive.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkboxFileExtension.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxFileExtension.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxFileExtension.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 58</value>
+  </data>
+  <data name="checkboxFileExtension.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 17</value>
+  </data>
+  <data name="checkboxFileExtension.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="checkboxFileExtension.Text" xml:space="preserve">
+    <value>File extension</value>
+  </data>
+  <data name="&gt;&gt;checkboxFileExtension.Name" xml:space="preserve">
+    <value>checkboxFileExtension</value>
+  </data>
+  <data name="&gt;&gt;checkboxFileExtension.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxFileExtension.Parent" xml:space="preserve">
+    <value>tabPageComparisonCriteria</value>
+  </data>
+  <data name="&gt;&gt;checkboxFileExtension.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="checkboxCompareFileSize.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxCompareFileSize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxCompareFileSize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 82</value>
+  </data>
+  <data name="checkboxCompareFileSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <data name="checkboxCompareFileSize.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="checkboxCompareFileSize.Text" xml:space="preserve">
+    <value>File size</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileSize.Name" xml:space="preserve">
+    <value>checkboxCompareFileSize</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileSize.Parent" xml:space="preserve">
+    <value>tabPageComparisonCriteria</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileSize.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="checkboxCompareFileContents.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxCompareFileContents.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxCompareFileContents.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 106</value>
+  </data>
+  <data name="checkboxCompareFileContents.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 17</value>
+  </data>
+  <data name="checkboxCompareFileContents.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="checkboxCompareFileContents.Text" xml:space="preserve">
+    <value>Entire file contents (might slow down search)</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileContents.Name" xml:space="preserve">
+    <value>checkboxCompareFileContents</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileContents.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileContents.Parent" xml:space="preserve">
+    <value>tabPageComparisonCriteria</value>
+  </data>
+  <data name="&gt;&gt;checkboxCompareFileContents.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tabPageComparisonCriteria.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageComparisonCriteria.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageComparisonCriteria.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 134</value>
+  </data>
+  <data name="tabPageComparisonCriteria.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageComparisonCriteria.Text" xml:space="preserve">
+    <value>Comparison criteria</value>
+  </data>
+  <data name="&gt;&gt;tabPageComparisonCriteria.Name" xml:space="preserve">
+    <value>tabPageComparisonCriteria</value>
+  </data>
+  <data name="&gt;&gt;tabPageComparisonCriteria.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageComparisonCriteria.Parent" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageComparisonCriteria.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radiobuttonAllTypes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radiobuttonAllTypes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radiobuttonAllTypes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 10</value>
+  </data>
+  <data name="radiobuttonAllTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
+  </data>
+  <data name="radiobuttonAllTypes.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="radiobuttonAllTypes.Text" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="radiobuttonAllTypes.ToolTip" xml:space="preserve">
+    <value>Select to include all file types in the search.</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonAllTypes.Name" xml:space="preserve">
+    <value>radiobuttonAllTypes</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonAllTypes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonAllTypes.Parent" xml:space="preserve">
+    <value>tabPageFileTypes</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonAllTypes.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="radiobuttonExcludeTypes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radiobuttonExcludeTypes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radiobuttonExcludeTypes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 34</value>
+  </data>
+  <data name="radiobuttonExcludeTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 17</value>
+  </data>
+  <data name="radiobuttonExcludeTypes.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="radiobuttonExcludeTypes.Text" xml:space="preserve">
+    <value>All, except ...</value>
+  </data>
+  <data name="radiobuttonExcludeTypes.ToolTip" xml:space="preserve">
+    <value>Select to exclude the specified file types.</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonExcludeTypes.Name" xml:space="preserve">
+    <value>radiobuttonExcludeTypes</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonExcludeTypes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonExcludeTypes.Parent" xml:space="preserve">
+    <value>tabPageFileTypes</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonExcludeTypes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radiobuttonIncludeTypes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radiobuttonIncludeTypes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radiobuttonIncludeTypes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 58</value>
+  </data>
+  <data name="radiobuttonIncludeTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 17</value>
+  </data>
+  <data name="radiobuttonIncludeTypes.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="radiobuttonIncludeTypes.Text" xml:space="preserve">
+    <value>Only the following:</value>
+  </data>
+  <data name="radiobuttonIncludeTypes.ToolTip" xml:space="preserve">
+    <value>Select to include the specified file types only.</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonIncludeTypes.Name" xml:space="preserve">
+    <value>radiobuttonIncludeTypes</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonIncludeTypes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonIncludeTypes.Parent" xml:space="preserve">
+    <value>tabPageFileTypes</value>
+  </data>
+  <data name="&gt;&gt;radiobuttonIncludeTypes.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="checkboxImages.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxImages.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="checkboxImages.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxImages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 11</value>
+  </data>
+  <data name="checkboxImages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 17</value>
+  </data>
+  <data name="checkboxImages.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="checkboxImages.Text" xml:space="preserve">
+    <value>Images</value>
+  </data>
+  <data name="&gt;&gt;checkboxImages.Name" xml:space="preserve">
+    <value>checkboxImages</value>
+  </data>
+  <data name="&gt;&gt;checkboxImages.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxImages.Parent" xml:space="preserve">
+    <value>tabPageFileTypes</value>
+  </data>
+  <data name="&gt;&gt;checkboxImages.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="checkboxMusic.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxMusic.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="checkboxMusic.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxMusic.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 34</value>
+  </data>
+  <data name="checkboxMusic.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 17</value>
+  </data>
+  <data name="checkboxMusic.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="checkboxMusic.Text" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="&gt;&gt;checkboxMusic.Name" xml:space="preserve">
+    <value>checkboxMusic</value>
+  </data>
+  <data name="&gt;&gt;checkboxMusic.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxMusic.Parent" xml:space="preserve">
+    <value>tabPageFileTypes</value>
+  </data>
+  <data name="&gt;&gt;checkboxMusic.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="checkboxVideos.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxVideos.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="checkboxVideos.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxVideos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 57</value>
+  </data>
+  <data name="checkboxVideos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 17</value>
+  </data>
+  <data name="checkboxVideos.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="checkboxVideos.Text" xml:space="preserve">
+    <value>Videos</value>
+  </data>
+  <data name="&gt;&gt;checkboxVideos.Name" xml:space="preserve">
+    <value>checkboxVideos</value>
+  </data>
+  <data name="&gt;&gt;checkboxVideos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxVideos.Parent" xml:space="preserve">
+    <value>tabPageFileTypes</value>
+  </data>
+  <data name="&gt;&gt;checkboxVideos.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="checkboxCustomTypes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxCustomTypes.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="checkboxCustomTypes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxCustomTypes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 80</value>
+  </data>
+  <data name="checkboxCustomTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 17</value>
+  </data>
+  <data name="checkboxCustomTypes.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="checkboxCustomTypes.Text" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="checkboxCustomTypes.ToolTip" xml:space="preserve">
+    <value>Check to define custom file extensions. Use commas to separate them, e.g. "doc, pdf, mp3".</value>
+  </data>
+  <data name="&gt;&gt;checkboxCustomTypes.Name" xml:space="preserve">
+    <value>checkboxCustomTypes</value>
+  </data>
+  <data name="&gt;&gt;checkboxCustomTypes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxCustomTypes.Parent" xml:space="preserve">
+    <value>tabPageFileTypes</value>
+  </data>
+  <data name="&gt;&gt;checkboxCustomTypes.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="textboxCustomTypes.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="textboxCustomTypes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 103</value>
+  </data>
+  <data name="textboxCustomTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 20</value>
+  </data>
+  <data name="textboxCustomTypes.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;textboxCustomTypes.Name" xml:space="preserve">
+    <value>textboxCustomTypes</value>
+  </data>
+  <data name="&gt;&gt;textboxCustomTypes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textboxCustomTypes.Parent" xml:space="preserve">
+    <value>tabPageFileTypes</value>
+  </data>
+  <data name="&gt;&gt;textboxCustomTypes.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="tabPageFileTypes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageFileTypes.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageFileTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 135</value>
+  </data>
+  <data name="tabPageFileTypes.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPageFileTypes.Text" xml:space="preserve">
+    <value>File types</value>
+  </data>
+  <data name="&gt;&gt;tabPageFileTypes.Name" xml:space="preserve">
+    <value>tabPageFileTypes</value>
+  </data>
+  <data name="&gt;&gt;tabPageFileTypes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageFileTypes.Parent" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageFileTypes.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkboxHiddenFiles.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxHiddenFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxHiddenFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 10</value>
+  </data>
+  <data name="checkboxHiddenFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 17</value>
+  </data>
+  <data name="checkboxHiddenFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="checkboxHiddenFiles.Text" xml:space="preserve">
+    <value>Include hidden files and directories</value>
+  </data>
+  <data name="&gt;&gt;checkboxHiddenFiles.Name" xml:space="preserve">
+    <value>checkboxHiddenFiles</value>
+  </data>
+  <data name="&gt;&gt;checkboxHiddenFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxHiddenFiles.Parent" xml:space="preserve">
+    <value>tabPageAdvancedSettings</value>
+  </data>
+  <data name="&gt;&gt;checkboxHiddenFiles.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkboxSystemFiles.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxSystemFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxSystemFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 33</value>
+  </data>
+  <data name="checkboxSystemFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 17</value>
+  </data>
+  <data name="checkboxSystemFiles.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="checkboxSystemFiles.Text" xml:space="preserve">
+    <value>Include system files (not recommended)</value>
+  </data>
+  <data name="&gt;&gt;checkboxSystemFiles.Name" xml:space="preserve">
+    <value>checkboxSystemFiles</value>
+  </data>
+  <data name="&gt;&gt;checkboxSystemFiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxSystemFiles.Parent" xml:space="preserve">
+    <value>tabPageAdvancedSettings</value>
+  </data>
+  <data name="&gt;&gt;checkboxSystemFiles.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkboxMatchRegex.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkboxMatchRegex.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkboxMatchRegex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 56</value>
+  </data>
+  <data name="checkboxMatchRegex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 17</value>
+  </data>
+  <data name="checkboxMatchRegex.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="checkboxMatchRegex.Text" xml:space="preserve">
+    <value>Full file paths must match regular expression</value>
+  </data>
+  <data name="&gt;&gt;checkboxMatchRegex.Name" xml:space="preserve">
+    <value>checkboxMatchRegex</value>
+  </data>
+  <data name="&gt;&gt;checkboxMatchRegex.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkboxMatchRegex.Parent" xml:space="preserve">
+    <value>tabPageAdvancedSettings</value>
+  </data>
+  <data name="&gt;&gt;checkboxMatchRegex.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="textboxMatchRegex.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="textboxMatchRegex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 79</value>
+  </data>
+  <data name="textboxMatchRegex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 20</value>
+  </data>
+  <data name="textboxMatchRegex.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;textboxMatchRegex.Name" xml:space="preserve">
+    <value>textboxMatchRegex</value>
+  </data>
+  <data name="&gt;&gt;textboxMatchRegex.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textboxMatchRegex.Parent" xml:space="preserve">
+    <value>tabPageAdvancedSettings</value>
+  </data>
+  <data name="&gt;&gt;textboxMatchRegex.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabPageAdvancedSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 135</value>
+  </data>
+  <data name="tabPageAdvancedSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPageAdvancedSettings.Text" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="&gt;&gt;tabPageAdvancedSettings.Name" xml:space="preserve">
+    <value>tabPageAdvancedSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageAdvancedSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageAdvancedSettings.Parent" xml:space="preserve">
+    <value>tabControlSettings</value>
+  </data>
+  <data name="&gt;&gt;tabPageAdvancedSettings.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabControlSettings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControlSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 18</value>
+  </data>
+  <data name="tabControlSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 160</value>
+  </data>
+  <data name="tabControlSettings.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="&gt;&gt;tabControlSettings.Name" xml:space="preserve">
@@ -549,1266 +1434,6 @@
   <data name="&gt;&gt;splitBottom.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;splitTable.Name" xml:space="preserve">
-    <value>splitTable</value>
-  </data>
-  <data name="&gt;&gt;splitTable.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitTable.Parent" xml:space="preserve">
-    <value>groupResults</value>
-  </data>
-  <data name="&gt;&gt;splitTable.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="groupResults.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="groupResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="groupResults.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="groupResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>998, 419</value>
-  </data>
-  <data name="groupResults.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="groupResults.Text" xml:space="preserve">
-    <value>Results</value>
-  </data>
-  <data name="&gt;&gt;groupResults.Name" xml:space="preserve">
-    <value>groupResults</value>
-  </data>
-  <data name="&gt;&gt;groupResults.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupResults.Parent" xml:space="preserve">
-    <value>splitBottom.Panel2</value>
-  </data>
-  <data name="&gt;&gt;groupResults.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitBottom.Panel2.Name" xml:space="preserve">
-    <value>splitBottom.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitBottom.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitBottom.Panel2.Parent" xml:space="preserve">
-    <value>splitBottom</value>
-  </data>
-  <data name="&gt;&gt;splitBottom.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>998, 481</value>
-  </data>
-  <data name="splitBottom.SplitterDistance" type="System.Int32, mscorlib">
-    <value>58</value>
-  </data>
-  <data name="splitBottom.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitBottom.Name" xml:space="preserve">
-    <value>splitBottom</value>
-  </data>
-  <data name="&gt;&gt;splitBottom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitBottom.Parent" xml:space="preserve">
-    <value>splitAll.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitBottom.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splitAll.Panel2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 3, 5, 3</value>
-  </data>
-  <data name="&gt;&gt;splitAll.Panel2.Name" xml:space="preserve">
-    <value>splitAll.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitAll.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitAll.Panel2.Parent" xml:space="preserve">
-    <value>splitAll</value>
-  </data>
-  <data name="&gt;&gt;splitAll.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1008, 684</value>
-  </data>
-  <data name="splitAll.SplitterDistance" type="System.Int32, mscorlib">
-    <value>193</value>
-  </data>
-  <data name="splitAll.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;splitAll.Name" xml:space="preserve">
-    <value>splitAll</value>
-  </data>
-  <data name="&gt;&gt;splitAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitAll.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;splitAll.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="splitFolderSelection.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="splitFolderSelection.IsSplitterFixed" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="splitFolderSelection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 18</value>
-  </data>
-  <metadata name="contextMenuFolderTree.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>243, 17</value>
-  </metadata>
-  <data name="contextMenuFolderTree.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 54</value>
-  </data>
-  <data name="&gt;&gt;contextMenuFolderTree.Name" xml:space="preserve">
-    <value>contextMenuFolderTree</value>
-  </data>
-  <data name="&gt;&gt;contextMenuFolderTree.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="expTreeFolders.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="expTreeFolders.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="expTreeFolders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 159</value>
-  </data>
-  <data name="expTreeFolders.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;expTreeFolders.Name" xml:space="preserve">
-    <value>expTreeFolders</value>
-  </data>
-  <data name="&gt;&gt;expTreeFolders.Type" xml:space="preserve">
-    <value>ExpTreeLib.ExpTree, ExpTreeLib, Version=2.12.4758.28976, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;expTreeFolders.Parent" xml:space="preserve">
-    <value>splitFolderSelection.Panel1</value>
-  </data>
-  <data name="&gt;&gt;expTreeFolders.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Panel1.Name" xml:space="preserve">
-    <value>splitFolderSelection.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Panel1.Parent" xml:space="preserve">
-    <value>splitFolderSelection</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splitFoldersAdded.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="splitFoldersAdded.IsSplitterFixed" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="splitFoldersAdded.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <metadata name="tooltipDefault.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>624, 17</value>
-  </metadata>
-  <data name="buttonAddFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="buttonAddFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonAddFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 37</value>
-  </data>
-  <data name="buttonAddFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 35</value>
-  </data>
-  <data name="buttonAddFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="buttonAddFolder.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
-  </data>
-  <data name="buttonAddFolder.ToolTip" xml:space="preserve">
-    <value>Add selected folder in the directory tree to the search.</value>
-  </data>
-  <data name="&gt;&gt;buttonAddFolder.Name" xml:space="preserve">
-    <value>buttonAddFolder</value>
-  </data>
-  <data name="&gt;&gt;buttonAddFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonAddFolder.Parent" xml:space="preserve">
-    <value>splitFoldersAdded.Panel1</value>
-  </data>
-  <data name="&gt;&gt;buttonAddFolder.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="buttonRemoveFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="buttonRemoveFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonRemoveFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 78</value>
-  </data>
-  <data name="buttonRemoveFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 35</value>
-  </data>
-  <data name="buttonRemoveFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="buttonRemoveFolder.Text" xml:space="preserve">
-    <value>&lt;&lt;</value>
-  </data>
-  <data name="buttonRemoveFolder.ToolTip" xml:space="preserve">
-    <value>Remove selected folder in the list from the search.</value>
-  </data>
-  <data name="&gt;&gt;buttonRemoveFolder.Name" xml:space="preserve">
-    <value>buttonRemoveFolder</value>
-  </data>
-  <data name="&gt;&gt;buttonRemoveFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonRemoveFolder.Parent" xml:space="preserve">
-    <value>splitFoldersAdded.Panel1</value>
-  </data>
-  <data name="&gt;&gt;buttonRemoveFolder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Panel1.Name" xml:space="preserve">
-    <value>splitFoldersAdded.Panel1</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Panel1.Parent" xml:space="preserve">
-    <value>splitFoldersAdded</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="contextMenuAddedFolders.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>425, 17</value>
-  </metadata>
-  <data name="contextMenuAddedFolders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 70</value>
-  </data>
-  <data name="&gt;&gt;contextMenuAddedFolders.Name" xml:space="preserve">
-    <value>contextMenuAddedFolders</value>
-  </data>
-  <data name="&gt;&gt;contextMenuAddedFolders.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="listboxFoldersAdded.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="listboxFoldersAdded.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="listboxFoldersAdded.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="listboxFoldersAdded.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 159</value>
-  </data>
-  <data name="listboxFoldersAdded.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;listboxFoldersAdded.Name" xml:space="preserve">
-    <value>listboxFoldersAdded</value>
-  </data>
-  <data name="&gt;&gt;listboxFoldersAdded.Type" xml:space="preserve">
-    <value>ShadowsLib.FolderListView, ShadowsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;listboxFoldersAdded.Parent" xml:space="preserve">
-    <value>splitFoldersAdded.Panel2</value>
-  </data>
-  <data name="&gt;&gt;listboxFoldersAdded.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Panel2.Name" xml:space="preserve">
-    <value>splitFoldersAdded.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Panel2.Parent" xml:space="preserve">
-    <value>splitFoldersAdded</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitFoldersAdded.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 159</value>
-  </data>
-  <data name="splitFoldersAdded.SplitterDistance" type="System.Int32, mscorlib">
-    <value>41</value>
-  </data>
-  <data name="splitFoldersAdded.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Name" xml:space="preserve">
-    <value>splitFoldersAdded</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.Parent" xml:space="preserve">
-    <value>splitFolderSelection.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitFoldersAdded.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Panel2.Name" xml:space="preserve">
-    <value>splitFolderSelection.Panel2</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Panel2.Parent" xml:space="preserve">
-    <value>splitFolderSelection</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="splitFolderSelection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>556, 159</value>
-  </data>
-  <data name="splitFolderSelection.SplitterDistance" type="System.Int32, mscorlib">
-    <value>286</value>
-  </data>
-  <data name="splitFolderSelection.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Name" xml:space="preserve">
-    <value>splitFolderSelection</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.Parent" xml:space="preserve">
-    <value>groupFolders</value>
-  </data>
-  <data name="&gt;&gt;splitFolderSelection.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="contextItemShowHiddenFolders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
-  </data>
-  <data name="contextItemShowHiddenFolders.Text" xml:space="preserve">
-    <value>Show &amp;hidden folders</value>
-  </data>
-  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 6</value>
-  </data>
-  <data name="contextItemRefreshTree.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
-  </data>
-  <data name="contextItemRefreshTree.Text" xml:space="preserve">
-    <value>&amp;Refresh directory tree</value>
-  </data>
-  <data name="contextItemSelectAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="contextItemSelectAll.Text" xml:space="preserve">
-    <value>Select &amp;all</value>
-  </data>
-  <data name="contextItemSelectNone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="contextItemSelectNone.Text" xml:space="preserve">
-    <value>Select &amp;none</value>
-  </data>
-  <data name="contextItemInvertSelection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 22</value>
-  </data>
-  <data name="contextItemInvertSelection.Text" xml:space="preserve">
-    <value>&amp;Invert selection</value>
-  </data>
-  <data name="&gt;&gt;tabPageComparisonCriteria.Name" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;tabPageComparisonCriteria.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageComparisonCriteria.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageComparisonCriteria.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabPageFileTypes.Name" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;tabPageFileTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageFileTypes.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageFileTypes.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tabPageAdvancedSettings.Name" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageAdvancedSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageAdvancedSettings.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageAdvancedSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabControlSettings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControlSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 18</value>
-  </data>
-  <data name="tabControlSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 160</value>
-  </data>
-  <data name="tabControlSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabControlSettings.Name" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabControlSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControlSettings.Parent" xml:space="preserve">
-    <value>groupSettings</value>
-  </data>
-  <data name="&gt;&gt;tabControlSettings.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileName.Name" xml:space="preserve">
-    <value>checkboxCompareFileName</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileName.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileName.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;checkboxCaseSensitive.Name" xml:space="preserve">
-    <value>checkboxCaseSensitive</value>
-  </data>
-  <data name="&gt;&gt;checkboxCaseSensitive.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCaseSensitive.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxCaseSensitive.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;checkboxFileExtension.Name" xml:space="preserve">
-    <value>checkboxFileExtension</value>
-  </data>
-  <data name="&gt;&gt;checkboxFileExtension.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxFileExtension.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxFileExtension.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileSize.Name" xml:space="preserve">
-    <value>checkboxCompareFileSize</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileSize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileSize.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileSize.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileContents.Name" xml:space="preserve">
-    <value>checkboxCompareFileContents</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileContents.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileContents.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileContents.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tabPageComparisonCriteria.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageComparisonCriteria.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageComparisonCriteria.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 134</value>
-  </data>
-  <data name="tabPageComparisonCriteria.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabPageComparisonCriteria.Text" xml:space="preserve">
-    <value>Comparison criteria</value>
-  </data>
-  <data name="&gt;&gt;tabPageComparisonCriteria.Name" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;tabPageComparisonCriteria.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageComparisonCriteria.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageComparisonCriteria.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="checkboxCompareFileName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxCompareFileName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxCompareFileName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 10</value>
-  </data>
-  <data name="checkboxCompareFileName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 17</value>
-  </data>
-  <data name="checkboxCompareFileName.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="checkboxCompareFileName.Text" xml:space="preserve">
-    <value>File name</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileName.Name" xml:space="preserve">
-    <value>checkboxCompareFileName</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileName.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileName.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="checkboxCaseSensitive.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxCaseSensitive.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxCaseSensitive.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 34</value>
-  </data>
-  <data name="checkboxCaseSensitive.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 17</value>
-  </data>
-  <data name="checkboxCaseSensitive.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="checkboxCaseSensitive.Text" xml:space="preserve">
-    <value>Case sensitive</value>
-  </data>
-  <data name="&gt;&gt;checkboxCaseSensitive.Name" xml:space="preserve">
-    <value>checkboxCaseSensitive</value>
-  </data>
-  <data name="&gt;&gt;checkboxCaseSensitive.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCaseSensitive.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxCaseSensitive.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="checkboxFileExtension.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxFileExtension.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxFileExtension.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 58</value>
-  </data>
-  <data name="checkboxFileExtension.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 17</value>
-  </data>
-  <data name="checkboxFileExtension.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="checkboxFileExtension.Text" xml:space="preserve">
-    <value>File extension</value>
-  </data>
-  <data name="&gt;&gt;checkboxFileExtension.Name" xml:space="preserve">
-    <value>checkboxFileExtension</value>
-  </data>
-  <data name="&gt;&gt;checkboxFileExtension.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxFileExtension.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxFileExtension.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="checkboxCompareFileSize.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxCompareFileSize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxCompareFileSize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 82</value>
-  </data>
-  <data name="checkboxCompareFileSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 17</value>
-  </data>
-  <data name="checkboxCompareFileSize.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="checkboxCompareFileSize.Text" xml:space="preserve">
-    <value>File size</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileSize.Name" xml:space="preserve">
-    <value>checkboxCompareFileSize</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileSize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileSize.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileSize.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="checkboxCompareFileContents.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxCompareFileContents.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxCompareFileContents.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 106</value>
-  </data>
-  <data name="checkboxCompareFileContents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 17</value>
-  </data>
-  <data name="checkboxCompareFileContents.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="checkboxCompareFileContents.Text" xml:space="preserve">
-    <value>Entire file contents (might slow down search)</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileContents.Name" xml:space="preserve">
-    <value>checkboxCompareFileContents</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileContents.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileContents.Parent" xml:space="preserve">
-    <value>tabPageComparisonCriteria</value>
-  </data>
-  <data name="&gt;&gt;checkboxCompareFileContents.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonAllTypes.Name" xml:space="preserve">
-    <value>radiobuttonAllTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonAllTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonAllTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonAllTypes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonExcludeTypes.Name" xml:space="preserve">
-    <value>radiobuttonExcludeTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonExcludeTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonExcludeTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonExcludeTypes.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonIncludeTypes.Name" xml:space="preserve">
-    <value>radiobuttonIncludeTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonIncludeTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonIncludeTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonIncludeTypes.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;checkboxImages.Name" xml:space="preserve">
-    <value>checkboxImages</value>
-  </data>
-  <data name="&gt;&gt;checkboxImages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxImages.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxImages.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;checkboxMusic.Name" xml:space="preserve">
-    <value>checkboxMusic</value>
-  </data>
-  <data name="&gt;&gt;checkboxMusic.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxMusic.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxMusic.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;checkboxVideos.Name" xml:space="preserve">
-    <value>checkboxVideos</value>
-  </data>
-  <data name="&gt;&gt;checkboxVideos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxVideos.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxVideos.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;checkboxCustomTypes.Name" xml:space="preserve">
-    <value>checkboxCustomTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxCustomTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCustomTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxCustomTypes.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;textboxCustomTypes.Name" xml:space="preserve">
-    <value>textboxCustomTypes</value>
-  </data>
-  <data name="&gt;&gt;textboxCustomTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textboxCustomTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;textboxCustomTypes.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="tabPageFileTypes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageFileTypes.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageFileTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 135</value>
-  </data>
-  <data name="tabPageFileTypes.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabPageFileTypes.Text" xml:space="preserve">
-    <value>File types</value>
-  </data>
-  <data name="&gt;&gt;tabPageFileTypes.Name" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;tabPageFileTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageFileTypes.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageFileTypes.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="radiobuttonAllTypes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radiobuttonAllTypes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radiobuttonAllTypes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 10</value>
-  </data>
-  <data name="radiobuttonAllTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 17</value>
-  </data>
-  <data name="radiobuttonAllTypes.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="radiobuttonAllTypes.Text" xml:space="preserve">
-    <value>All</value>
-  </data>
-  <data name="radiobuttonAllTypes.ToolTip" xml:space="preserve">
-    <value>Select to include all file types in the search.</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonAllTypes.Name" xml:space="preserve">
-    <value>radiobuttonAllTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonAllTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonAllTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonAllTypes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="radiobuttonExcludeTypes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radiobuttonExcludeTypes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radiobuttonExcludeTypes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 34</value>
-  </data>
-  <data name="radiobuttonExcludeTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 17</value>
-  </data>
-  <data name="radiobuttonExcludeTypes.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="radiobuttonExcludeTypes.Text" xml:space="preserve">
-    <value>All, except ...</value>
-  </data>
-  <data name="radiobuttonExcludeTypes.ToolTip" xml:space="preserve">
-    <value>Select to exclude the specified file types.</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonExcludeTypes.Name" xml:space="preserve">
-    <value>radiobuttonExcludeTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonExcludeTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonExcludeTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonExcludeTypes.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="radiobuttonIncludeTypes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radiobuttonIncludeTypes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radiobuttonIncludeTypes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 58</value>
-  </data>
-  <data name="radiobuttonIncludeTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 17</value>
-  </data>
-  <data name="radiobuttonIncludeTypes.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="radiobuttonIncludeTypes.Text" xml:space="preserve">
-    <value>Only the following:</value>
-  </data>
-  <data name="radiobuttonIncludeTypes.ToolTip" xml:space="preserve">
-    <value>Select to include the specified file types only.</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonIncludeTypes.Name" xml:space="preserve">
-    <value>radiobuttonIncludeTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonIncludeTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonIncludeTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;radiobuttonIncludeTypes.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="checkboxImages.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxImages.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="checkboxImages.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxImages.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 11</value>
-  </data>
-  <data name="checkboxImages.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 17</value>
-  </data>
-  <data name="checkboxImages.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="checkboxImages.Text" xml:space="preserve">
-    <value>Images</value>
-  </data>
-  <data name="&gt;&gt;checkboxImages.Name" xml:space="preserve">
-    <value>checkboxImages</value>
-  </data>
-  <data name="&gt;&gt;checkboxImages.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxImages.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxImages.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="checkboxMusic.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxMusic.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="checkboxMusic.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxMusic.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 34</value>
-  </data>
-  <data name="checkboxMusic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 17</value>
-  </data>
-  <data name="checkboxMusic.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="checkboxMusic.Text" xml:space="preserve">
-    <value>Music</value>
-  </data>
-  <data name="&gt;&gt;checkboxMusic.Name" xml:space="preserve">
-    <value>checkboxMusic</value>
-  </data>
-  <data name="&gt;&gt;checkboxMusic.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxMusic.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxMusic.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="checkboxVideos.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxVideos.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="checkboxVideos.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxVideos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 57</value>
-  </data>
-  <data name="checkboxVideos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 17</value>
-  </data>
-  <data name="checkboxVideos.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="checkboxVideos.Text" xml:space="preserve">
-    <value>Videos</value>
-  </data>
-  <data name="&gt;&gt;checkboxVideos.Name" xml:space="preserve">
-    <value>checkboxVideos</value>
-  </data>
-  <data name="&gt;&gt;checkboxVideos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxVideos.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxVideos.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="checkboxCustomTypes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxCustomTypes.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="checkboxCustomTypes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxCustomTypes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 80</value>
-  </data>
-  <data name="checkboxCustomTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 17</value>
-  </data>
-  <data name="checkboxCustomTypes.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="checkboxCustomTypes.Text" xml:space="preserve">
-    <value>Custom</value>
-  </data>
-  <data name="checkboxCustomTypes.ToolTip" xml:space="preserve">
-    <value>Check to define custom file extensions. Use commas to separate them, e.g. "doc, pdf, mp3".</value>
-  </data>
-  <data name="&gt;&gt;checkboxCustomTypes.Name" xml:space="preserve">
-    <value>checkboxCustomTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxCustomTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxCustomTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;checkboxCustomTypes.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="textboxCustomTypes.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="textboxCustomTypes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 103</value>
-  </data>
-  <data name="textboxCustomTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 20</value>
-  </data>
-  <data name="textboxCustomTypes.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;textboxCustomTypes.Name" xml:space="preserve">
-    <value>textboxCustomTypes</value>
-  </data>
-  <data name="&gt;&gt;textboxCustomTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textboxCustomTypes.Parent" xml:space="preserve">
-    <value>tabPageFileTypes</value>
-  </data>
-  <data name="&gt;&gt;textboxCustomTypes.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;checkboxHiddenFiles.Name" xml:space="preserve">
-    <value>checkboxHiddenFiles</value>
-  </data>
-  <data name="&gt;&gt;checkboxHiddenFiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxHiddenFiles.Parent" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;checkboxHiddenFiles.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;checkboxSystemFiles.Name" xml:space="preserve">
-    <value>checkboxSystemFiles</value>
-  </data>
-  <data name="&gt;&gt;checkboxSystemFiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxSystemFiles.Parent" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;checkboxSystemFiles.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;checkboxMatchRegex.Name" xml:space="preserve">
-    <value>checkboxMatchRegex</value>
-  </data>
-  <data name="&gt;&gt;checkboxMatchRegex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxMatchRegex.Parent" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;checkboxMatchRegex.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;textboxMatchRegex.Name" xml:space="preserve">
-    <value>textboxMatchRegex</value>
-  </data>
-  <data name="&gt;&gt;textboxMatchRegex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textboxMatchRegex.Parent" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;textboxMatchRegex.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tabPageAdvancedSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 135</value>
-  </data>
-  <data name="tabPageAdvancedSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabPageAdvancedSettings.Text" xml:space="preserve">
-    <value>Advanced</value>
-  </data>
-  <data name="&gt;&gt;tabPageAdvancedSettings.Name" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageAdvancedSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageAdvancedSettings.Parent" xml:space="preserve">
-    <value>tabControlSettings</value>
-  </data>
-  <data name="&gt;&gt;tabPageAdvancedSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="checkboxHiddenFiles.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxHiddenFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxHiddenFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 10</value>
-  </data>
-  <data name="checkboxHiddenFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 17</value>
-  </data>
-  <data name="checkboxHiddenFiles.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="checkboxHiddenFiles.Text" xml:space="preserve">
-    <value>Include hidden files and directories</value>
-  </data>
-  <data name="&gt;&gt;checkboxHiddenFiles.Name" xml:space="preserve">
-    <value>checkboxHiddenFiles</value>
-  </data>
-  <data name="&gt;&gt;checkboxHiddenFiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxHiddenFiles.Parent" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;checkboxHiddenFiles.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="checkboxSystemFiles.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxSystemFiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxSystemFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 33</value>
-  </data>
-  <data name="checkboxSystemFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 17</value>
-  </data>
-  <data name="checkboxSystemFiles.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="checkboxSystemFiles.Text" xml:space="preserve">
-    <value>Include system files (not recommended)</value>
-  </data>
-  <data name="&gt;&gt;checkboxSystemFiles.Name" xml:space="preserve">
-    <value>checkboxSystemFiles</value>
-  </data>
-  <data name="&gt;&gt;checkboxSystemFiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxSystemFiles.Parent" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;checkboxSystemFiles.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="checkboxMatchRegex.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkboxMatchRegex.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkboxMatchRegex.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 56</value>
-  </data>
-  <data name="checkboxMatchRegex.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 17</value>
-  </data>
-  <data name="checkboxMatchRegex.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="checkboxMatchRegex.Text" xml:space="preserve">
-    <value>Full file paths must match regular expression</value>
-  </data>
-  <data name="&gt;&gt;checkboxMatchRegex.Name" xml:space="preserve">
-    <value>checkboxMatchRegex</value>
-  </data>
-  <data name="&gt;&gt;checkboxMatchRegex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkboxMatchRegex.Parent" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;checkboxMatchRegex.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="textboxMatchRegex.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="textboxMatchRegex.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 79</value>
-  </data>
-  <data name="textboxMatchRegex.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 20</value>
-  </data>
-  <data name="textboxMatchRegex.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;textboxMatchRegex.Name" xml:space="preserve">
-    <value>textboxMatchRegex</value>
-  </data>
-  <data name="&gt;&gt;textboxMatchRegex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textboxMatchRegex.Parent" xml:space="preserve">
-    <value>tabPageAdvancedSettings</value>
-  </data>
-  <data name="&gt;&gt;textboxMatchRegex.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="splitTable.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1947,39 +1572,108 @@
   <data name="&gt;&gt;splitTable.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="groupResults.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="groupResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="groupResults.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
+  </data>
+  <data name="groupResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>998, 419</value>
+  </data>
+  <data name="groupResults.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="groupResults.Text" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="&gt;&gt;groupResults.Name" xml:space="preserve">
+    <value>groupResults</value>
+  </data>
+  <data name="&gt;&gt;groupResults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupResults.Parent" xml:space="preserve">
+    <value>splitBottom.Panel2</value>
+  </data>
+  <data name="&gt;&gt;groupResults.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitBottom.Panel2.Name" xml:space="preserve">
+    <value>splitBottom.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitBottom.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitBottom.Panel2.Parent" xml:space="preserve">
+    <value>splitBottom</value>
+  </data>
+  <data name="&gt;&gt;splitBottom.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>998, 481</value>
+  </data>
+  <data name="splitBottom.SplitterDistance" type="System.Int32, mscorlib">
+    <value>58</value>
+  </data>
+  <data name="splitBottom.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitBottom.Name" xml:space="preserve">
+    <value>splitBottom</value>
+  </data>
+  <data name="&gt;&gt;splitBottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitBottom.Parent" xml:space="preserve">
+    <value>splitAll.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitBottom.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitAll.Panel2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 3, 5, 3</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel2.Name" xml:space="preserve">
+    <value>splitAll.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel2.Parent" xml:space="preserve">
+    <value>splitAll</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1008, 684</value>
+  </data>
+  <data name="splitAll.SplitterDistance" type="System.Int32, mscorlib">
+    <value>193</value>
+  </data>
+  <data name="splitAll.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Name" xml:space="preserve">
+    <value>splitAll</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitAll.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;splitAll.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <metadata name="mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="mainMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="mainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1008, 24</value>
-  </data>
-  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="mainMenu.Text" xml:space="preserve">
-    <value>mainMenu</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Name" xml:space="preserve">
-    <value>mainMenu</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="menuItemProgram.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 20</value>
-  </data>
-  <data name="menuItemProgram.Text" xml:space="preserve">
-    <value>&amp;Program</value>
-  </data>
   <data name="menuItemOptions.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Strg+O</value>
   </data>
@@ -2001,11 +1695,11 @@
   <data name="menuItemExit.Text" xml:space="preserve">
     <value>E&amp;xit</value>
   </data>
-  <data name="menuItemView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
+  <data name="menuItemProgram.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 20</value>
   </data>
-  <data name="menuItemView.Text" xml:space="preserve">
-    <value>&amp;View</value>
+  <data name="menuItemProgram.Text" xml:space="preserve">
+    <value>&amp;Program</value>
   </data>
   <data name="menuItemAlwaysOnTop.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Strg+T</value>
@@ -2024,12 +1718,6 @@
   </data>
   <data name="menuItemResetWindowSize.Text" xml:space="preserve">
     <value>&amp;Reset window size</value>
-  </data>
-  <data name="menuItemTransparency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 22</value>
-  </data>
-  <data name="menuItemTransparency.Text" xml:space="preserve">
-    <value>&amp;Transparency</value>
   </data>
   <data name="menuItemTransparency0.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 22</value>
@@ -2091,11 +1779,17 @@
   <data name="menuItemTransparency90.Text" xml:space="preserve">
     <value>90%</value>
   </data>
-  <data name="menuItemLogging.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 20</value>
+  <data name="menuItemTransparency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 22</value>
   </data>
-  <data name="menuItemLogging.Text" xml:space="preserve">
-    <value>&amp;Logging</value>
+  <data name="menuItemTransparency.Text" xml:space="preserve">
+    <value>&amp;Transparency</value>
+  </data>
+  <data name="menuItemView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="menuItemView.Text" xml:space="preserve">
+    <value>&amp;View</value>
   </data>
   <data name="menuItemActivateLogging.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Strg+L</value>
@@ -2105,12 +1799,6 @@
   </data>
   <data name="menuItemActivateLogging.Text" xml:space="preserve">
     <value>&amp;Activate</value>
-  </data>
-  <data name="menuItemLogLevel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
-  </data>
-  <data name="menuItemLogLevel.Text" xml:space="preserve">
-    <value>Log level</value>
   </data>
   <data name="menuItemLogLevelFatal.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 22</value>
@@ -2136,6 +1824,12 @@
   <data name="menuItemLogLevelInfo.Text" xml:space="preserve">
     <value>&amp;Info</value>
   </data>
+  <data name="menuItemLogLevel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 22</value>
+  </data>
+  <data name="menuItemLogLevel.Text" xml:space="preserve">
+    <value>Log level</value>
+  </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 6</value>
   </data>
@@ -2145,11 +1839,23 @@
   <data name="menuItemOpenLogFile.Text" xml:space="preserve">
     <value>Open log &amp;file</value>
   </data>
-  <data name="menuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
+  <data name="menuItemLogging.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 20</value>
   </data>
-  <data name="menuItemHelp.Text" xml:space="preserve">
-    <value>&amp;Help</value>
+  <data name="menuItemLogging.Text" xml:space="preserve">
+    <value>&amp;Logging</value>
+  </data>
+  <data name="menuItemEmptyFoldersTool.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 22</value>
+  </data>
+  <data name="menuItemEmptyFoldersTool.Text" xml:space="preserve">
+    <value>&amp;Empty Folders Deletion Tool</value>
+  </data>
+  <data name="menuItemExtras.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 20</value>
+  </data>
+  <data name="menuItemExtras.Text" xml:space="preserve">
+    <value>E&amp;xtras</value>
   </data>
   <data name="menuItemGettingStarted.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F1</value>
@@ -2169,33 +1875,39 @@
   <data name="menuItemAboutShadows.Text" xml:space="preserve">
     <value>&amp;About Shadows</value>
   </data>
+  <data name="menuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="menuItemHelp.Text" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="mainMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1008, 24</value>
+  </data>
+  <data name="mainMenu.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="mainMenu.Text" xml:space="preserve">
+    <value>mainMenu</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Name" xml:space="preserve">
+    <value>mainMenu</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <metadata name="statusBarBottom.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>127, 17</value>
   </metadata>
-  <data name="statusBarBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 708</value>
-  </data>
-  <data name="statusBarBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1008, 22</value>
-  </data>
-  <data name="statusBarBottom.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="statusBarBottom.Text" xml:space="preserve">
-    <value>statusBarBottom</value>
-  </data>
-  <data name="&gt;&gt;statusBarBottom.Name" xml:space="preserve">
-    <value>statusBarBottom</value>
-  </data>
-  <data name="&gt;&gt;statusBarBottom.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;statusBarBottom.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;statusBarBottom.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="statuslabelProgramName.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 17</value>
   </data>
@@ -2220,21 +1932,33 @@
   <data name="statusLabelInfos.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <metadata name="tooltipDefault.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>624, 17</value>
-  </metadata>
+  <data name="statusBarBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 708</value>
+  </data>
+  <data name="statusBarBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1008, 22</value>
+  </data>
+  <data name="statusBarBottom.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="statusBarBottom.Text" xml:space="preserve">
+    <value>statusBarBottom</value>
+  </data>
+  <data name="&gt;&gt;statusBarBottom.Name" xml:space="preserve">
+    <value>statusBarBottom</value>
+  </data>
+  <data name="&gt;&gt;statusBarBottom.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusBarBottom.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusBarBottom.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <metadata name="contextMenuGroupEntry.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>914, 17</value>
   </metadata>
-  <data name="contextMenuGroupEntry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>238, 120</value>
-  </data>
-  <data name="&gt;&gt;contextMenuGroupEntry.Name" xml:space="preserve">
-    <value>contextMenuGroupEntry</value>
-  </data>
-  <data name="&gt;&gt;contextMenuGroupEntry.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="contextMenuOpenWithDefaultProgram.Size" type="System.Drawing.Size, System.Drawing">
     <value>237, 22</value>
   </data>
@@ -2268,6 +1992,15 @@
   <data name="contextMenuShowAllInFolder.Text" xml:space="preserve">
     <value>Show &amp;all Shadows in this folder</value>
   </data>
+  <data name="contextMenuGroupEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>238, 120</value>
+  </data>
+  <data name="&gt;&gt;contextMenuGroupEntry.Name" xml:space="preserve">
+    <value>contextMenuGroupEntry</value>
+  </data>
+  <data name="&gt;&gt;contextMenuGroupEntry.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="contextMenuGroupHeader.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1069, 17</value>
   </metadata>
@@ -2293,7 +2026,7 @@
     <value>&amp;Show in Explorer</value>
   </data>
   <data name="contextMenuGroupHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 98</value>
+    <value>163, 76</value>
   </data>
   <data name="&gt;&gt;contextMenuGroupHeader.Name" xml:space="preserve">
     <value>contextMenuGroupHeader</value>
@@ -2554,6 +2287,18 @@
     <value>menuItemOpenLogFile</value>
   </data>
   <data name="&gt;&gt;menuItemOpenLogFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemExtras.Name" xml:space="preserve">
+    <value>menuItemExtras</value>
+  </data>
+  <data name="&gt;&gt;menuItemExtras.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemEmptyFoldersTool.Name" xml:space="preserve">
+    <value>menuItemEmptyFoldersTool</value>
+  </data>
+  <data name="&gt;&gt;menuItemEmptyFoldersTool.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuItemHelp.Name" xml:space="preserve">
