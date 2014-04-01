@@ -129,6 +129,33 @@
   <data name="ConfirmFileDeletionText" xml:space="preserve">
     <value>Möchten Sie die ausgewählten Dateien wirklich in den Papierkorb verschieben?</value>
   </data>
+  <data name="EmptyFoldersDeletedFolder" xml:space="preserve">
+    <value>Gelöscht: {0}</value>
+  </data>
+  <data name="EmptyFoldersErrorNoFolderSelectedCaption" xml:space="preserve">
+    <value>Kein Ordner ausgewählt</value>
+  </data>
+  <data name="EmptyFoldersErrorNoFolderSelectedText" xml:space="preserve">
+    <value>Sie müssen einen Ordner zum Durchsuchen auswählen.</value>
+  </data>
+  <data name="EmptyFoldersScanningFolder" xml:space="preserve">
+    <value>Scanne {0}</value>
+  </data>
+  <data name="EmptyFoldersSearching" xml:space="preserve">
+    <value>Suche ...</value>
+  </data>
+  <data name="EmptyFoldersSearchInProgressCaption" xml:space="preserve">
+    <value>Suche aktiv</value>
+  </data>
+  <data name="EmptyFoldersSearchInProgressText" xml:space="preserve">
+    <value>Sie suchen und löschen gerade leere Ordner. Sind Sie sicher, dass Sie die Suche abbrechen wollen?</value>
+  </data>
+  <data name="EmptyFoldersXFoldersDeleted" xml:space="preserve">
+    <value>{0} Ordner gelöscht</value>
+  </data>
+  <data name="EmptyFoldersXFoldersScanned" xml:space="preserve">
+    <value>{0} Ordner gescannt</value>
+  </data>
   <data name="ErrorFolderAlreadyAddedCaption" xml:space="preserve">
     <value>Bereits hinzugefügt</value>
   </data>
@@ -200,6 +227,15 @@
   </data>
   <data name="ErrorUnableToDeleteFileText" xml:space="preserve">
     <value>Konnte Datei "{0}" nicht löschen - {1}</value>
+  </data>
+  <data name="ErrorUnableToOpenFolderAndSelectItemsCaption" xml:space="preserve">
+    <value>Fehler beim Öffnen eines Ordners</value>
+  </data>
+  <data name="ErrorUnableToOpenFolderAndSelectItemsText" xml:space="preserve">
+    <value>Konnte den angeforderten Ordner nicht öffnen.
+
+Fehlercode: {0}
+Fehlermeldung: {1}</value>
   </data>
   <data name="ErrorUnableToOpenFolderCaption" xml:space="preserve">
     <value>Konnte Ordner nicht öffnen</value>

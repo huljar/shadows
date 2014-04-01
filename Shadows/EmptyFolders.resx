@@ -132,6 +132,24 @@
   <data name="splitAll.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
     <value>Horizontal</value>
   </data>
+  <data name="buttonStop.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonStop.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="buttonStop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 49</value>
+  </data>
+  <data name="buttonStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 23</value>
+  </data>
+  <data name="buttonStop.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonStop.Text" xml:space="preserve">
+    <value>Stop search</value>
+  </data>
   <data name="&gt;&gt;buttonStop.Name" xml:space="preserve">
     <value>buttonStop</value>
   </data>
@@ -143,6 +161,18 @@
   </data>
   <data name="&gt;&gt;buttonStop.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="textboxFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="textboxFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 23</value>
+  </data>
+  <data name="textboxFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 20</value>
+  </data>
+  <data name="textboxFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;textboxFolder.Name" xml:space="preserve">
     <value>textboxFolder</value>
@@ -156,6 +186,21 @@
   <data name="&gt;&gt;textboxFolder.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="buttonSelectFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="buttonSelectFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 21</value>
+  </data>
+  <data name="buttonSelectFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 23</value>
+  </data>
+  <data name="buttonSelectFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="buttonSelectFolder.Text" xml:space="preserve">
+    <value>Browse</value>
+  </data>
   <data name="&gt;&gt;buttonSelectFolder.Name" xml:space="preserve">
     <value>buttonSelectFolder</value>
   </data>
@@ -167,6 +212,21 @@
   </data>
   <data name="&gt;&gt;buttonSelectFolder.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="buttonStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 49</value>
+  </data>
+  <data name="buttonStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 23</value>
+  </data>
+  <data name="buttonStart.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="buttonStart.Text" xml:space="preserve">
+    <value>Search for empty folders and delete them!</value>
   </data>
   <data name="&gt;&gt;buttonStart.Name" xml:space="preserve">
     <value>buttonStart</value>
@@ -222,6 +282,21 @@
   <data name="&gt;&gt;splitAll.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="labelMostRecentDeletion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelMostRecentDeletion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 42</value>
+  </data>
+  <data name="labelMostRecentDeletion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 13</value>
+  </data>
+  <data name="labelMostRecentDeletion.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="labelMostRecentDeletion.Text" xml:space="preserve">
+    <value>Deleting nothing</value>
+  </data>
   <data name="&gt;&gt;labelMostRecentDeletion.Name" xml:space="preserve">
     <value>labelMostRecentDeletion</value>
   </data>
@@ -233,6 +308,21 @@
   </data>
   <data name="&gt;&gt;labelMostRecentDeletion.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="labelScanningFolder.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelScanningFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 21</value>
+  </data>
+  <data name="labelScanningFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 13</value>
+  </data>
+  <data name="labelScanningFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelScanningFolder.Text" xml:space="preserve">
+    <value>Scanning nothing</value>
   </data>
   <data name="&gt;&gt;labelScanningFolder.Name" xml:space="preserve">
     <value>labelScanningFolder</value>
@@ -311,168 +401,6 @@
   </data>
   <data name="&gt;&gt;splitAll.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="buttonStop.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="buttonStop.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="buttonStop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>275, 49</value>
-  </data>
-  <data name="buttonStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 23</value>
-  </data>
-  <data name="buttonStop.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="buttonStop.Text" xml:space="preserve">
-    <value>Stop search</value>
-  </data>
-  <data name="&gt;&gt;buttonStop.Name" xml:space="preserve">
-    <value>buttonStop</value>
-  </data>
-  <data name="&gt;&gt;buttonStop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonStop.Parent" xml:space="preserve">
-    <value>groupBoxFolder</value>
-  </data>
-  <data name="&gt;&gt;buttonStop.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="textboxFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="textboxFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 23</value>
-  </data>
-  <data name="textboxFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 20</value>
-  </data>
-  <data name="textboxFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;textboxFolder.Name" xml:space="preserve">
-    <value>textboxFolder</value>
-  </data>
-  <data name="&gt;&gt;textboxFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textboxFolder.Parent" xml:space="preserve">
-    <value>groupBoxFolder</value>
-  </data>
-  <data name="&gt;&gt;textboxFolder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="buttonSelectFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="buttonSelectFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>275, 21</value>
-  </data>
-  <data name="buttonSelectFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 23</value>
-  </data>
-  <data name="buttonSelectFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="buttonSelectFolder.Text" xml:space="preserve">
-    <value>Select folder</value>
-  </data>
-  <data name="&gt;&gt;buttonSelectFolder.Name" xml:space="preserve">
-    <value>buttonSelectFolder</value>
-  </data>
-  <data name="&gt;&gt;buttonSelectFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonSelectFolder.Parent" xml:space="preserve">
-    <value>groupBoxFolder</value>
-  </data>
-  <data name="&gt;&gt;buttonSelectFolder.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="buttonStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="buttonStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 49</value>
-  </data>
-  <data name="buttonStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 23</value>
-  </data>
-  <data name="buttonStart.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="buttonStart.Text" xml:space="preserve">
-    <value>Search for empty folders and delete them!</value>
-  </data>
-  <data name="&gt;&gt;buttonStart.Name" xml:space="preserve">
-    <value>buttonStart</value>
-  </data>
-  <data name="&gt;&gt;buttonStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonStart.Parent" xml:space="preserve">
-    <value>groupBoxFolder</value>
-  </data>
-  <data name="&gt;&gt;buttonStart.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="labelMostRecentDeletion.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelMostRecentDeletion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 42</value>
-  </data>
-  <data name="labelMostRecentDeletion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 13</value>
-  </data>
-  <data name="labelMostRecentDeletion.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="labelMostRecentDeletion.Text" xml:space="preserve">
-    <value>Deleting nothing</value>
-  </data>
-  <data name="&gt;&gt;labelMostRecentDeletion.Name" xml:space="preserve">
-    <value>labelMostRecentDeletion</value>
-  </data>
-  <data name="&gt;&gt;labelMostRecentDeletion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelMostRecentDeletion.Parent" xml:space="preserve">
-    <value>groupResults</value>
-  </data>
-  <data name="&gt;&gt;labelMostRecentDeletion.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="labelScanningFolder.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelScanningFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 21</value>
-  </data>
-  <data name="labelScanningFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 13</value>
-  </data>
-  <data name="labelScanningFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="labelScanningFolder.Text" xml:space="preserve">
-    <value>Scanning nothing</value>
-  </data>
-  <data name="&gt;&gt;labelScanningFolder.Name" xml:space="preserve">
-    <value>labelScanningFolder</value>
-  </data>
-  <data name="&gt;&gt;labelScanningFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelScanningFolder.Parent" xml:space="preserve">
-    <value>groupResults</value>
-  </data>
-  <data name="&gt;&gt;labelScanningFolder.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <metadata name="folderBrowserDialogSelect.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

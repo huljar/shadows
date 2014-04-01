@@ -117,55 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="groupFolders.Text" xml:space="preserve">
-    <value>Ordner wählen</value>
-  </data>
-  <data name="groupSettings.Text" xml:space="preserve">
-    <value>Einstellungen anpassen</value>
-  </data>
-  <data name="buttonMinimize.Text" xml:space="preserve">
-    <value>Minimieren</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="labelStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 13</value>
-  </data>
-  <data name="labelStatus.Text" xml:space="preserve">
-    <value>Status: Bereit</value>
-  </data>
-  <data name="labelProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 13</value>
-  </data>
-  <data name="labelProgress.Text" xml:space="preserve">
-    <value>0% fertiggestellt</value>
-  </data>
-  <data name="labelFilesScanned.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 13</value>
-  </data>
-  <data name="labelFilesScanned.Text" xml:space="preserve">
-    <value>Datei 0 von 0</value>
-  </data>
-  <data name="labelCurrentFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 13</value>
-  </data>
-  <data name="labelCurrentFolder.Text" xml:space="preserve">
-    <value>Scanne noch nichts</value>
-  </data>
-  <data name="groupResults.Text" xml:space="preserve">
-    <value>Ergebnisse</value>
-  </data>
-  <data name="contextMenuFolderTree.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 54</value>
-  </data>
-  <data name="buttonAddFolder.ToolTip" xml:space="preserve">
-    <value>Im Verzeichnisbaum gewählten Ordner der Suche hinzufügen.</value>
-  </data>
-  <data name="buttonRemoveFolder.ToolTip" xml:space="preserve">
-    <value>In der Liste gewählten Ordner von der Suche entfernen.</value>
-  </data>
-  <data name="contextMenuAddedFolders.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 70</value>
-  </data>
   <data name="contextItemShowHiddenFolders.Size" type="System.Drawing.Size, System.Drawing">
     <value>233, 22</value>
   </data>
@@ -180,6 +132,27 @@
   </data>
   <data name="contextItemRefreshTree.Text" xml:space="preserve">
     <value>Verzeichnisbaum &amp;aktualisieren</value>
+  </data>
+  <data name="contextMenuFolderTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 54</value>
+  </data>
+  <data name="contextMenuFolderTree.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="expTreeFolders.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitFolderSelection.Panel1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonAddFolder.ToolTip" xml:space="preserve">
+    <value>Im Verzeichnisbaum gewählten Ordner der Suche hinzufügen.</value>
+  </data>
+  <data name="buttonRemoveFolder.ToolTip" xml:space="preserve">
+    <value>In der Liste gewählten Ordner von der Suche entfernen.</value>
+  </data>
+  <data name="splitFoldersAdded.Panel1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="contextItemSelectAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 22</value>
@@ -199,8 +172,35 @@
   <data name="contextItemInvertSelection.Text" xml:space="preserve">
     <value>Auswahl &amp;umkehren</value>
   </data>
-  <data name="tabPageComparisonCriteria.Text" xml:space="preserve">
-    <value>Vergleichskriterien</value>
+  <data name="contextMenuAddedFolders.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 70</value>
+  </data>
+  <data name="contextMenuAddedFolders.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="listboxFoldersAdded.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitFoldersAdded.Panel2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitFoldersAdded.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitFolderSelection.Panel2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitFolderSelection.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupFolders.Text" xml:space="preserve">
+    <value>Ordner wählen</value>
+  </data>
+  <data name="groupFolders.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitTop.Panel1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="checkboxCompareFileName.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 17</value>
@@ -208,11 +208,17 @@
   <data name="checkboxCompareFileName.Text" xml:space="preserve">
     <value>Dateiname</value>
   </data>
+  <data name="checkboxCompareFileName.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="checkboxCaseSensitive.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 17</value>
   </data>
   <data name="checkboxCaseSensitive.Text" xml:space="preserve">
     <value>Groß- und Kleinschreibung beachten</value>
+  </data>
+  <data name="checkboxCaseSensitive.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="checkboxFileExtension.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 17</value>
@@ -220,11 +226,17 @@
   <data name="checkboxFileExtension.Text" xml:space="preserve">
     <value>Dateiendung</value>
   </data>
+  <data name="checkboxFileExtension.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="checkboxCompareFileSize.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 17</value>
   </data>
   <data name="checkboxCompareFileSize.Text" xml:space="preserve">
     <value>Dateigröße</value>
+  </data>
+  <data name="checkboxCompareFileSize.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="checkboxCompareFileContents.Size" type="System.Drawing.Size, System.Drawing">
     <value>260, 17</value>
@@ -232,8 +244,14 @@
   <data name="checkboxCompareFileContents.Text" xml:space="preserve">
     <value>Gesamter Dateiinhalt (kann Suche verlangsamen)</value>
   </data>
-  <data name="tabPageFileTypes.Text" xml:space="preserve">
-    <value>Dateitypen</value>
+  <data name="checkboxCompareFileContents.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabPageComparisonCriteria.Text" xml:space="preserve">
+    <value>Vergleichskriterien</value>
+  </data>
+  <data name="tabPageComparisonCriteria.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="radiobuttonAllTypes.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 17</value>
@@ -268,8 +286,17 @@
   <data name="checkboxImages.Text" xml:space="preserve">
     <value>Bilder</value>
   </data>
+  <data name="checkboxImages.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="checkboxMusic.Text" xml:space="preserve">
     <value>Musik</value>
+  </data>
+  <data name="checkboxMusic.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="checkboxVideos.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="checkboxCustomTypes.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 17</value>
@@ -280,8 +307,14 @@
   <data name="checkboxCustomTypes.ToolTip" xml:space="preserve">
     <value>Anhaken, um eigene Dateiendungen zu definieren. Geben Sie diese durch Kommas getrennt ein, z.B. "doc, pdf, mp3".</value>
   </data>
-  <data name="tabPageAdvancedSettings.Text" xml:space="preserve">
-    <value>Erweitert</value>
+  <data name="textboxCustomTypes.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabPageFileTypes.Text" xml:space="preserve">
+    <value>Dateitypen</value>
+  </data>
+  <data name="tabPageFileTypes.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="checkboxHiddenFiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>233, 17</value>
@@ -289,17 +322,107 @@
   <data name="checkboxHiddenFiles.Text" xml:space="preserve">
     <value>Versteckte Dateien und Ordner einbeziehen</value>
   </data>
+  <data name="checkboxHiddenFiles.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="checkboxSystemFiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>239, 17</value>
   </data>
   <data name="checkboxSystemFiles.Text" xml:space="preserve">
     <value>Systemdateien einbeziehen (nicht empfohlen)</value>
   </data>
+  <data name="checkboxSystemFiles.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="checkboxMatchRegex.Size" type="System.Drawing.Size, System.Drawing">
     <value>276, 17</value>
   </data>
   <data name="checkboxMatchRegex.Text" xml:space="preserve">
     <value>Dateipfade müssen regulärem Ausdruck entsprechen</value>
+  </data>
+  <data name="checkboxMatchRegex.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="textboxMatchRegex.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabPageAdvancedSettings.Text" xml:space="preserve">
+    <value>Erweitert</value>
+  </data>
+  <data name="tabPageAdvancedSettings.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tabControlSettings.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupSettings.Text" xml:space="preserve">
+    <value>Einstellungen anpassen</value>
+  </data>
+  <data name="groupSettings.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitTop.Panel2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitTop.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitAll.Panel1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonStartSearch.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonStopSearch.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonPauseSearch.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonMinimize.Text" xml:space="preserve">
+    <value>Minimieren</value>
+  </data>
+  <data name="buttonMinimize.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 13</value>
+  </data>
+  <data name="labelStatus.Text" xml:space="preserve">
+    <value>Status: Bereit</value>
+  </data>
+  <data name="labelStatus.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelProgress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 13</value>
+  </data>
+  <data name="labelProgress.Text" xml:space="preserve">
+    <value>0% fertiggestellt</value>
+  </data>
+  <data name="labelProgress.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelFilesScanned.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 13</value>
+  </data>
+  <data name="labelFilesScanned.Text" xml:space="preserve">
+    <value>Datei 0 von 0</value>
+  </data>
+  <data name="labelFilesScanned.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelCurrentFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 13</value>
+  </data>
+  <data name="labelCurrentFolder.Text" xml:space="preserve">
+    <value>Scanne noch nichts</value>
+  </data>
+  <data name="labelCurrentFolder.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitBottom.Panel1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="gridcolumnPath.HeaderText" xml:space="preserve">
     <value>Pfad</value>
@@ -313,11 +436,35 @@
   <data name="gridcolumnType.HeaderText" xml:space="preserve">
     <value>Dateityp</value>
   </data>
-  <data name="menuItemProgram.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 20</value>
+  <data name="tableViewResults.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="menuItemProgram.Text" xml:space="preserve">
-    <value>&amp;Programm</value>
+  <data name="splitTable.Panel1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitTable.Panel2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitTable.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="groupResults.Text" xml:space="preserve">
+    <value>Ergebnisse</value>
+  </data>
+  <data name="groupResults.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitBottom.Panel2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitBottom.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitAll.Panel2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="splitAll.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="menuItemOptions.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 22</value>
@@ -334,11 +481,11 @@
   <data name="menuItemExit.Text" xml:space="preserve">
     <value>&amp;Beenden</value>
   </data>
-  <data name="menuItemView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
+  <data name="menuItemProgram.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 20</value>
   </data>
-  <data name="menuItemView.Text" xml:space="preserve">
-    <value>&amp;Ansicht</value>
+  <data name="menuItemProgram.Text" xml:space="preserve">
+    <value>&amp;Programm</value>
   </data>
   <data name="menuItemAlwaysOnTop.Size" type="System.Drawing.Size, System.Drawing">
     <value>257, 22</value>
@@ -351,12 +498,6 @@
   </data>
   <data name="menuItemResetWindowSize.Text" xml:space="preserve">
     <value>Fenstergröße &amp;zurücksetzen</value>
-  </data>
-  <data name="menuItemTransparency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 22</value>
-  </data>
-  <data name="menuItemTransparency.Text" xml:space="preserve">
-    <value>&amp;Transparenz</value>
   </data>
   <data name="menuItemTransparency0.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 22</value>
@@ -391,6 +532,18 @@
   <data name="menuItemTransparency90.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 22</value>
   </data>
+  <data name="menuItemTransparency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>257, 22</value>
+  </data>
+  <data name="menuItemTransparency.Text" xml:space="preserve">
+    <value>&amp;Transparenz</value>
+  </data>
+  <data name="menuItemView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
+  <data name="menuItemView.Text" xml:space="preserve">
+    <value>&amp;Ansicht</value>
+  </data>
   <data name="menuItemActivateLogging.Size" type="System.Drawing.Size, System.Drawing">
     <value>169, 22</value>
   </data>
@@ -418,9 +571,6 @@
   <data name="menuItemEmptyFoldersTool.Text" xml:space="preserve">
     <value>&amp;Leere-Ordner-Lösch-Werkzeug</value>
   </data>
-  <data name="menuItemHelp.Text" xml:space="preserve">
-    <value>&amp;Hilfe</value>
-  </data>
   <data name="menuItemGettingStarted.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 22</value>
   </data>
@@ -433,11 +583,17 @@
   <data name="menuItemAboutShadows.Text" xml:space="preserve">
     <value>&amp;Über Shadows</value>
   </data>
+  <data name="menuItemHelp.Text" xml:space="preserve">
+    <value>&amp;Hilfe</value>
+  </data>
+  <data name="mainMenu.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="statusLabelInfos.Text" xml:space="preserve">
     <value>Berechne Dateianzahl ...</value>
   </data>
-  <data name="contextMenuGroupEntry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 120</value>
+  <data name="statusBarBottom.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="contextMenuOpenWithDefaultProgram.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 22</value>
@@ -472,8 +628,11 @@
   <data name="contextMenuShowAllInFolder.Text" xml:space="preserve">
     <value>&amp;Alle Schatten in diesem Ordner zeigen</value>
   </data>
-  <data name="contextMenuGroupHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 76</value>
+  <data name="contextMenuGroupEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 120</value>
+  </data>
+  <data name="contextMenuGroupEntry.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="contextMenuExpandCollapse.Size" type="System.Drawing.Size, System.Drawing">
     <value>219, 22</value>
@@ -495,5 +654,14 @@
   </data>
   <data name="contextMenuShowInExplorerHeader.Text" xml:space="preserve">
     <value>In Explorer &amp;zeigen</value>
+  </data>
+  <data name="contextMenuGroupHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 76</value>
+  </data>
+  <data name="contextMenuGroupHeader.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
   </data>
 </root>

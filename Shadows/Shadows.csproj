@@ -98,6 +98,9 @@
     <EmbeddedResource Include="AboutShadows.resx">
       <DependentUpon>AboutShadows.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmptyFolders.de.resx">
+      <DependentUpon>EmptyFolders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmptyFolders.resx">
       <DependentUpon>EmptyFolders.cs</DependentUpon>
     </EmbeddedResource>

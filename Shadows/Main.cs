@@ -1137,7 +1137,7 @@ namespace Shadows {
                             files.Add(entry.FileAssociated.File);
                         }
                         try {
-                            Util.OpenExplorerAndSelect(files);
+                            ShowSelectedInExplorer.FilesOrFolders(files);
                         }
                         catch(System.Runtime.InteropServices.COMException ex) {
                             MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1157,7 +1157,7 @@ namespace Shadows {
                         files.Add(entry.FileAssociated.File);
                     }
                     try {
-                        Util.OpenExplorerAndSelect(files);
+                        ShowSelectedInExplorer.FilesOrFolders(files);
                     }
                     catch(System.Runtime.InteropServices.COMException ex) {
                         MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1200,7 +1200,7 @@ namespace Shadows {
                         }
                     }
                     try {
-                        Util.OpenExplorerAndSelect(files);
+                        ShowSelectedInExplorer.FilesOrFolders(files);
                     }
                     catch(System.Runtime.InteropServices.COMException ex) {
                         MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
