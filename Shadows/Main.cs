@@ -28,13 +28,20 @@ namespace Shadows {
             Type = 5
         }
 
+        /// <summary>
+        /// Holds the current instance of BackgroundSearchManager. This is null if no search has been started yet.
+        /// </summary>
         private BackgroundSearchManager backgroundSearcher;
+        /// <summary>
+        /// Holds the current list of FileSystemWatcher instances. When a search starts, 3 FileSystemWatchers are created for each
+        /// directory in the folder list: one for files, one for subdirectories, and one that watches the directory itself.
+        /// </summary>
         private IList<FileSystemWatcher> fileSystemWatchers = new List<FileSystemWatcher>();
 
         public Main() {
             InitializeComponent();
 
-            // set up log4net
+            // Set up log4net
             LogHelper.SetUpLogger(Settings.Default.LogLevel, Settings.Default.LogActive);
         }
 
@@ -60,6 +67,9 @@ namespace Shadows {
             splitTable.SplitterDistance = 367; // TODO: remove when implementing new features
         }
 
+        /// <summary>
+        /// Retrieves saved user settings and applies them to the form controls.
+        /// </summary>
         private void ApplySavedSettings() {
             // Logging
             menuItemActivateLogging.Checked = Settings.Default.LogActive;
@@ -245,6 +255,11 @@ namespace Shadows {
             }
         }
 
+        private void onMenuItemExtrasDropDownOpening(object sender, EventArgs e) {
+            // Empty Folders Deletion Tool is only available if no search is currently active
+            menuItemEmptyFoldersTool.Enabled = backgroundSearcher == null || backgroundSearcher.Completed;
+        }
+
         private void onMenuItemEmptyFoldersToolClick(object sender, EventArgs e) {
             EmptyFolders emptyFolders = new EmptyFolders();
             emptyFolders.ShowDialog();
@@ -266,6 +281,13 @@ namespace Shadows {
             AddFolderWithChecks(new FolderItem(expTreeFolders.SelectedItem), listboxFoldersAdded);
         }
 
+        /// <summary>
+        /// Checks if a folder is allowed to be added to the search. If yes, the folder is added to the list. Shows error messages to the user if it is
+        /// not a valid folder.
+        /// </summary>
+        /// <param name="folder">The FolderItem to be added</param>
+        /// <param name="target">The FolderListView the FolderItem is supposed to be added to</param>
+        /// <returns>true, if the folder was added successfully, otherwise false</returns>
         private bool AddFolderWithChecks(FolderItem folder, FolderListView target) {
             // Check that the folder is not virtual
             if(!folder.CheckRealFolder()) {
@@ -341,6 +363,7 @@ namespace Shadows {
         }
 
         private void onListboxFoldersAddedDragEnter(object sender, DragEventArgs e) {
+            // Allow drag & drop if only directories are being dragged (from Windows Explorer)
             if(Util.CheckDragDropOnlyDirectories(e.Data)) {
                 e.Effect = DragDropEffects.Link;
                 listboxFoldersAdded.BackColor = SystemColors.GradientActiveCaption;
@@ -512,6 +535,7 @@ namespace Shadows {
                 backgroundSearcher.Resume();
             }
             else {
+                // Start new search
                 if(PerformSearchStartChecks(listboxFoldersAdded.GetList<FolderItem>(), true)) {
                     SetSearchControlStates(Util.SearchState.Start);
                     StartSearch();
@@ -529,6 +553,9 @@ namespace Shadows {
             backgroundSearcher.Pause();
         }
 
+        /// <summary>
+        /// Performs all necessary operations to start a new search.
+        /// </summary>
         private void StartSearch() {
             tableViewResults.Reset();
             InitializeSearchEngine();
@@ -537,6 +564,12 @@ namespace Shadows {
             backgroundSearcher.Run();
         }
 
+        /// <summary>
+        /// Checks if the settings are valid to start a new search.
+        /// </summary>
+        /// <param name="folders">The list of folders added to the search</param>
+        /// <param name="displayErrors">true to show errors to the user, otherwise false</param>
+        /// <returns>true if all checks have passed, otherwise false</returns>
         private bool PerformSearchStartChecks(IList<FolderItem> folders, bool displayErrors) {
             // Check if a folder was specified
             if(folders.Count == 0) {
@@ -587,7 +620,11 @@ namespace Shadows {
             // End of checks
             return true;
         }
-
+        
+        /// <summary>
+        /// Changes the enabled state of form controls to match the current state of the search.
+        /// </summary>
+        /// <param name="state">the current search state</param>
         private void SetSearchControlStates(Util.SearchState state) {
             if(state == Util.SearchState.Start) {
                 buttonStartSearch.Enabled = false;
@@ -602,6 +639,7 @@ namespace Shadows {
                 labelCurrentFolder.Text = Strings.SearchNotScanningYet;
                 statusLabelInfos.Text = Strings.SearchCountingFiles;
                 progressBarSearchProgress.Value = 0;
+                progressBarSearchProgress.Style = ProgressBarStyle.Marquee;
 
                 progressBarSearchProgress.Visible = true;
                 statusLabelInfos.Visible = true;
@@ -614,6 +652,7 @@ namespace Shadows {
                 ChangeControlStatesFoldersAndSettings(true);
 
                 labelStatus.Text = Strings.SearchStatusAborted;
+                progressBarSearchProgress.Style = ProgressBarStyle.Continuous;
 
                 progressBarSearchProgress.Visible = false;
                 statusLabelInfos.Visible = false;
@@ -651,6 +690,10 @@ namespace Shadows {
             }
         }
 
+        /// <summary>
+        /// Enables or disables the form controls of the Folders section and the Settings section properly.
+        /// </summary>
+        /// <param name="enable">true to enable components, false to disable</param>
         private void ChangeControlStatesFoldersAndSettings(bool enable) {
             foreach(Control element in groupFolders.Controls) {
                 Util.ChangeControlStateRecursive(element, enable);
@@ -684,6 +727,9 @@ namespace Shadows {
             }
         }
 
+        /// <summary>
+        /// Creates a new BackgroundSearchManager and passes it all necessary user settings.
+        /// </summary>
         private void InitializeSearchEngine() {
             backgroundSearcher = new BackgroundSearchManager(this);
 
@@ -735,6 +781,9 @@ namespace Shadows {
             if(checkboxMatchRegex.Checked) backgroundSearcher.FileNameRegex = new System.Text.RegularExpressions.Regex(textboxMatchRegex.Text);
         }
 
+        /// <summary>
+        /// Disposes any active FileSystemWatchers and creates new FileSystemWatchers according to the folders that were added to the search.
+        /// </summary>
         private void InitializeFileSystemWatchers() {
             foreach(FileSystemWatcher watcher in fileSystemWatchers) {
                 watcher.Dispose();
@@ -768,10 +817,9 @@ namespace Shadows {
         }
 
         private void onFileWatcherChanged(object sender, FileSystemEventArgs e) {
-            // Update groups and table when a file gets deleted
+            // Update groups and table when a file has been deleted
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
                 // Handle file deletion
-                // TODO: add pre-filtering using search criteria
                 lock(_resultsLocker) {
                     ResultsTableViewEntry entry = SearchEntryByFileName(e.FullPath);
                     if(entry != null) {
@@ -782,6 +830,7 @@ namespace Shadows {
         }
 
         private void onFileWatcherRenamed(object sender, RenamedEventArgs e) {
+            // Update entry and header when a file has been renamed
             lock(_resultsLocker) {
                 ResultsTableViewEntry entry = SearchEntryByFileName(e.OldFullPath);
                 if(entry != null) {
@@ -793,6 +842,7 @@ namespace Shadows {
         }
 
         void onDirWatcherChanged(object sender, FileSystemEventArgs e) {
+            // Update groups and table for all affected files when a directory has been deleted
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
                 lock(_resultsLocker) {
                     IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.FullPath, true);
@@ -804,6 +854,7 @@ namespace Shadows {
         }
 
         void onDirWatcherRenamed(object sender, RenamedEventArgs e) {
+            // Update entries for all affected files when a directory has been renamed
             lock(_resultsLocker) {
                 IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.OldFullPath, true);
                 foreach(ResultsTableViewEntry entry in entries) {
@@ -814,6 +865,11 @@ namespace Shadows {
             }
         }
 
+        /// <summary>
+        /// Searches the Results Table for an entry that has a specific file associated.
+        /// </summary>
+        /// <param name="fullName">the full name of the file</param>
+        /// <returns>the corresponding entry or null, if no entry has the specified file associated</returns>
         private ResultsTableViewEntry SearchEntryByFileName(string fullName) {
             foreach(ResultsGroup group in tableViewResults.GetGroups()) {
                 foreach(ResultsTableViewEntry entry in group.Entries) {
@@ -825,6 +881,12 @@ namespace Shadows {
             return null;
         }
 
+        /// <summary>
+        /// Searches the Results Table for entries that have files associated that are within the specified directory.
+        /// </summary>
+        /// <param name="fullName">the full name of the directory</param>
+        /// <param name="includeSubdirectories">specifies whether to search subdirectories, too</param>
+        /// <returns>a list of entries that were found (empty list if none were found)</returns>
         private IList<ResultsTableViewEntry> SearchEntriesByDirectoryName(string fullName, bool includeSubdirectories) {
             string startString = fullName + "\\";
             IList<ResultsTableViewEntry> ret = new List<ResultsTableViewEntry>();
@@ -846,13 +908,14 @@ namespace Shadows {
         }
 
         private void RemoveGroupEntry(ResultsTableViewEntry entry) {
+            // Remove the entry from the table if the group is expanded
             if(entry.ContainerGroup.Expanded) {
                 if(tableViewResults.InvokeRequired) {
                     tableViewResults.Invoke((MethodInvoker)delegate {
                         try {
                             tableViewResults.Rows.Remove(entry);
                         }
-                        catch(ArgumentException) { } // TODO: find out why this happens (file watcher event gets triggered more than once sometimes)
+                        catch(ArgumentException) { }
                     });
                 }
                 else {
@@ -862,7 +925,9 @@ namespace Shadows {
                     catch(ArgumentException) { }
                 }
             }
+            // Remove the entry from the ResultsGroup
             entry.ContainerGroup.Entries.Remove(entry);
+            // If the group is empty or has one entry and is allowed to be removed, remove it. Otherwise just update the group header.
             if(entry.ContainerGroup.Entries.Count < 1 || entry.ContainerGroup.Entries.Count < 2 && Settings.Default.RemoveGroupsWithOneEntry) {
                 if(tableViewResults.InvokeRequired) {
                     tableViewResults.Invoke((MethodInvoker)delegate {
@@ -906,6 +971,7 @@ namespace Shadows {
             ShowInTaskbar = false;
             MinimizedToSystemTray = true;
 
+            // If minimize is pressed for the first time, show an info balloon
             if(showMinimizedInfo) {
                 nofityIconMinimized.ShowBalloonTip(6000, Strings.WorkingInBackgroundBalloonTitle, Strings.WorkingInBackgroundBalloonText, ToolTipIcon.Info);
                 showMinimizedInfo = false;
@@ -913,6 +979,16 @@ namespace Shadows {
         }
 
         private void onNofityIconMinimizedClick(object sender, EventArgs e) {
+            ResurrectWindow();
+        }
+
+        private void onNotifyIconMinimizedBalloonTipClicked(object sender, EventArgs e) {
+            if(backgroundSearcher != null && backgroundSearcher.Completed) {
+                ResurrectWindow();
+            }
+        }
+
+        private void ResurrectWindow() {
             nofityIconMinimized.Visible = false;
             ShowInTaskbar = true;
             Show();
@@ -920,8 +996,9 @@ namespace Shadows {
         }
         #endregion
 
-        #region result table events
+        #region results table events
         private void onTableViewResultsCellMouseDown(object sender, DataGridViewCellMouseEventArgs e) {
+            // Select row on right-click before context menu is shown
             if(e.Button == System.Windows.Forms.MouseButtons.Right && e.RowIndex != -1 && !tableViewResults.Rows[e.RowIndex].Selected) {
                 tableViewResults.ClearSelection();
                 tableViewResults.Rows[e.RowIndex].Selected = true;
@@ -929,6 +1006,7 @@ namespace Shadows {
         }
 
         private void onTableViewResultsCellClick(object sender, DataGridViewCellEventArgs e) {
+            // Expand/Collapse group if the icon is clicked
             if(e.RowIndex != -1 && e.ColumnIndex == 0 && tableViewResults.Rows[e.RowIndex] is ResultsTableViewHeader) {
                 ResultsTableViewHeader header = tableViewResults.Rows[e.RowIndex] as ResultsTableViewHeader;
                 ToggleExpandState(header.ContainerGroup);
@@ -936,6 +1014,7 @@ namespace Shadows {
         }
 
         private void onTableViewResultsCellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+            // Expand/Collapse if a header is double-clicked (but not the icon). Open the associated file if an entry is double-clicked.
             if(e.RowIndex != -1 && e.ColumnIndex > 0) {
                 if(tableViewResults.Rows[e.RowIndex] is ResultsTableViewHeader) {
                     ResultsTableViewHeader header = tableViewResults.Rows[e.RowIndex] as ResultsTableViewHeader;
@@ -948,6 +1027,10 @@ namespace Shadows {
             }
         }
 
+        /// <summary>
+        /// Opens a file in a new process. Displays an error message if an error occurred.
+        /// </summary>
+        /// <param name="fullName">the full name of the file</param>
         private void OpenFileDefaultProgram(string fullName) {
             try {
                 System.Diagnostics.Process.Start(fullName);
@@ -957,6 +1040,10 @@ namespace Shadows {
             }
         }
 
+        /// <summary>
+        /// Toggles a group's expanded/collapsed state.
+        /// </summary>
+        /// <param name="group">the group to be expanded/collapsed</param>
         private void ToggleExpandState(ResultsGroup group) {
             lock(_resultsLocker) {
                 if(group.Expanded) {
@@ -972,6 +1059,7 @@ namespace Shadows {
 
         private void onTableViewResultsKeyDown(object sender, KeyEventArgs e) {
             if(e.KeyCode == Keys.Enter) {
+                // If Enter was pressed and an entry is selected, open its associated file. If only headers are selected, toggle expand/collapse.
                 if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
                     ResultsTableViewEntry entry = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
                     OpenFileDefaultProgram(entry.FileAssociated.File.FullName);
@@ -981,14 +1069,16 @@ namespace Shadows {
                         ToggleExpandState(header.ContainerGroup);
                     }
                 }
-                e.Handled = true;
+                e.Handled = true; // Necessary so the cursor does not move to the next row.
             }
             else if(e.KeyCode == Keys.Delete) {
+                // If Delete was pressed and only entries are selected, delete their associated files.
                 if(OnlyEntriesSelected()) {
                     DeleteAssociatedFiles(tableViewResults.SelectedRows);
                 }
             }
             else if(e.KeyCode == Keys.F2) {
+                // If F2 was pressed and an entry is selected, open a renaming box to rename the associated file.
                 if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
                     BeginRenaming(tableViewResults.SelectedRows[0]);
                 }
@@ -1001,6 +1091,7 @@ namespace Shadows {
         }
 
         private void onTableViewResultsCellEndEdit(object sender, DataGridViewCellEventArgs e) {
+            // Try to rename the associated file and update the entry accordingly.
             ResultsTableViewEntry row = tableViewResults.Rows[e.RowIndex] as ResultsTableViewEntry;
             if(row != null) {
                 FileInfo file = row.FileAssociated.File;
@@ -1021,6 +1112,12 @@ namespace Shadows {
             }
         }
 
+        /// <summary>
+        /// Tries to rename a file and displays an error message if an error occurred.
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="newName"></param>
+        /// <returns></returns>
         private bool RenameFile(FileInfo file, string newName) {
             try {
                 file.MoveTo(file.DirectoryName + "\\" + newName);
@@ -1033,6 +1130,7 @@ namespace Shadows {
         }
 
         private void onContextMenuGroupEntryOpening(object sender, CancelEventArgs e) {
+            // Set enabled states of context menu entries based on selected rows
             bool onlyEntriesSelected = OnlyEntriesSelected();
             contextMenuOpenWithDefaultProgram.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuRenameFile.Enabled = tableViewResults.SelectedRows.Count == 1;
@@ -1042,12 +1140,17 @@ namespace Shadows {
         }
 
         private void onContextMenuGroupHeaderOpening(object sender, CancelEventArgs e) {
+            // Set enabled states of context menu entries based on selected rows
             bool onlyHeadersSelected = OnlyHeadersSelected();
             contextMenuExpandCollapse.Enabled = onlyHeadersSelected;
             contextMenuHide.Enabled = onlyHeadersSelected;
             contextMenuShowInExplorerHeader.Enabled = onlyHeadersSelected;
         }
 
+        /// <summary>
+        /// Checks if only headers are selected in the Results Table.
+        /// </summary>
+        /// <returns>true if only headers are selected, otherwise false</returns>
         private bool OnlyHeadersSelected() {
             foreach(ResultsTableViewRow row in tableViewResults.SelectedRows) {
                 if(!(row is ResultsTableViewHeader)) {
@@ -1057,6 +1160,10 @@ namespace Shadows {
             return true;
         }
 
+        /// <summary>
+        /// Checks if only entries are selected in the Results Table.
+        /// </summary>
+        /// <returns>true if only entries are selected, otherwise false</returns>
         private bool OnlyEntriesSelected() {
             foreach(ResultsTableViewRow row in tableViewResults.SelectedRows) {
                 if(!(row is ResultsTableViewEntry)) {
@@ -1087,6 +1194,11 @@ namespace Shadows {
             }
         }
 
+        /// <summary>
+        /// Starts deleting the associated files for several entries.
+        /// </summary>
+        /// <param name="entries">the affected entries</param>
+        /// <param name="confirm">true to ask the user for confirmation first, otherwise false</param>
         private void DeleteAssociatedFiles(System.Collections.IEnumerable entries, bool confirm = true) {
             if(!confirm || MessageBox.Show(Strings.ConfirmFileDeletionText, Strings.ConfirmFileDeletionCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 foreach(ResultsTableViewEntry entry in entries) {
@@ -1098,6 +1210,11 @@ namespace Shadows {
             }
         }
 
+        /// <summary>
+        /// Deletes a file by moving it to the recycle bin.
+        /// </summary>
+        /// <param name="fullFileName">the full name of the file</param>
+        /// <returns>enum specifying the result of the deletion (success, canceled, aborted)</returns>
         private Util.DeletionResult DeleteFile(string fullFileName) {
             bool retryCurrent;
 
@@ -1148,6 +1265,7 @@ namespace Shadows {
         }
 
         private void onContextMenuShowAllInFolderClick(object sender, EventArgs e) {
+            // Open Windows Explorer and select all files in the folder that were found in the search
             if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
                 lock(_resultsLocker) {
                     ResultsTableViewEntry selected = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
@@ -1225,6 +1343,10 @@ namespace Shadows {
         }
         #endregion
 
+        /// <summary>
+        /// Adds a new group of duplicate files to the Results Table in a thread-safe manner.
+        /// </summary>
+        /// <param name="shadowSet">the IList of duplicate files</param>
         internal void AddShadowThreadSafe(IList<FileInfoWrapper> shadowSet) {
             tableViewResults.BeginInvoke((MethodInvoker)delegate {
                 lock(_resultsLocker) {
@@ -1235,6 +1357,13 @@ namespace Shadows {
             });
         }
 
+        /// <summary>
+        /// Builds the group header based on the contents of the group and the search settings.
+        /// </summary>
+        /// <param name="shadowSet">the files in the group</param>
+        /// <param name="table">the table where the header will be displayed</param>
+        /// <param name="expanded">true if the group will be expanded, false otherwise</param>
+        /// <returns>the header created</returns>
         private ResultsTableViewHeader CreateGroupHeader(IList<FileInfoWrapper> shadowSet, DataGridView table, bool expanded) {
             ResultsTableViewHeader ret = new ResultsTableViewHeader();
 
@@ -1262,6 +1391,11 @@ namespace Shadows {
             return ret;
         }
 
+        /// <summary>
+        /// Builds the name of the group header based on the contents of the group and the search settings.
+        /// </summary>
+        /// <param name="shadowSet">the files in the group</param>
+        /// <returns>the header name</returns>
         private string BuildHeaderName(IList<FileInfoWrapper> shadowSet) {
             string ret;
             if(backgroundSearcher.CompareFileName) {
@@ -1285,6 +1419,12 @@ namespace Shadows {
             return ret;
         }
 
+        /// <summary>
+        /// Creates group entries for each file of a group.
+        /// </summary>
+        /// <param name="shadowSet">the files in the group</param>
+        /// <param name="table">the table where the entries will be displayed</param>
+        /// <returns>IList containing the created entries</returns>
         private IList<ResultsTableViewEntry> CreateGroupEntries(IList<FileInfoWrapper> shadowSet, DataGridView table) {
             IList<ResultsTableViewEntry> ret = new List<ResultsTableViewEntry>(shadowSet.Count);
             foreach(FileInfoWrapper file in shadowSet) {
@@ -1293,6 +1433,12 @@ namespace Shadows {
             return ret;
         }
 
+        /// <summary>
+        /// Creates a single group entry.
+        /// </summary>
+        /// <param name="file">the file for which the group entry shall be created</param>
+        /// <param name="table">the table where the entry will be displayed</param>
+        /// <returns>the constructed entry</returns>
         private ResultsTableViewEntry CreateGroupEntry(FileInfoWrapper file, DataGridView table) {
             ResultsTableViewEntry ret = new ResultsTableViewEntry(file);
 
@@ -1308,6 +1454,11 @@ namespace Shadows {
             return ret;
         }
 
+        /// <summary>
+        /// Sets the text of a label in a thread-safe manner.
+        /// </summary>
+        /// <param name="label">the label to be altered</param>
+        /// <param name="newText">the new label text</param>
         internal void SetLabelTextThreadSafe(Label label, string newText) {
             label.BeginInvoke((MethodInvoker)delegate {
                 lock(_labelLocker) {
@@ -1316,6 +1467,11 @@ namespace Shadows {
             });
         }
 
+        /// <summary>
+        /// Sets the text of a status label in a thread-safe manner.
+        /// </summary>
+        /// <param name="label">the status label to be altered</param>
+        /// <param name="newText">the new label text</param>
         internal void SetLabelTextThreadSafe(ToolStripStatusLabel label, string newText) {
             label.Owner.BeginInvoke((MethodInvoker)delegate {
                 lock(_labelLocker) {

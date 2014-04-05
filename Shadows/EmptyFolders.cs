@@ -14,6 +14,7 @@ namespace Shadows {
     public partial class EmptyFolders : Form {
 
         private string _SearchPath;
+        private bool _RemoveFoldersThatContainHiddenFiles;
         private readonly object _labelLocker = new object();
 
         private int foldersScanned;
@@ -43,6 +44,10 @@ namespace Shadows {
                 textboxFolder.Text = folderBrowserDialogSelect.SelectedPath;
                 _SearchPath = folderBrowserDialogSelect.SelectedPath;
             }
+        }
+
+        private void onCheckboxRemoveIfOnlyHiddenFilesCheckedChanged(object sender, EventArgs e) {
+            _RemoveFoldersThatContainHiddenFiles = checkboxRemoveIfOnlyHiddenFiles.Checked;
         }
 
         private void onButtonStartClick(object sender, EventArgs e) {
@@ -85,11 +90,43 @@ namespace Shadows {
             ++foldersScanned;
             SetLabelTextThreadSafe(labelScanningFolder, String.Format(Strings.EmptyFoldersScanningFolder, rootDir.FullName));
 
-            if(rootDir.GetFileSystemInfos().Length == 0) {
-                rootDir.Delete();
+            FileSystemInfo[] contents;
+            try {
+                contents = rootDir.GetFileSystemInfos();
+            }
+            catch(Exception e) {
+                SetLabelTextThreadSafe(labelMostRecentDeletion, String.Format(Strings.EmptyFoldersSearchError, rootDir.FullName, e.Message));
+                return true;
+            }
 
-                ++foldersDeleted;
-                SetLabelTextThreadSafe(labelMostRecentDeletion, String.Format(Strings.EmptyFoldersDeletedFolder, rootDir.FullName));
+            try {
+                if(contents.Length == 0) {
+                    Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(rootDir.FullName, Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs, Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+
+                    ++foldersDeleted;
+                    SetLabelTextThreadSafe(labelMostRecentDeletion, String.Format(Strings.EmptyFoldersDeletedFolder, rootDir.FullName));
+                }
+                else if(RemoveFoldersThatContainHiddenFiles) {
+                    int hiddenCount = 0;
+                    foreach(FileSystemInfo fileOrDirectory in contents) {
+                        if((fileOrDirectory.Attributes & FileAttributes.Directory) == FileAttributes.Directory) {
+                            return true;
+                        }
+                        if((fileOrDirectory.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden) {
+                            ++hiddenCount;
+                        }
+                    }
+
+                    if(contents.Length == hiddenCount) {
+                        Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(rootDir.FullName, Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs, Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+
+                        ++foldersDeleted;
+                        SetLabelTextThreadSafe(labelMostRecentDeletion, String.Format(Strings.EmptyFoldersDeletedFolder, rootDir.FullName));
+                    }
+                }
+            }
+            catch(IOException ioe) {
+                SetLabelTextThreadSafe(labelMostRecentDeletion, String.Format(Strings.EmptyFoldersDeletionError, rootDir.FullName, ioe.Message));
             }
             return true;
         }
@@ -120,6 +157,10 @@ namespace Shadows {
 
         public string SearchPath {
             get { return _SearchPath; }
+        }
+
+        public bool RemoveFoldersThatContainHiddenFiles {
+            get { return _RemoveFoldersThatContainHiddenFiles; }
         }
     }
 }

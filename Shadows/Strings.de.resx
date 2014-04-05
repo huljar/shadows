@@ -331,4 +331,10 @@ Möchten Sie den neuen Ordner hinzufügen?</value>
   <data name="WorkingInBackgroundBalloonTitle" xml:space="preserve">
     <value>Shadows arbeitet im Hintergrund</value>
   </data>
+  <data name="EmptyFoldersDeletionError" xml:space="preserve">
+    <value>Fehler beim Löschen von "{0}" - {1}</value>
+  </data>
+  <data name="EmptyFoldersSearchError" xml:space="preserve">
+    <value>Überspringe "{0}" - {1}</value>
+  </data>
 </root>

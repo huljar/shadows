@@ -41,7 +41,8 @@ namespace ShadowsLib {
         public IList<FolderItem> GetAddedSubfolders(FolderItem folder) {
             IList<FolderItem> ret = new List<FolderItem>();
             foreach(FolderItem item in Items) {
-                if(((System.IO.DirectoryInfo)item).Parent.FullName.StartsWith(folder.Node.Path)) {
+                System.IO.DirectoryInfo parent = ((System.IO.DirectoryInfo)item).Parent;
+                if(parent != null && parent.FullName.StartsWith(folder.Node.Path)) {
                     ret.Add(item);
                 }
             }

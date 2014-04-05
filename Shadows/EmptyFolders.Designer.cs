@@ -26,6 +26,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmptyFolders));
             this.splitAll = new System.Windows.Forms.SplitContainer();
             this.groupBoxFolder = new System.Windows.Forms.GroupBox();
+            this.checkboxRemoveIfOnlyHiddenFiles = new System.Windows.Forms.CheckBox();
             this.buttonStop = new System.Windows.Forms.Button();
             this.textboxFolder = new System.Windows.Forms.TextBox();
             this.buttonSelectFolder = new System.Windows.Forms.Button();
@@ -59,6 +60,7 @@
             // 
             // groupBoxFolder
             // 
+            this.groupBoxFolder.Controls.Add(this.checkboxRemoveIfOnlyHiddenFiles);
             this.groupBoxFolder.Controls.Add(this.buttonStop);
             this.groupBoxFolder.Controls.Add(this.textboxFolder);
             this.groupBoxFolder.Controls.Add(this.buttonSelectFolder);
@@ -66,6 +68,13 @@
             resources.ApplyResources(this.groupBoxFolder, "groupBoxFolder");
             this.groupBoxFolder.Name = "groupBoxFolder";
             this.groupBoxFolder.TabStop = false;
+            // 
+            // checkboxRemoveIfOnlyHiddenFiles
+            // 
+            resources.ApplyResources(this.checkboxRemoveIfOnlyHiddenFiles, "checkboxRemoveIfOnlyHiddenFiles");
+            this.checkboxRemoveIfOnlyHiddenFiles.Name = "checkboxRemoveIfOnlyHiddenFiles";
+            this.checkboxRemoveIfOnlyHiddenFiles.UseVisualStyleBackColor = true;
+            this.checkboxRemoveIfOnlyHiddenFiles.CheckedChanged += new System.EventHandler(this.onCheckboxRemoveIfOnlyHiddenFilesCheckedChanged);
             // 
             // buttonStop
             // 
@@ -157,5 +166,6 @@
         private System.Windows.Forms.Label labelMostRecentDeletion;
         private System.ComponentModel.BackgroundWorker worker;
         private System.Windows.Forms.Button buttonStop;
+        private System.Windows.Forms.CheckBox checkboxRemoveIfOnlyHiddenFiles;
     }
 }

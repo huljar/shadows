@@ -123,6 +123,13 @@
   <data name="groupResults.Text" xml:space="preserve">
     <value>Ergebnisse</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="checkboxRemoveIfOnlyHiddenFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>311, 17</value>
+  </data>
+  <data name="checkboxRemoveIfOnlyHiddenFiles.Text" xml:space="preserve">
+    <value>Entferne auch Ordner, die nur versteckte Dateien beinhalten</value>
+  </data>
   <data name="buttonStop.Text" xml:space="preserve">
     <value>Suche stoppen</value>
   </data>
@@ -132,7 +139,6 @@
   <data name="buttonStart.Text" xml:space="preserve">
     <value>Suche nach leeren Ordnern und lösche sie!</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelMostRecentDeletion.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 13</value>
   </data>

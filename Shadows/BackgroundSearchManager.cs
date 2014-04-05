@@ -58,6 +58,9 @@ namespace Shadows {
         void onEngineComparisonStarted(object sender, ComparisonStartedEventArgs e) {
             MainForm.SetLabelTextThreadSafe(MainForm.InfoLabel, Strings.SearchScanningFiles);
             MainForm.SetLabelTextThreadSafe(MainForm.FilesScannedLabel, String.Format(Strings.SearchFileXOfY, 0, e.FilesTotal));
+            MainForm.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate {
+                MainForm.ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            });
         }
 
         void onEngineScanningNewFolder(object sender, ShadowsLib.ScanningNewFolderEventArgs e) {

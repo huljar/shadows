@@ -107,12 +107,8 @@ namespace ShadowsLib {
                 subDirs = root.GetDirectories();
                 files = root.GetFiles();
             }
-            catch(UnauthorizedAccessException uae) {
-                RaiseDirectorySkipped(new DirectorySkippedEventArgs(root, uae.Message));
-                return;
-            }
-            catch(IOException ioe) {
-                RaiseDirectorySkipped(new DirectorySkippedEventArgs(root, ioe.Message));
+            catch(Exception e) {
+                RaiseDirectorySkipped(new DirectorySkippedEventArgs(root, e.Message));
                 return;
             }
 

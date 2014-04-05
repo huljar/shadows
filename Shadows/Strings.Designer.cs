@@ -106,6 +106,15 @@ namespace Shadows {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error deleting &quot;{0}&quot; - {1} ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersDeletionError {
+            get {
+                return ResourceManager.GetString("EmptyFoldersDeletionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die No folder selected ähnelt.
         /// </summary>
         internal static string EmptyFoldersErrorNoFolderSelectedCaption {
@@ -129,6 +138,15 @@ namespace Shadows {
         internal static string EmptyFoldersScanningFolder {
             get {
                 return ResourceManager.GetString("EmptyFoldersScanningFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Skipping &quot;{0}&quot; - {1} ähnelt.
+        /// </summary>
+        internal static string EmptyFoldersSearchError {
+            get {
+                return ResourceManager.GetString("EmptyFoldersSearchError", resourceCulture);
             }
         }
         

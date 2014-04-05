@@ -331,4 +331,10 @@ Do you want to add the new directory?</value>
   <data name="WorkingInBackgroundBalloonTitle" xml:space="preserve">
     <value>Shadows is working in the background</value>
   </data>
+  <data name="EmptyFoldersDeletionError" xml:space="preserve">
+    <value>Error deleting "{0}" - {1}</value>
+  </data>
+  <data name="EmptyFoldersSearchError" xml:space="preserve">
+    <value>Skipping "{0}" - {1}</value>
+  </data>
 </root>

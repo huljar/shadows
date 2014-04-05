@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 
 namespace ShadowsLib {
-    static class ShowSelectedInExplorer {
+    public static class ShowSelectedInExplorer {
         [Flags]
         internal enum SHCONT : ushort {
             SHCONTF_CHECKING_FOR_CHILDREN = 0x0010,

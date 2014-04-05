@@ -875,6 +875,7 @@
             this.menuItemEmptyFoldersTool});
             this.menuItemExtras.Name = "menuItemExtras";
             resources.ApplyResources(this.menuItemExtras, "menuItemExtras");
+            this.menuItemExtras.DropDownOpening += new System.EventHandler(this.onMenuItemExtrasDropDownOpening);
             // 
             // menuItemEmptyFoldersTool
             // 
@@ -1016,6 +1017,7 @@
             // nofityIconMinimized
             // 
             resources.ApplyResources(this.nofityIconMinimized, "nofityIconMinimized");
+            this.nofityIconMinimized.BalloonTipClicked += new System.EventHandler(this.onNotifyIconMinimizedBalloonTipClicked);
             this.nofityIconMinimized.Click += new System.EventHandler(this.onNofityIconMinimizedClick);
             // 
             // Main
