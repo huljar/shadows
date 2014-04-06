@@ -49,12 +49,12 @@ namespace ShadowsLib {
             return ret;
         }
 
-        public IList<T> GetList<T>() {
-            IList<T> ret = new List<T>(Items.Count);
-            foreach(T item in Items) {
-                ret.Add(item);
-            }
-            return ret;
-        }
+        //public IList<T> GetList<T>() {
+        //    IList<T> ret = new List<T>(Items.Count);
+        //    foreach(T item in Items) {
+        //        ret.Add(item);
+        //    }
+        //    return ret;
+        //}
     }
 }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
+using Microsoft.WindowsAPICodePack.Taskbar;
 
 using ShadowsLib;
 using Shadows.Properties;
@@ -257,7 +259,7 @@ namespace Shadows {
 
         private void onMenuItemExtrasDropDownOpening(object sender, EventArgs e) {
             // Empty Folders Deletion Tool is only available if no search is currently active
-            menuItemEmptyFoldersTool.Enabled = backgroundSearcher == null || backgroundSearcher.Completed;
+            menuItemEmptyFoldersTool.Enabled = backgroundSearcher == null || backgroundSearcher.State == Util.SearchState.Aborted || backgroundSearcher.State == Util.SearchState.Finished;
         }
 
         private void onMenuItemEmptyFoldersToolClick(object sender, EventArgs e) {
@@ -529,28 +531,28 @@ namespace Shadows {
 
         #region search button events
         private void onButtonStartSearchClick(object sender, EventArgs e) {
-            if(backgroundSearcher != null && backgroundSearcher.Paused) {
+            if(backgroundSearcher != null && backgroundSearcher.State == Util.SearchState.Paused) {
                 // Resume paused search
-                SetSearchControlStates(Util.SearchState.Resume);
                 backgroundSearcher.Resume();
+                SetSearchControlStates(Util.StateChange.Resume);
             }
             else {
                 // Start new search
-                if(PerformSearchStartChecks(listboxFoldersAdded.GetList<FolderItem>(), true)) {
-                    SetSearchControlStates(Util.SearchState.Start);
+                if(PerformSearchStartChecks(listboxFoldersAdded.Items.Cast<FolderItem>(), true)) {
                     StartSearch();
+                    SetSearchControlStates(Util.StateChange.Start);
                 }
             }
         }
 
         private void onButtonStopSearchClick(object sender, EventArgs e) {
-            SetSearchControlStates(Util.SearchState.Stop);
             backgroundSearcher.Cancel();
+            SetSearchControlStates(Util.StateChange.Stop);
         }
 
         private void onButtonPauseSearchClick(object sender, EventArgs e) {
-            SetSearchControlStates(Util.SearchState.Pause);
             backgroundSearcher.Pause();
+            SetSearchControlStates(Util.StateChange.Pause);
         }
 
         /// <summary>
@@ -570,9 +572,9 @@ namespace Shadows {
         /// <param name="folders">The list of folders added to the search</param>
         /// <param name="displayErrors">true to show errors to the user, otherwise false</param>
         /// <returns>true if all checks have passed, otherwise false</returns>
-        private bool PerformSearchStartChecks(IList<FolderItem> folders, bool displayErrors) {
+        private bool PerformSearchStartChecks(IEnumerable<FolderItem> folders, bool displayErrors) {
             // Check if a folder was specified
-            if(folders.Count == 0) {
+            if(folders.Count() == 0) {
                 if(displayErrors) MessageBox.Show(Strings.ErrorNoFoldersAddedText, Strings.ErrorNoFoldersAddedCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -622,11 +624,11 @@ namespace Shadows {
         }
         
         /// <summary>
-        /// Changes the enabled state of form controls to match the current state of the search.
+        /// Changes the enabled state of form controls to match the search state transition.
         /// </summary>
-        /// <param name="state">the current search state</param>
-        private void SetSearchControlStates(Util.SearchState state) {
-            if(state == Util.SearchState.Start) {
+        /// <param name="stateChange">the search state transition</param>
+        private void SetSearchControlStates(Util.StateChange stateChange) {
+            if(stateChange == Util.StateChange.Start) {
                 buttonStartSearch.Enabled = false;
                 buttonPauseSearch.Enabled = true;
                 buttonStopSearch.Enabled = true;
@@ -643,8 +645,13 @@ namespace Shadows {
 
                 progressBarSearchProgress.Visible = true;
                 statusLabelInfos.Visible = true;
+
+                if(TaskbarManager.IsPlatformSupported) {
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal, Handle);
+                    TaskbarManager.Instance.SetProgressValue(0, 100, Handle);
+                }
             }
-            else if(state == Util.SearchState.Stop) {
+            else if(stateChange == Util.StateChange.Stop) {
                 buttonStartSearch.Enabled = true;
                 buttonPauseSearch.Enabled = false;
                 buttonStopSearch.Enabled = false;
@@ -656,8 +663,12 @@ namespace Shadows {
 
                 progressBarSearchProgress.Visible = false;
                 statusLabelInfos.Visible = false;
+
+                if(TaskbarManager.IsPlatformSupported) {
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress, Handle);
+                }
             }
-            else if(state == Util.SearchState.Pause) {
+            else if(stateChange == Util.StateChange.Pause) {
                 buttonStartSearch.Enabled = true;
                 buttonPauseSearch.Enabled = false;
                 buttonMinimize.Enabled = false;
@@ -665,8 +676,12 @@ namespace Shadows {
                 labelStatus.Text = Strings.SearchStatusPaused;
 
                 statusLabelInfos.Visible = false;
+
+                if(TaskbarManager.IsPlatformSupported) {
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Paused);
+                }
             }
-            else if(state == Util.SearchState.Resume) {
+            else if(stateChange == Util.StateChange.Resume) {
                 buttonStartSearch.Enabled = false;
                 buttonPauseSearch.Enabled = true;
                 buttonMinimize.Enabled = true;
@@ -675,8 +690,12 @@ namespace Shadows {
                 statusLabelInfos.Text = Strings.SearchScanningFiles;
 
                 statusLabelInfos.Visible = true;
+
+                if(TaskbarManager.IsPlatformSupported) {
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
+                }
             }
-            else if(state == Util.SearchState.Complete) {
+            else if(stateChange == Util.StateChange.Complete) {
                 buttonStartSearch.Enabled = true;
                 buttonPauseSearch.Enabled = false;
                 buttonStopSearch.Enabled = false;
@@ -687,6 +706,10 @@ namespace Shadows {
 
                 progressBarSearchProgress.Visible = false;
                 statusLabelInfos.Visible = false;
+
+                if(TaskbarManager.IsPlatformSupported) {
+                    TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.NoProgress, Handle);
+                }
             }
         }
 
@@ -983,7 +1006,7 @@ namespace Shadows {
         }
 
         private void onNotifyIconMinimizedBalloonTipClicked(object sender, EventArgs e) {
-            if(backgroundSearcher != null && backgroundSearcher.Completed) {
+            if(backgroundSearcher != null && backgroundSearcher.State == Util.SearchState.Finished) {
                 ResurrectWindow();
             }
         }
@@ -993,6 +1016,11 @@ namespace Shadows {
             ShowInTaskbar = true;
             Show();
             MinimizedToSystemTray = false;
+
+            if(backgroundSearcher.State != Util.SearchState.Finished && TaskbarManager.IsPlatformSupported) {
+                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
+                TaskbarManager.Instance.SetProgressValue(backgroundSearcher.CurrentProgress, 100, Handle);
+            }
         }
         #endregion
 
@@ -1136,7 +1164,7 @@ namespace Shadows {
             contextMenuRenameFile.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuDeleteFile.Enabled = onlyEntriesSelected;
             contextMenuShowInExplorerEntry.Enabled = onlyEntriesSelected;
-            contextMenuShowAllInFolder.Enabled = tableViewResults.SelectedRows.Count == 1 && backgroundSearcher != null && backgroundSearcher.Completed;
+            contextMenuShowAllInFolder.Enabled = tableViewResults.SelectedRows.Count == 1 && backgroundSearcher != null && (backgroundSearcher.State == Util.SearchState.Aborted || backgroundSearcher.State == Util.SearchState.Finished);
         }
 
         private void onContextMenuGroupHeaderOpening(object sender, CancelEventArgs e) {
@@ -1333,7 +1361,7 @@ namespace Shadows {
             // TODO: logging
 
             if(!result.WasCanceled) {
-                SetSearchControlStates(Util.SearchState.Complete);
+                SetSearchControlStates(Util.StateChange.Complete);
             }
             labelFilesScanned.Text = String.Format(Strings.SearchXFilesScanned, result.FilesScanned);
             labelCurrentFolder.Text = String.Format(Strings.SearchXShadowsFound, result.AllShadows.Count);

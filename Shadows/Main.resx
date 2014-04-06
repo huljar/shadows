@@ -910,7 +910,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageFileTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 135</value>
+    <value>394, 134</value>
   </data>
   <data name="tabPageFileTypes.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1048,7 +1048,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPageAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 135</value>
+    <value>394, 134</value>
   </data>
   <data name="tabPageAdvancedSettings.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>

@@ -13,6 +13,15 @@ namespace Shadows {
     static class Util {
 
         public enum SearchState {
+            Ready,
+            Counting,
+            Scanning,
+            Paused,
+            Aborted,
+            Finished
+        }
+
+        public enum StateChange {
             Start,
             Stop,
             Pause,

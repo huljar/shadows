@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
@@ -219,30 +220,13 @@ namespace ShadowsLib {
 
         public static void FilesOrFolders(IEnumerable<FileSystemInfo> paths) {
             if(paths == null) throw new ArgumentNullException("paths");
-            //if(paths.Count() == 0) return;
+            if(paths.Count() == 0) return;
 
-            //var explorerWindows = paths.GroupBy(p => Path.GetDirectoryName(p.FullName));
+            var explorerWindows = paths.GroupBy(p => Path.GetDirectoryName(p.FullName));
 
-            //foreach(var explorerWindowPaths in explorerWindows) {
-            //    var parentDirectory = Path.GetDirectoryName(explorerWindowPaths.First().FullName);
-            //    FilesOrFolders(parentDirectory, explorerWindowPaths.Select(fsi => fsi.Name).ToList());
-            //}
-
-            Dictionary<string, ICollection<FileSystemInfo>> explorerWindows = new Dictionary<string, ICollection<FileSystemInfo>>();
-            foreach(FileSystemInfo path in paths) {
-                string dirPath = Path.GetDirectoryName(path.FullName);
-                if(!explorerWindows.ContainsKey(dirPath)) {
-                    explorerWindows[dirPath] = new List<FileSystemInfo>();
-                }
-                explorerWindows[dirPath].Add(path);
-            }
-
-            foreach(string parentDir in explorerWindows.Keys) {
-                ICollection<string> fileNames = new List<string>();
-                foreach(FileSystemInfo path in explorerWindows[parentDir]) {
-                    fileNames.Add(path.Name);
-                }
-                FilesOrFolders(parentDir, fileNames);
+            foreach(var explorerWindowPaths in explorerWindows) {
+                var parentDirectory = Path.GetDirectoryName(explorerWindowPaths.First().FullName);
+                FilesOrFolders(parentDirectory, explorerWindowPaths.Select(fsi => fsi.Name).ToList());
             }
         }
     }

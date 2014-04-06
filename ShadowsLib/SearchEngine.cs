@@ -37,7 +37,7 @@ namespace ShadowsLib {
         private ManualResetEvent pauseEvent = new ManualResetEvent(true);
         private AutoResetEvent cancelEvent = new AutoResetEvent(false);
         private WaitHandle[] waitHandles;
-        private volatile bool _Paused = false;
+        private volatile bool _Paused = false; // TODO: use locks instead of volatile
         private volatile bool cancellationPending = false;
 
         public event ComparisonStartedEventHandler ComparisonStarted;

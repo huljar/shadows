@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.ComponentModel;
+using Microsoft.WindowsAPICodePack.Taskbar;
 
 using ShadowsLib;
 
@@ -25,7 +26,12 @@ namespace Shadows {
         private IList<string> _Extensions = new List<string>();
         private SearchEngine.ExtensionSearchType _ExtensionMode;
 
-        private bool _Completed = false;
+        private int _CurrentProgress = 0;
+
+        private Util.SearchState _State = Util.SearchState.Ready;
+        private bool scanHasStarted = false;
+
+        private object stateLocker = new object();
 
         public BackgroundSearchManager(Main owningForm) {
             _MainForm = owningForm;
@@ -51,11 +57,15 @@ namespace Shadows {
 
             SearchResult result = engine.Run();
 
-            _Completed = true;
             e.Result = result;
         }
 
         void onEngineComparisonStarted(object sender, ComparisonStartedEventArgs e) {
+            lock(stateLocker) {
+                scanHasStarted = true;
+                _State = Util.SearchState.Scanning;
+            }
+
             MainForm.SetLabelTextThreadSafe(MainForm.InfoLabel, Strings.SearchScanningFiles);
             MainForm.SetLabelTextThreadSafe(MainForm.FilesScannedLabel, String.Format(Strings.SearchFileXOfY, 0, e.FilesTotal));
             MainForm.BeginInvoke((System.Windows.Forms.MethodInvoker)delegate {
@@ -91,6 +101,11 @@ namespace Shadows {
             MainForm.ProgressBar.Value = e.ProgressPercentage;
             MainForm.ProgressLabel.Text = String.Format(Strings.SearchProgress, e.ProgressPercentage);
             MainForm.NotifyIcon.Text = String.Format(Strings.SearchProgress, e.ProgressPercentage);
+            _CurrentProgress = e.ProgressPercentage;
+
+            if(TaskbarManager.IsPlatformSupported) {
+                TaskbarManager.Instance.SetProgressValue(e.ProgressPercentage, 100, MainForm.Handle);
+            }
         }
 
         private void onWorkerRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e) {
@@ -99,6 +114,7 @@ namespace Shadows {
 
             SearchResult result = e.Result as SearchResult;
             if(result != null) {
+                lock(stateLocker) _State = result.WasCanceled ? Util.SearchState.Aborted : Util.SearchState.Finished;
                 MainForm.SearchPostProcessing(result);
             }
         }
@@ -114,6 +130,7 @@ namespace Shadows {
         public void Run() {
             if(engine == null) {
                 worker.RunWorkerAsync();
+                lock(stateLocker) _State = Util.SearchState.Counting;
             }
         }
 
@@ -127,12 +144,14 @@ namespace Shadows {
         public void Pause() {
             if(engine != null) {
                 engine.Paused = true;
+                lock(stateLocker) _State = Util.SearchState.Paused;
             }
         }
 
         public void Resume() {
             if(engine != null) {
                 engine.Paused = false;
+                lock(stateLocker) _State = scanHasStarted ? Util.SearchState.Scanning : Util.SearchState.Counting;
             }
         }
 
@@ -189,17 +208,12 @@ namespace Shadows {
             set { _FileNameRegex = value; }
         }
 
-        public bool Paused {
-            get {
-                if(engine != null) {
-                    return engine.Paused;
-                }
-                return false;
-            }
+        public int CurrentProgress {
+            get { return _CurrentProgress; }
         }
 
-        public bool Completed {
-            get { return _Completed; }
+        public Util.SearchState State {
+            get { lock(stateLocker) return _State; }
         }
 
         public Main MainForm {
