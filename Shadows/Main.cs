@@ -1363,8 +1363,10 @@ namespace Shadows {
             if(!result.WasCanceled) {
                 SetSearchControlStates(Util.StateChange.Complete);
             }
-            labelFilesScanned.Text = String.Format(Strings.SearchXFilesScanned, result.FilesScanned);
-            labelCurrentFolder.Text = String.Format(Strings.SearchXShadowsFound, result.AllShadows.Count);
+            lock(_labelLocker) {
+                labelFilesScanned.Text = String.Format(Strings.SearchXFilesScanned, result.FilesScanned);
+                labelCurrentFolder.Text = String.Format(Strings.SearchXShadowsFound, result.AllShadows.Count);
+            }
             if(MinimizedToSystemTray) {
                 nofityIconMinimized.ShowBalloonTip(6000, Strings.SearchCompletedBalloonTitle, String.Format(Strings.SearchCompletedBalloonText, result.AllShadows.Count), ToolTipIcon.Info);
             }
@@ -1488,7 +1490,7 @@ namespace Shadows {
         /// <param name="label">the label to be altered</param>
         /// <param name="newText">the new label text</param>
         internal void SetLabelTextThreadSafe(Label label, string newText) {
-            label.BeginInvoke((MethodInvoker)delegate {
+            label.Invoke((MethodInvoker)delegate {
                 lock(_labelLocker) {
                     label.Text = newText;
                 }
@@ -1501,7 +1503,7 @@ namespace Shadows {
         /// <param name="label">the status label to be altered</param>
         /// <param name="newText">the new label text</param>
         internal void SetLabelTextThreadSafe(ToolStripStatusLabel label, string newText) {
-            label.Owner.BeginInvoke((MethodInvoker)delegate {
+            label.Owner.Invoke((MethodInvoker)delegate {
                 lock(_labelLocker) {
                     label.Text = newText;
                 }
