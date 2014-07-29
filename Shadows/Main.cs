@@ -42,12 +42,12 @@ namespace Shadows {
 
         public Main() {
             InitializeComponent();
-
-            // Set up log4net
-            LogHelper.SetUpLogger(Settings.Default.LogLevel, Settings.Default.LogActive);
         }
 
         private void onMainLoad(object sender, EventArgs e) {
+            // Set up log4net
+            LogHelper.SetUpLogger(Settings.Default.LogLevel, Settings.Default.LogActive);
+
             // Set null value of ResultsTableView image column
             DataGridViewImageColumn col = tableViewResults.Columns[(int)GridColumnIndices.Expand] as DataGridViewImageColumn;
             if(col != null) {
@@ -139,8 +139,9 @@ namespace Shadows {
 
         #region main menu click events
         private void onMenuItemOptionsClick(object sender, EventArgs e) {
-            Options options = new Options();
-            options.ShowDialog();
+            using(Options options = new Options()) {
+                options.ShowDialog();
+            }
         }
 
         private void onMenuItemExitClick(object sender, EventArgs e) {
@@ -263,8 +264,9 @@ namespace Shadows {
         }
 
         private void onMenuItemEmptyFoldersToolClick(object sender, EventArgs e) {
-            EmptyFolders emptyFolders = new EmptyFolders();
-            emptyFolders.ShowDialog();
+            using(EmptyFolders emptyFolders = new EmptyFolders()) {
+                emptyFolders.ShowDialog();
+            }
         }
 
         private void onMenuItemGettingStartedClick(object sender, EventArgs e) {
@@ -273,8 +275,9 @@ namespace Shadows {
         }
 
         private void onMenuItemAboutShadowsClick(object sender, EventArgs e) {
-            AboutShadows about = new AboutShadows();
-            about.ShowDialog();
+            using(AboutShadows about = new AboutShadows()) {
+                about.ShowDialog();
+            }
         }
         #endregion
 
