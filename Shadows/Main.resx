@@ -2094,42 +2094,6 @@
   <data name="&gt;&gt;contextItemInvertSelection.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;gridcolumnExpand.Name" xml:space="preserve">
-    <value>gridcolumnExpand</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnExpand.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnName.Name" xml:space="preserve">
-    <value>gridcolumnName</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnPath.Name" xml:space="preserve">
-    <value>gridcolumnPath</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnSize.Name" xml:space="preserve">
-    <value>gridcolumnSize</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnSize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnModDate.Name" xml:space="preserve">
-    <value>gridcolumnModDate</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnModDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnType.Name" xml:space="preserve">
-    <value>gridcolumnType</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;menuItemProgram.Name" xml:space="preserve">
     <value>menuItemProgram</value>
   </data>
@@ -2411,6 +2375,42 @@
   </data>
   <data name="&gt;&gt;nofityIconMinimized.Type" xml:space="preserve">
     <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnExpand.Name" xml:space="preserve">
+    <value>gridcolumnExpand</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnExpand.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnName.Name" xml:space="preserve">
+    <value>gridcolumnName</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnPath.Name" xml:space="preserve">
+    <value>gridcolumnPath</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnSize.Name" xml:space="preserve">
+    <value>gridcolumnSize</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnModDate.Name" xml:space="preserve">
+    <value>gridcolumnModDate</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnModDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnType.Name" xml:space="preserve">
+    <value>gridcolumnType</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Main</value>
