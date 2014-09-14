@@ -895,12 +895,14 @@ namespace Shadows {
                 ResultsTreeViewNode node = treeViewResults.GetNodeByPath(e.OldFullPath);
                 if(node != null) {
                     treeViewResults.Invoke((MethodInvoker)delegate {
-                        if(node is ResultsTreeViewFileNode) {
-                            node.Name = Path.GetFileName(e.FullPath);
-                            node.Text = node.Name;
+                        ResultsTreeViewFileNode fileNode = node as ResultsTreeViewFileNode;
+                        if(fileNode != null) {
+                            fileNode.Name = Path.GetFileName(e.FullPath);
+                            fileNode.Text = fileNode.Name;
                             int iconIndex = treeViewResults.IconManager.AddFileIcon(e.FullPath);
-                            node.ImageIndex = iconIndex;
-                            node.SelectedImageIndex = iconIndex;
+                            fileNode.ImageIndex = iconIndex;
+                            fileNode.SelectedImageIndex = iconIndex;
+                            fileNode.FileAssociated = new FileInfoWrapper(new FileInfo(e.FullPath));
                         }
                     });
                 }
@@ -953,7 +955,7 @@ namespace Shadows {
                             // Node is not a root node
                             node.Name = Path.GetFileName(e.FullPath);
                         }
-                        treeViewResults.UpdateChildrenFiles(node, e.OldFullPath, e.FullPath);
+                        treeViewResults.UpdateChildrenFiles(node, e.OldFullPath, e.FullPath); // TODO: find a way so that FileInfoWrappers are not always created twice for each file (also at other places)
                         node.UpdateText();
                     });
                 }
@@ -1193,7 +1195,7 @@ namespace Shadows {
             else if(e.KeyCode == Keys.Delete) {
                 // If Delete was pressed and only entries are selected, delete their associated files.
                 if(OnlyEntriesSelected()) {
-                    DeleteAssociatedFiles(tableViewResults.SelectedRows);
+                    DeleteAssociatedFiles(tableViewResults.SelectedRows.Cast<IFileAssociated>());
                 }
             }
             else if(e.KeyCode == Keys.F2) {
@@ -1310,19 +1312,30 @@ namespace Shadows {
 
         private void onContextMenuDeleteFileClick(object sender, EventArgs e) {
             if(OnlyEntriesSelected()) {
-                DeleteAssociatedFiles(tableViewResults.SelectedRows);
+                DeleteAssociatedFiles(tableViewResults.SelectedRows.Cast<IFileAssociated>());
             }
         }
 
         /// <summary>
-        /// Starts deleting the associated files for several entries.
+        /// Starts deleting the associated files for several entries of type IFileAssociated.
         /// </summary>
         /// <param name="entries">the affected entries</param>
         /// <param name="confirm">true to ask the user for confirmation first, otherwise false</param>
-        private void DeleteAssociatedFiles(System.Collections.IEnumerable entries, bool confirm = true) {
+        private void DeleteAssociatedFiles(IEnumerable<IFileAssociated> entries, bool confirm = true) {
             if(!confirm || MessageBox.Show(Strings.ConfirmFileDeletionText, Strings.ConfirmFileDeletionCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 foreach(IFileAssociated entry in entries) {
-                    Util.DeletionResult result = DeleteFile(entry.FileAssociated.File.FullName);
+                    Util.DeletionResult result = MoveToRecycleBin(entry.FileAssociated.File.FullName);
+                    if(result == Util.DeletionResult.Aborted) {
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void DeleteAssociatedDirectories(IEnumerable<IDirectoryAssociated> entries, bool confirm = true) {
+            if(!confirm || MessageBox.Show(Strings.ConfirmDirectoryDeletionText, Strings.ConfirmDirectoryDeletionCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                foreach(IDirectoryAssociated entry in entries) {
+                    Util.DeletionResult result = MoveToRecycleBin(entry.DirectoryAssociated.FullName, true);
                     if(result == Util.DeletionResult.Aborted) {
                         return;
                     }
@@ -1331,24 +1344,30 @@ namespace Shadows {
         }
 
         /// <summary>
-        /// Deletes a file by moving it to the recycle bin.
+        /// Deletes a file or a folder by moving it to the recycle bin.
         /// </summary>
-        /// <param name="fullFileName">the full name of the file</param>
+        /// <param name="fullName">the full name of the file/folder</param>
+        /// <param name="isFolder">specify if the path is a file or a folder; defaults to false (file)</param>
         /// <returns>enum specifying the result of the deletion (success, canceled, aborted)</returns>
-        private Util.DeletionResult DeleteFile(string fullFileName) {
+        private Util.DeletionResult MoveToRecycleBin(string fullName, bool isFolder = false) {
             bool retryCurrent;
 
             do {
                 retryCurrent = false;
                 try {
-                    Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(fullFileName, Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs, Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+                    if(!isFolder) {
+                        Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(fullName, Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs, Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+                    }
+                    else {
+                        Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory(fullName, Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs, Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
+                    }
                 }
                 catch(OperationCanceledException) {
                     // TODO: logging
                     return Util.DeletionResult.Canceled;
                 }
                 catch(Exception e) {
-                    DialogResult decision = MessageBox.Show(String.Format(Strings.ErrorUnableToDeleteFileText, fullFileName, e.Message), Strings.ErrorUnableToDeleteFileCaption, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+                    DialogResult decision = MessageBox.Show(String.Format(Strings.ErrorUnableToDeleteFileText, fullName, e.Message), Strings.ErrorUnableToDeleteFileCaption, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
                     if(decision == DialogResult.Abort) {
                         return Util.DeletionResult.Aborted;
                     }
@@ -1517,7 +1536,7 @@ namespace Shadows {
             if(MessageBox.Show(Strings.ConfirmFileDeletionText, Strings.ConfirmFileDeletionCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
                 IFileAssociated node = treeViewResults.SelectedNode as IFileAssociated;
                 if(node != null) {
-                    DeleteFile(node.FileAssociated.File.FullName);
+                    MoveToRecycleBin(node.FileAssociated.File.FullName);
                 }
             }
         }
@@ -1547,6 +1566,13 @@ namespace Shadows {
                 catch(System.Runtime.InteropServices.COMException ex) {
                     MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void onContextMenuNodeDirDeleteClick(object sender, EventArgs e) {
+            IDirectoryAssociated node = treeViewResults.SelectedNode as IDirectoryAssociated;
+            if(node != null) {
+                DeleteAssociatedDirectories(new IDirectoryAssociated[] { node });
             }
         }
 
@@ -1582,7 +1608,13 @@ namespace Shadows {
             else if(e.KeyCode == Keys.Delete) {
                 // If Delete was pressed and a file node is selected, delete its associated file.
                 if(fileNode != null) {
-                    DeleteFile(fileNode.FileAssociated.File.FullName);
+                    DeleteAssociatedFiles(new IFileAssociated[] { fileNode });
+                }
+                else {
+                    IDirectoryAssociated dirNode = treeViewResults.SelectedNode as IDirectoryAssociated;
+                    if(dirNode != null) {
+                        DeleteAssociatedDirectories(new IDirectoryAssociated[] { dirNode });
+                    }
                 }
             }
             else if(e.KeyCode == Keys.F2) {

@@ -61,6 +61,24 @@ namespace Shadows {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Confirm deletion ähnelt.
+        /// </summary>
+        internal static string ConfirmDirectoryDeletionCaption {
+            get {
+                return ResourceManager.GetString("ConfirmDirectoryDeletionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to move the selected folder to the recycle bin? ähnelt.
+        /// </summary>
+        internal static string ConfirmDirectoryDeletionText {
+            get {
+                return ResourceManager.GetString("ConfirmDirectoryDeletionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Confirm Exit ähnelt.
         /// </summary>
         internal static string ConfirmExitCaption {

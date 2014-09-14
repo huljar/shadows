@@ -25,8 +25,8 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitAll = new System.Windows.Forms.SplitContainer();
             this.splitTop = new System.Windows.Forms.SplitContainer();
             this.groupFolders = new System.Windows.Forms.GroupBox();
@@ -143,6 +143,8 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuShowInExplorerHeader = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuDirectoryNode = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuNodeDirDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuNodeDirShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuFileNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuNodeOpenWithDefaultProgram = new System.Windows.Forms.ToolStripMenuItem();
@@ -665,8 +667,8 @@
             this.tableViewResults.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableViewResults.RowHeadersVisible = false;
             this.tableViewResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.tableViewResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableViewResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellClick);
             this.tableViewResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellDoubleClick);
@@ -677,8 +679,8 @@
             // gridcolumnExpand
             // 
             this.gridcolumnExpand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle1;
             this.gridcolumnExpand.Frozen = true;
             resources.ApplyResources(this.gridcolumnExpand, "gridcolumnExpand");
             this.gridcolumnExpand.Name = "gridcolumnExpand";
@@ -1111,9 +1113,22 @@
             // contextMenuDirectoryNode
             // 
             this.contextMenuDirectoryNode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuNodeDirDelete,
+            this.toolStripMenuItem9,
             this.contextMenuNodeDirShowInExplorer});
             this.contextMenuDirectoryNode.Name = "contextMenuDirectoryNode";
             resources.ApplyResources(this.contextMenuDirectoryNode, "contextMenuDirectoryNode");
+            // 
+            // contextMenuNodeDirDelete
+            // 
+            this.contextMenuNodeDirDelete.Name = "contextMenuNodeDirDelete";
+            resources.ApplyResources(this.contextMenuNodeDirDelete, "contextMenuNodeDirDelete");
+            this.contextMenuNodeDirDelete.Click += new System.EventHandler(this.onContextMenuNodeDirDeleteClick);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            resources.ApplyResources(this.toolStripMenuItem9, "toolStripMenuItem9");
             // 
             // contextMenuNodeDirShowInExplorer
             // 
@@ -1369,6 +1384,8 @@
         private System.Windows.Forms.SplitContainer splitTreeview;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem contextMenuShowInTreeView;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuNodeDirDelete;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
     }
 }
 

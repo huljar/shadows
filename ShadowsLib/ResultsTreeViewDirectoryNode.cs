@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace ShadowsLib {
-    public class ResultsTreeViewDirectoryNode : ResultsTreeViewNode {
+    public class ResultsTreeViewDirectoryNode : ResultsTreeViewNode, IDirectoryAssociated {
 
         private System.IO.DirectoryInfo directory;
         private int _ShadowCount = 0;
@@ -70,6 +70,11 @@ namespace ShadowsLib {
                 _FileCount = value;
                 UpdateText();
             }
+        }
+
+        public System.IO.DirectoryInfo DirectoryAssociated {
+            get { return directory; }
+            set { directory = value; }
         }
     }
 }

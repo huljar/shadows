@@ -232,6 +232,9 @@
   <data name="checkboxCompareFileContents.Text" xml:space="preserve">
     <value>Gesamter Dateiinhalt (kann Suche verlangsamen)</value>
   </data>
+  <data name="tabPageFileTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 135</value>
+  </data>
   <data name="tabPageFileTypes.Text" xml:space="preserve">
     <value>Dateitypen</value>
   </data>
@@ -279,6 +282,9 @@
   </data>
   <data name="checkboxCustomTypes.ToolTip" xml:space="preserve">
     <value>Anhaken, um eigene Dateiendungen zu definieren. Geben Sie diese durch Kommas getrennt ein, z.B. "doc, pdf, mp3".</value>
+  </data>
+  <data name="tabPageAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 135</value>
   </data>
   <data name="tabPageAdvancedSettings.Text" xml:space="preserve">
     <value>Erweitert</value>
@@ -505,14 +511,26 @@
   <data name="contextMenuShowInExplorerHeader.Text" xml:space="preserve">
     <value>In Explorer &amp;zeigen</value>
   </data>
-  <data name="contextMenuDirectoryNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 26</value>
+  <data name="contextMenuNodeDirDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 22</value>
+  </data>
+  <data name="contextMenuNodeDirDelete.Text" xml:space="preserve">
+    <value>&amp;Löschen</value>
+  </data>
+  <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 6</value>
   </data>
   <data name="contextMenuNodeDirShowInExplorer.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 22</value>
   </data>
   <data name="contextMenuNodeDirShowInExplorer.Text" xml:space="preserve">
     <value>In Explorer &amp;zeigen</value>
+  </data>
+  <data name="contextMenuDirectoryNode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 54</value>
+  </data>
+  <data name="contextMenuFileNode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 126</value>
   </data>
   <data name="contextMenuNodeOpenWithDefaultProgram.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 22</value>
@@ -550,7 +568,8 @@
   <data name="contextMenuNodeShowInExplorer.Text" xml:space="preserve">
     <value>In Explorer &amp;zeigen</value>
   </data>
-  <data name="contextMenuFileNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 126</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
 </root>

@@ -337,4 +337,10 @@ Möchten Sie den neuen Ordner hinzufügen?</value>
   <data name="EmptyFoldersSearchError" xml:space="preserve">
     <value>Überspringe "{0}" - {1}</value>
   </data>
+  <data name="ConfirmDirectoryDeletionCaption" xml:space="preserve">
+    <value>Löschen bestätigen</value>
+  </data>
+  <data name="ConfirmDirectoryDeletionText" xml:space="preserve">
+    <value>Möchten Sie den ausgewählten Ordner wirklich in den Papierkorb verschieben?</value>
+  </data>
 </root>

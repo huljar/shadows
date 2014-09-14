@@ -53,6 +53,7 @@
     </Compile>
     <Compile Include="IconHelper.cs" />
     <Compile Include="IconListManager.cs" />
+    <Compile Include="IDirectoryAssociated.cs" />
     <Compile Include="IFileAssociated.cs" />
     <Compile Include="ProgressMadeEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

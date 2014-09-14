@@ -337,4 +337,10 @@ Do you want to add the new directory?</value>
   <data name="EmptyFoldersSearchError" xml:space="preserve">
     <value>Skipping "{0}" - {1}</value>
   </data>
+  <data name="ConfirmDirectoryDeletionCaption" xml:space="preserve">
+    <value>Confirm deletion</value>
+  </data>
+  <data name="ConfirmDirectoryDeletionText" xml:space="preserve">
+    <value>Do you really want to move the selected folder to the recycle bin?</value>
+  </data>
 </root>
