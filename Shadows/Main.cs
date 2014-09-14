@@ -75,6 +75,7 @@ namespace Shadows {
             progressBarSearchProgress.Margin = new Padding(140 - statuslabelProgramName.Width, tmp.Top, tmp.Right, tmp.Bottom);
 
             splitTable.SplitterDistance = 367; // TODO: remove when implementing new features
+            splitTreeview.SplitterDistance = 367;
         }
 
         /// <summary>
@@ -1102,11 +1103,14 @@ namespace Shadows {
             SwitchPanel(panelTreeView);
         }
 
-        private void SwitchPanel(Panel newPanel) {
+        private void SwitchPanel(Panel newPanel, Control selectControl = null) {
             if(activePanel != newPanel) {
                 activePanel.Visible = false;
                 activePanel = newPanel;
                 activePanel.Visible = true;
+                if(selectControl != null) {
+                    selectControl.Select();
+                }
             }
         }
         #endregion
@@ -1250,6 +1254,7 @@ namespace Shadows {
             contextMenuOpenWithDefaultProgram.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuRenameFile.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuDeleteFile.Enabled = onlyEntriesSelected;
+            contextMenuShowInTreeView.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuShowInExplorerEntry.Enabled = onlyEntriesSelected;
             contextMenuShowAllInFolder.Enabled = tableViewResults.SelectedRows.Count == 1 && backgroundSearcher != null && (backgroundSearcher.State == Util.SearchState.Aborted || backgroundSearcher.State == Util.SearchState.Finished);
         }
@@ -1358,6 +1363,19 @@ namespace Shadows {
             while(retryCurrent);
 
             return Util.DeletionResult.Success;
+        }
+
+        private void onContextMenuShowInTreeViewClick(object sender, EventArgs e) {
+            if(tableViewResults.SelectedRows.Count == 1) {
+                ResultsTableViewEntry entry = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
+                if(entry != null) {
+                    ResultsTreeViewNode treeNode = treeViewResults.GetNodeByPath(entry.FileAssociated.File.FullName);
+                    if(treeNode != null) {
+                        treeViewResults.SelectedNode = treeNode;
+                        SwitchPanel(panelTreeView, treeViewResults);
+                    }
+                }
+            }
         }
 
         private void onContextMenuShowInExplorerEntryClick(object sender, EventArgs e) {
@@ -1496,6 +1514,21 @@ namespace Shadows {
                 IFileAssociated node = treeViewResults.SelectedNode as IFileAssociated;
                 if(node != null) {
                     DeleteFile(node.FileAssociated.File.FullName);
+                }
+            }
+        }
+
+        private void onContextMenuNodeShowInTableViewClick(object sender, EventArgs e) {
+            IFileAssociated fileNode = treeViewResults.SelectedNode as IFileAssociated;
+            if(fileNode != null) {
+                ResultsTableViewEntry entry = SearchEntryByFileName(fileNode.FileAssociated.File.FullName);
+                if(entry != null) {
+                    if(!entry.ContainerGroup.Expanded) {
+                        ToggleExpandState(entry.ContainerGroup);
+                    }
+                    tableViewResults.ClearSelection();
+                    entry.Selected = true;
+                    SwitchPanel(panelListView, tableViewResults);
                 }
             }
         }

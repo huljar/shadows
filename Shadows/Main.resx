@@ -913,7 +913,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageFileTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 134</value>
+    <value>394, 135</value>
   </data>
   <data name="tabPageFileTypes.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1051,7 +1051,7 @@
     <value>4, 22</value>
   </data>
   <data name="tabPageAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>394, 134</value>
+    <value>394, 135</value>
   </data>
   <data name="tabPageAdvancedSettings.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1498,7 +1498,7 @@
     <value>True</value>
   </data>
   <data name="splitTable.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 18</value>
+    <value>0, 0</value>
   </data>
   <data name="splitTable.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
     <value>Horizontal</value>
@@ -1579,97 +1579,10 @@
     <value>ShadowsLib.ResultsTableView, ShadowsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tableViewResults.Parent" xml:space="preserve">
-    <value>panelListView</value>
+    <value>splitTable.Panel1</value>
   </data>
   <data name="&gt;&gt;tableViewResults.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="panelListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelListView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelListView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="panelListView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>988, 289</value>
-  </data>
-  <data name="panelListView.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;panelListView.Name" xml:space="preserve">
-    <value>panelListView</value>
-  </data>
-  <data name="&gt;&gt;panelListView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelListView.Parent" xml:space="preserve">
-    <value>splitTable.Panel1</value>
-  </data>
-  <data name="&gt;&gt;panelListView.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="treeViewResults.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="treeViewResults.ImageIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="treeViewResults.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="treeViewResults.SelectedImageIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="treeViewResults.Size" type="System.Drawing.Size, System.Drawing">
-    <value>988, 289</value>
-  </data>
-  <data name="treeViewResults.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;treeViewResults.Name" xml:space="preserve">
-    <value>treeViewResults</value>
-  </data>
-  <data name="&gt;&gt;treeViewResults.Type" xml:space="preserve">
-    <value>ShadowsLib.ResultsTreeView, ShadowsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;treeViewResults.Parent" xml:space="preserve">
-    <value>panelTreeView</value>
-  </data>
-  <data name="&gt;&gt;treeViewResults.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panelTreeView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelTreeView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelTreeView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="panelTreeView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>988, 289</value>
-  </data>
-  <data name="panelTreeView.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="panelTreeView.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panelTreeView.Name" xml:space="preserve">
-    <value>panelTreeView</value>
-  </data>
-  <data name="&gt;&gt;panelTreeView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelTreeView.Parent" xml:space="preserve">
-    <value>splitTable.Panel1</value>
-  </data>
-  <data name="&gt;&gt;panelTreeView.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;splitTable.Panel1.Name" xml:space="preserve">
     <value>splitTable.Panel1</value>
@@ -1711,10 +1624,154 @@
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;splitTable.Parent" xml:space="preserve">
-    <value>groupResults</value>
+    <value>panelListView</value>
   </data>
   <data name="&gt;&gt;splitTable.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="panelListView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 18</value>
+  </data>
+  <data name="panelListView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="panelListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>988, 396</value>
+  </data>
+  <data name="panelListView.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;panelListView.Name" xml:space="preserve">
+    <value>panelListView</value>
+  </data>
+  <data name="&gt;&gt;panelListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelListView.Parent" xml:space="preserve">
+    <value>groupResults</value>
+  </data>
+  <data name="&gt;&gt;panelListView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="splitTreeview.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="splitTreeview.IsSplitterFixed" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="splitTreeview.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitTreeview.Orientation" type="System.Windows.Forms.Orientation, System.Windows.Forms">
+    <value>Horizontal</value>
+  </data>
+  <data name="treeViewResults.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="treeViewResults.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="treeViewResults.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="treeViewResults.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="treeViewResults.Size" type="System.Drawing.Size, System.Drawing">
+    <value>988, 289</value>
+  </data>
+  <data name="treeViewResults.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;treeViewResults.Name" xml:space="preserve">
+    <value>treeViewResults</value>
+  </data>
+  <data name="&gt;&gt;treeViewResults.Type" xml:space="preserve">
+    <value>ShadowsLib.ResultsTreeView, ShadowsLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;treeViewResults.Parent" xml:space="preserve">
+    <value>splitTreeview.Panel1</value>
+  </data>
+  <data name="&gt;&gt;treeViewResults.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Panel1.Name" xml:space="preserve">
+    <value>splitTreeview.Panel1</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Panel1.Parent" xml:space="preserve">
+    <value>splitTreeview</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Panel2.Name" xml:space="preserve">
+    <value>splitTreeview.Panel2</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Panel2.Parent" xml:space="preserve">
+    <value>splitTreeview</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="splitTreeview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>988, 396</value>
+  </data>
+  <data name="splitTreeview.SplitterDistance" type="System.Int32, mscorlib">
+    <value>289</value>
+  </data>
+  <data name="splitTreeview.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Name" xml:space="preserve">
+    <value>splitTreeview</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.Parent" xml:space="preserve">
+    <value>panelTreeView</value>
+  </data>
+  <data name="&gt;&gt;splitTreeview.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelTreeView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelTreeView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 18</value>
+  </data>
+  <data name="panelTreeView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="panelTreeView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>988, 396</value>
+  </data>
+  <data name="panelTreeView.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="panelTreeView.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panelTreeView.Name" xml:space="preserve">
+    <value>panelTreeView</value>
+  </data>
+  <data name="&gt;&gt;panelTreeView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelTreeView.Parent" xml:space="preserve">
+    <value>groupResults</value>
+  </data>
+  <data name="&gt;&gt;panelTreeView.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="groupResults.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2121,6 +2178,15 @@
   <data name="contextMenuDeleteFile.Text" xml:space="preserve">
     <value>&amp;Delete</value>
   </data>
+  <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 6</value>
+  </data>
+  <data name="contextMenuShowInTreeView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>237, 22</value>
+  </data>
+  <data name="contextMenuShowInTreeView.Text" xml:space="preserve">
+    <value>Show in &amp;Tree View</value>
+  </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 6</value>
   </data>
@@ -2137,7 +2203,7 @@
     <value>Show &amp;all Shadows in this folder</value>
   </data>
   <data name="contextMenuGroupEntry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>238, 120</value>
+    <value>238, 148</value>
   </data>
   <data name="&gt;&gt;contextMenuGroupEntry.Name" xml:space="preserve">
     <value>contextMenuGroupEntry</value>
@@ -2226,6 +2292,15 @@
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
     <value>223, 6</value>
   </data>
+  <data name="contextMenuNodeShowInTableView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 22</value>
+  </data>
+  <data name="contextMenuNodeShowInTableView.Text" xml:space="preserve">
+    <value>Show in &amp;Table View</value>
+  </data>
+  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 6</value>
+  </data>
   <data name="contextMenuNodeShowInExplorer.Size" type="System.Drawing.Size, System.Drawing">
     <value>226, 22</value>
   </data>
@@ -2233,7 +2308,7 @@
     <value>&amp;Show in Explorer</value>
   </data>
   <data name="contextMenuFileNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 98</value>
+    <value>227, 126</value>
   </data>
   <data name="&gt;&gt;contextMenuFileNode.Name" xml:space="preserve">
     <value>contextMenuFileNode</value>
@@ -2291,6 +2366,42 @@
   </data>
   <data name="&gt;&gt;contextItemInvertSelection.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnExpand.Name" xml:space="preserve">
+    <value>gridcolumnExpand</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnExpand.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnName.Name" xml:space="preserve">
+    <value>gridcolumnName</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnPath.Name" xml:space="preserve">
+    <value>gridcolumnPath</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnPath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnSize.Name" xml:space="preserve">
+    <value>gridcolumnSize</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnModDate.Name" xml:space="preserve">
+    <value>gridcolumnModDate</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnModDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnType.Name" xml:space="preserve">
+    <value>gridcolumnType</value>
+  </data>
+  <data name="&gt;&gt;gridcolumnType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuItemProgram.Name" xml:space="preserve">
     <value>menuItemProgram</value>
@@ -2526,6 +2637,18 @@
   <data name="&gt;&gt;contextMenuDeleteFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripMenuItem8.Name" xml:space="preserve">
+    <value>toolStripMenuItem8</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuShowInTreeView.Name" xml:space="preserve">
+    <value>contextMenuShowInTreeView</value>
+  </data>
+  <data name="&gt;&gt;contextMenuShowInTreeView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
     <value>toolStripMenuItem4</value>
   </data>
@@ -2604,47 +2727,23 @@
   <data name="&gt;&gt;toolStripMenuItem6.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;contextMenuNodeShowInTableView.Name" xml:space="preserve">
+    <value>contextMenuNodeShowInTableView</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeShowInTableView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem7.Name" xml:space="preserve">
+    <value>toolStripMenuItem7</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;contextMenuNodeShowInExplorer.Name" xml:space="preserve">
     <value>contextMenuNodeShowInExplorer</value>
   </data>
   <data name="&gt;&gt;contextMenuNodeShowInExplorer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnExpand.Name" xml:space="preserve">
-    <value>gridcolumnExpand</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnExpand.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnName.Name" xml:space="preserve">
-    <value>gridcolumnName</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnPath.Name" xml:space="preserve">
-    <value>gridcolumnPath</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnPath.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnSize.Name" xml:space="preserve">
-    <value>gridcolumnSize</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnSize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnModDate.Name" xml:space="preserve">
-    <value>gridcolumnModDate</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnModDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnType.Name" xml:space="preserve">
-    <value>gridcolumnType</value>
-  </data>
-  <data name="&gt;&gt;gridcolumnType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Main</value>
