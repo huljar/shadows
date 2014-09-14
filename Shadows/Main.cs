@@ -15,6 +15,8 @@ using Shadows.Properties;
 namespace Shadows {
     public partial class Main : Form {
 
+        private Panel activePanel;
+
         private bool showMinimizedInfo = true;
         private bool _MinimizedToSystemTray = false;
 
@@ -42,6 +44,7 @@ namespace Shadows {
 
         public Main() {
             InitializeComponent();
+            activePanel = panelListView;
         }
 
         private void onMainLoad(object sender, EventArgs e) {
@@ -563,6 +566,10 @@ namespace Shadows {
         /// </summary>
         private void StartSearch() {
             tableViewResults.Reset();
+            treeViewResults.Reset();
+            foreach(FolderItem folder in listboxFoldersAdded.Items) {
+                treeViewResults.RootFolders.Add(folder);
+            }
             InitializeSearchEngine();
             InitializeFileSystemWatchers();
             LogHelper.LogSearchStart(this);
@@ -1025,6 +1032,22 @@ namespace Shadows {
                 TaskbarManager.Instance.SetProgressValue(backgroundSearcher.CurrentProgress, 100, Handle);
             }
         }
+
+        private void onPictureBoxListViewClick(object sender, EventArgs e) {
+            SwitchPanel(panelListView);
+        }
+
+        private void onPictureBoxTreeViewClick(object sender, EventArgs e) {
+            SwitchPanel(panelTreeView);
+        }
+
+        private void SwitchPanel(Panel newPanel) {
+            if(activePanel != newPanel) {
+                activePanel.Visible = false;
+                activePanel = newPanel;
+                activePanel.Visible = true;
+            }
+        }
         #endregion
 
         #region results table events
@@ -1359,6 +1382,10 @@ namespace Shadows {
         }
         #endregion
 
+        #region Tree Results
+
+        #endregion
+
         #region after search
         internal void SearchPostProcessing(SearchResult result) {
             // TODO: logging
@@ -1386,6 +1413,12 @@ namespace Shadows {
                     ResultsTableViewHeader header = CreateGroupHeader(shadowSet, tableViewResults, Settings.Default.ResultsInitiallyExpanded);
                     IList<ResultsTableViewEntry> entries = CreateGroupEntries(shadowSet, tableViewResults);
                     tableViewResults.AddGroup(new ResultsGroup(header, entries), Settings.Default.ResultsInitiallyExpanded);
+                }
+            });
+
+            treeViewResults.BeginInvoke((MethodInvoker)delegate {
+                lock(_resultsLocker) {
+                    treeViewResults.AddShadow(shadowSet);
                 }
             });
         }

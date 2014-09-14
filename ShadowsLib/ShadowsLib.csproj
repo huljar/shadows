@@ -56,6 +56,12 @@
     <Compile Include="ResultsGroup.cs" />
     <Compile Include="ResultsTableViewHeader.cs" />
     <Compile Include="ResultsTableViewRow.cs" />
+    <Compile Include="ResultsTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ResultsTreeViewDirectoryNode.cs" />
+    <Compile Include="ResultsTreeViewFileNode.cs" />
+    <Compile Include="ResultsTreeViewNode.cs" />
     <Compile Include="ScanningNewFileEventArgs.cs" />
     <Compile Include="ScanningNewFolderEventArgs.cs" />
     <Compile Include="ResultsTableView.cs">
