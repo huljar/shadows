@@ -20,7 +20,8 @@ namespace Shadows {
         private bool showMinimizedInfo = true;
         private bool _MinimizedToSystemTray = false;
 
-        private readonly object _resultsLocker = new object();
+        private readonly object _resultsTableLocker = new object();
+        private readonly object _resultsTreeLocker = new object();
         private readonly object _labelLocker = new object();
 
         private enum GridColumnIndices {
@@ -857,7 +858,7 @@ namespace Shadows {
             // Update groups and table when a file has been deleted
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
                 // Handle file deletion
-                lock(_resultsLocker) {
+                lock(_resultsTableLocker) {
                     ResultsTableViewEntry entry = SearchEntryByFileName(e.FullPath);
                     if(entry != null) {
                         RemoveGroupEntry(entry);
@@ -868,7 +869,7 @@ namespace Shadows {
 
         private void onFileWatcherRenamed(object sender, RenamedEventArgs e) {
             // Update entry and header when a file has been renamed
-            lock(_resultsLocker) {
+            lock(_resultsTableLocker) {
                 ResultsTableViewEntry entry = SearchEntryByFileName(e.OldFullPath);
                 if(entry != null) {
                     entry.Cells[(int)GridColumnIndices.Name].Value = Path.GetFileName(e.FullPath);
@@ -881,7 +882,7 @@ namespace Shadows {
         void onDirWatcherChanged(object sender, FileSystemEventArgs e) {
             // Update groups and table for all affected files when a directory has been deleted
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
-                lock(_resultsLocker) {
+                lock(_resultsTableLocker) {
                     IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.FullPath, true);
                     foreach(ResultsTableViewEntry entry in entries) {
                         RemoveGroupEntry(entry);
@@ -892,7 +893,7 @@ namespace Shadows {
 
         void onDirWatcherRenamed(object sender, RenamedEventArgs e) {
             // Update entries for all affected files when a directory has been renamed
-            lock(_resultsLocker) {
+            lock(_resultsTableLocker) {
                 IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.OldFullPath, true);
                 foreach(ResultsTableViewEntry entry in entries) {
                     DataGridViewCell pathCell = entry.Cells[(int)GridColumnIndices.Path];
@@ -1103,7 +1104,7 @@ namespace Shadows {
         /// </summary>
         /// <param name="group">the group to be expanded/collapsed</param>
         private void ToggleExpandState(ResultsGroup group) {
-            lock(_resultsLocker) {
+            lock(_resultsTableLocker) {
                 if(group.Expanded) {
                     tableViewResults.CollapseGroup(group);
                     group.Header.Cells[(int)GridColumnIndices.Expand].Value = Resources.IconExpand;
@@ -1306,7 +1307,7 @@ namespace Shadows {
         private void onContextMenuShowInExplorerEntryClick(object sender, EventArgs e) {
             if(OnlyEntriesSelected()) { // TODO: rethink counting entries / count different paths
                 if(tableViewResults.SelectedRows.Count < 10 || MessageBox.Show(Strings.WarningManyFoldersOpeningText, Strings.WarningManyFoldersOpeningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                    lock(_resultsLocker) {
+                    lock(_resultsTableLocker) {
                         IList<FileSystemInfo> files = new List<FileSystemInfo>();
                         foreach(IFileAssociated entry in tableViewResults.SelectedRows) {
                             files.Add(entry.FileAssociated.File);
@@ -1325,7 +1326,7 @@ namespace Shadows {
         private void onContextMenuShowAllInFolderClick(object sender, EventArgs e) {
             // Open Windows Explorer and select all files in the folder that were found in the search
             if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
-                lock(_resultsLocker) {
+                lock(_resultsTableLocker) {
                     ResultsTableViewEntry selected = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
                     IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(selected.FileAssociated.File.DirectoryName, false);
                     IList<FileSystemInfo> files = new List<FileSystemInfo>(entries.Count);
@@ -1344,7 +1345,7 @@ namespace Shadows {
 
         private void onContextMenuExpandCollapseClick(object sender, EventArgs e) {
             if(OnlyHeadersSelected()) {
-                lock(_resultsLocker) {
+                lock(_resultsTableLocker) {
                     foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
                         ToggleExpandState(header.ContainerGroup);
                     }
@@ -1354,7 +1355,7 @@ namespace Shadows {
 
         private void onContextMenuHideClick(object sender, EventArgs e) {
             if(OnlyHeadersSelected()) {
-                lock(_resultsLocker) {
+                lock(_resultsTableLocker) {
                     foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
                         tableViewResults.RemoveGroup(header.ContainerGroup);
                     }
@@ -1496,7 +1497,7 @@ namespace Shadows {
         /// <param name="shadowSet">the IList of duplicate files</param>
         internal void AddShadowThreadSafe(IList<FileInfoWrapper> shadowSet) {
             tableViewResults.BeginInvoke((MethodInvoker)delegate {
-                lock(_resultsLocker) {
+                lock(_resultsTableLocker) {
                     ResultsTableViewHeader header = CreateGroupHeader(shadowSet, tableViewResults, Settings.Default.ResultsInitiallyExpanded);
                     IList<ResultsTableViewEntry> entries = CreateGroupEntries(shadowSet, tableViewResults);
                     tableViewResults.AddGroup(new ResultsGroup(header, entries), Settings.Default.ResultsInitiallyExpanded);
@@ -1504,7 +1505,7 @@ namespace Shadows {
             });
 
             treeViewResults.BeginInvoke((MethodInvoker)delegate {
-                lock(_resultsLocker) {
+                lock(_resultsTreeLocker) {
                     treeViewResults.AddShadow(shadowSet);
                 }
             });

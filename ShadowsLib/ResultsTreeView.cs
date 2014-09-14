@@ -34,6 +34,10 @@ namespace ShadowsLib {
             EndUpdate();
         }
 
+        public ResultsTreeViewNode GetNodeByPath(string fullPath) {
+            return DescendTree(fullPath, Nodes);
+        }
+
         public void SetDirNodeMenu(ContextMenuStrip menuStrip) {
             dirNodeMenu = menuStrip;
         }
@@ -51,25 +55,14 @@ namespace ShadowsLib {
 
         private void InsertFileNode(FileInfoWrapper file, IList<FileInfoWrapper> shadowSet) {
             // Find the root folder that was added to the search which is a parent of the file
-            FolderItem root = null;
-            foreach(FolderItem rootFolder in RootFolders) {
-                if(file.File.FullName.StartsWith(rootFolder.Node.Path + Path.DirectorySeparatorChar)) {
-                    root = rootFolder;
-                    break;
-                }
-            }
+            FolderItem root = FindRoot(file.File.FullName);
             if(root == null) {
                 throw new Exception("Error: TreeView: file was supposed to be added which is not a child of a folder added to the search");
             }
 
             // Retrieve the tree node of the root folder
-            ResultsTreeViewNode currentNode = null;
-            foreach(TreeNode node in Nodes) {
-                if(node.Name.Equals(root.Node.Path)) {
-                    currentNode = (ResultsTreeViewNode)node;
-                    break;
-                }
-            }
+            ResultsTreeViewNode currentNode = GetNodeByPath(root.Node.Path);
+
             // Add root node if it does not exist yet
             if(currentNode == null) {
                 currentNode = new ResultsTreeViewDirectoryNode(root.Node.Path, 0, 1, new DirectoryInfo(root.Node.Path));
@@ -116,6 +109,27 @@ namespace ShadowsLib {
                     dirNode.UpdateText(true);
                 }
             }
+        }
+
+        private FolderItem FindRoot(string fullFileName) {
+            foreach(FolderItem rootFolder in RootFolders) {
+                if(fullFileName.StartsWith(rootFolder.Node.Path + Path.DirectorySeparatorChar)) {
+                    return rootFolder;
+                }
+            }
+            return null;
+        }
+
+        private ResultsTreeViewNode DescendTree(string fullPath, TreeNodeCollection current) {
+            foreach(ResultsTreeViewNode child in current) {
+                if(fullPath.Equals(child.FullPathByName)) {
+                    return child;
+                }
+                if(fullPath.StartsWith(child.FullPathByName + Path.DirectorySeparatorChar)) {
+                    return DescendTree(fullPath, child.Nodes);
+                }
+            }
+            return null;
         }
 
         public IList<FolderItem> RootFolders {
