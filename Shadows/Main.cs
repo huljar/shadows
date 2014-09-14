@@ -1507,6 +1507,10 @@ namespace Shadows {
                     node.Text = file.Name;
                 }
             }
+            else {
+                ResultsTreeViewDirectoryNode dirNode = e.Node as ResultsTreeViewDirectoryNode;
+                e.CancelEdit = true;
+            }
         }
 
         private void onContextMenuNodeDeleteFileClick(object sender, EventArgs e) {
@@ -1528,6 +1532,7 @@ namespace Shadows {
                     }
                     tableViewResults.ClearSelection();
                     entry.Selected = true;
+                    tableViewResults.FirstDisplayedScrollingRowIndex = entry.Index;
                     SwitchPanel(panelListView, tableViewResults);
                 }
             }
