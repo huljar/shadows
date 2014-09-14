@@ -67,7 +67,7 @@ namespace Shadows {
 
             // Set icons of components
             Icon = Resources.ShadowsIcon;
-            nofityIconMinimized.Icon = Resources.ShadowsIcon;
+            notifyIconMinimized.Icon = Resources.ShadowsIcon;
 
             // Set version in status label
             statuslabelProgramName.Text = "Shadows v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -1061,14 +1061,14 @@ namespace Shadows {
         }
 
         private void onButtonMinimizeClick(object sender, EventArgs e) {
-            nofityIconMinimized.Visible = true;
+            notifyIconMinimized.Visible = true;
             Hide();
             ShowInTaskbar = false;
             MinimizedToSystemTray = true;
 
             // If minimize is pressed for the first time, show an info balloon
             if(showMinimizedInfo) {
-                nofityIconMinimized.ShowBalloonTip(6000, Strings.WorkingInBackgroundBalloonTitle, Strings.WorkingInBackgroundBalloonText, ToolTipIcon.Info);
+                notifyIconMinimized.ShowBalloonTip(6000, Strings.WorkingInBackgroundBalloonTitle, Strings.WorkingInBackgroundBalloonText, ToolTipIcon.Info);
                 showMinimizedInfo = false;
             }
         }
@@ -1084,7 +1084,7 @@ namespace Shadows {
         }
 
         private void ResurrectWindow() {
-            nofityIconMinimized.Visible = false;
+            notifyIconMinimized.Visible = false;
             ShowInTaskbar = true;
             Show();
             MinimizedToSystemTray = false;
@@ -1607,7 +1607,7 @@ namespace Shadows {
                 labelCurrentFolder.Text = String.Format(Strings.SearchXShadowsFound, result.AllShadows.Count);
             }
             if(MinimizedToSystemTray) {
-                nofityIconMinimized.ShowBalloonTip(6000, Strings.SearchCompletedBalloonTitle, String.Format(Strings.SearchCompletedBalloonText, result.AllShadows.Count), ToolTipIcon.Info);
+                notifyIconMinimized.ShowBalloonTip(6000, Strings.SearchCompletedBalloonTitle, String.Format(Strings.SearchCompletedBalloonText, result.AllShadows.Count), ToolTipIcon.Info);
             }
         }
         #endregion
@@ -1785,7 +1785,7 @@ namespace Shadows {
         }
 
         internal NotifyIcon NotifyIcon {
-            get { return nofityIconMinimized; }
+            get { return notifyIconMinimized; }
         }
     }
 }

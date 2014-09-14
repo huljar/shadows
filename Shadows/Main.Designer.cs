@@ -25,8 +25,8 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitAll = new System.Windows.Forms.SplitContainer();
             this.splitTop = new System.Windows.Forms.SplitContainer();
             this.groupFolders = new System.Windows.Forms.GroupBox();
@@ -142,7 +142,6 @@
             this.contextMenuHide = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuShowInExplorerHeader = new System.Windows.Forms.ToolStripMenuItem();
-            this.nofityIconMinimized = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuDirectoryNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuNodeDirShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuFileNode = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -153,6 +152,7 @@
             this.contextMenuNodeShowInTableView = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuNodeShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIconMinimized = new System.Windows.Forms.NotifyIcon(this.components);
             this.splitAll.Panel1.SuspendLayout();
             this.splitAll.Panel2.SuspendLayout();
             this.splitAll.SuspendLayout();
@@ -665,8 +665,8 @@
             this.tableViewResults.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.tableViewResults.RowHeadersVisible = false;
             this.tableViewResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tableViewResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableViewResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellClick);
             this.tableViewResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellDoubleClick);
@@ -677,8 +677,8 @@
             // gridcolumnExpand
             // 
             this.gridcolumnExpand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle3;
             this.gridcolumnExpand.Frozen = true;
             resources.ApplyResources(this.gridcolumnExpand, "gridcolumnExpand");
             this.gridcolumnExpand.Name = "gridcolumnExpand";
@@ -1108,12 +1108,6 @@
             resources.ApplyResources(this.contextMenuShowInExplorerHeader, "contextMenuShowInExplorerHeader");
             this.contextMenuShowInExplorerHeader.Click += new System.EventHandler(this.onContextMenuShowInExplorerHeaderClick);
             // 
-            // nofityIconMinimized
-            // 
-            resources.ApplyResources(this.nofityIconMinimized, "nofityIconMinimized");
-            this.nofityIconMinimized.BalloonTipClicked += new System.EventHandler(this.onNotifyIconMinimizedBalloonTipClicked);
-            this.nofityIconMinimized.Click += new System.EventHandler(this.onNofityIconMinimizedClick);
-            // 
             // contextMenuDirectoryNode
             // 
             this.contextMenuDirectoryNode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1179,6 +1173,12 @@
             this.contextMenuNodeShowInExplorer.Name = "contextMenuNodeShowInExplorer";
             resources.ApplyResources(this.contextMenuNodeShowInExplorer, "contextMenuNodeShowInExplorer");
             this.contextMenuNodeShowInExplorer.Click += new System.EventHandler(this.onContextMenuNodeShowInExplorerClick);
+            // 
+            // notifyIconMinimized
+            // 
+            resources.ApplyResources(this.notifyIconMinimized, "notifyIconMinimized");
+            this.notifyIconMinimized.BalloonTipClicked += new System.EventHandler(this.onNotifyIconMinimizedBalloonTipClicked);
+            this.notifyIconMinimized.Click += new System.EventHandler(this.onNofityIconMinimizedClick);
             // 
             // Main
             // 
@@ -1330,7 +1330,7 @@
         private System.Windows.Forms.ToolStripProgressBar progressBarSearchProgress;
         private System.Windows.Forms.ToolStripStatusLabel statusLabelInfos;
         private ShadowsLib.ResultsTableView tableViewResults;
-        private System.Windows.Forms.NotifyIcon nofityIconMinimized;
+        private System.Windows.Forms.NotifyIcon notifyIconMinimized;
         private System.Windows.Forms.ContextMenuStrip contextMenuGroupEntry;
         private System.Windows.Forms.ContextMenuStrip contextMenuGroupHeader;
         private System.Windows.Forms.ToolStripMenuItem contextMenuOpenWithDefaultProgram;
