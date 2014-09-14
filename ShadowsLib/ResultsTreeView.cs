@@ -38,6 +38,32 @@ namespace ShadowsLib {
             return DescendTree(fullPath, Nodes);
         }
 
+        public void UpdateAllParents(TreeNode node, bool updateShadowCount, bool updateFileCount, bool updateAllValues = true) {
+            bool updated = false;
+            for(TreeNode parent = node; parent != null; parent = parent.Parent) {
+                ResultsTreeViewDirectoryNode dirNode = parent as ResultsTreeViewDirectoryNode;
+                if(dirNode != null) {
+                    dirNode.UpdateText(updateShadowCount && (updateAllValues || !updated), updateFileCount && (updateAllValues || !updated));
+                    updated = true;
+                }
+            }
+        }
+
+        public void UpdateChildrenFiles(ResultsTreeViewDirectoryNode dir, string oldFullPath, string newFullPath) {
+            foreach(TreeNode subNode in dir.Nodes) {
+                IFileAssociated fileNode = subNode as IFileAssociated;
+                if(fileNode != null) {
+                    fileNode.FileAssociated = new FileInfoWrapper(new FileInfo(fileNode.FileAssociated.File.FullName.Replace(oldFullPath, newFullPath)));
+                }
+                else {
+                    ResultsTreeViewDirectoryNode dirNode = subNode as ResultsTreeViewDirectoryNode;
+                    if(dirNode != null) {
+                        UpdateChildrenFiles(dirNode, oldFullPath, newFullPath);
+                    }
+                }
+            }
+        }
+
         public void SetDirNodeMenu(ContextMenuStrip menuStrip) {
             dirNodeMenu = menuStrip;
         }
@@ -103,12 +129,7 @@ namespace ShadowsLib {
             currentNode.Nodes.Add(fileNode);
 
             // Update the texts of all parent/grandparent etc. nodes of the new file node
-            for(TreeNode parent = currentNode; parent != null; parent = parent.Parent) {
-                ResultsTreeViewDirectoryNode dirNode = parent as ResultsTreeViewDirectoryNode;
-                if(dirNode != null) {
-                    dirNode.UpdateText(true);
-                }
-            }
+            UpdateAllParents(currentNode, true, false, false);
         }
 
         private FolderItem FindRoot(string fullFileName) {

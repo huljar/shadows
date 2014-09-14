@@ -864,6 +864,17 @@ namespace Shadows {
                         RemoveGroupEntry(entry);
                     }
                 }
+
+                lock(_resultsTreeLocker) {
+                    ResultsTreeViewNode node = treeViewResults.GetNodeByPath(e.FullPath);
+                    if(node != null) {
+                        treeViewResults.Invoke((MethodInvoker)delegate {
+                            TreeNode parent = node.Parent;
+                            node.Remove();
+                            treeViewResults.UpdateAllParents(parent, true, true, false);
+                        });
+                    }
+                }
             }
         }
 
@@ -872,9 +883,25 @@ namespace Shadows {
             lock(_resultsTableLocker) {
                 ResultsTableViewEntry entry = SearchEntryByFileName(e.OldFullPath);
                 if(entry != null) {
+                    // Path.GetFileName necessary because FileSystemWatcher uses names relative to its own root directory
                     entry.Cells[(int)GridColumnIndices.Name].Value = Path.GetFileName(e.FullPath);
                     entry.FileAssociated = new FileInfoWrapper(new FileInfo(e.FullPath));
                     entry.ContainerGroup.Header.Cells[(int)GridColumnIndices.Name].Value = BuildHeaderName(entry.ContainerGroup.GetFilesAssociated());
+                }
+            }
+
+            lock(_resultsTreeLocker) {
+                ResultsTreeViewNode node = treeViewResults.GetNodeByPath(e.OldFullPath);
+                if(node != null) {
+                    treeViewResults.Invoke((MethodInvoker)delegate {
+                        if(node is ResultsTreeViewFileNode) {
+                            node.Name = Path.GetFileName(e.FullPath);
+                            node.Text = node.Name;
+                            int iconIndex = treeViewResults.IconManager.AddFileIcon(e.FullPath);
+                            node.ImageIndex = iconIndex;
+                            node.SelectedImageIndex = iconIndex;
+                        }
+                    });
                 }
             }
         }
@@ -888,6 +915,17 @@ namespace Shadows {
                         RemoveGroupEntry(entry);
                     }
                 }
+
+                lock(_resultsTreeLocker) {
+                    ResultsTreeViewNode node = treeViewResults.GetNodeByPath(e.FullPath);
+                    if(node != null) {
+                        treeViewResults.Invoke((MethodInvoker)delegate {
+                            TreeNode parent = node.Parent;
+                            node.Remove();
+                            treeViewResults.UpdateAllParents(parent, false, false);
+                        });
+                    }
+                }
             }
         }
 
@@ -899,6 +937,24 @@ namespace Shadows {
                     DataGridViewCell pathCell = entry.Cells[(int)GridColumnIndices.Path];
                     pathCell.Value = ((string)pathCell.Value).Replace(e.OldFullPath, e.FullPath);
                     entry.FileAssociated = new FileInfoWrapper(new FileInfo(entry.FileAssociated.File.FullName.Replace(e.OldFullPath, e.FullPath)));
+                }
+            }
+
+            lock(_resultsTreeLocker) {
+                ResultsTreeViewDirectoryNode node = treeViewResults.GetNodeByPath(e.OldFullPath) as ResultsTreeViewDirectoryNode;
+                if(node != null) {
+                    treeViewResults.Invoke((MethodInvoker)delegate {
+                        if(node.Parent == null) {
+                            // Node is a root node in the tree view
+                            node.Name = e.FullPath;
+                        }
+                        else {
+                            // Node is not a root node
+                            node.Name = Path.GetFileName(e.FullPath);
+                        }
+                        treeViewResults.UpdateChildrenFiles(node, e.OldFullPath, e.FullPath);
+                        node.UpdateText();
+                    });
                 }
             }
         }
@@ -1397,6 +1453,13 @@ namespace Shadows {
             }
         }
 
+        private void onTreeViewResultsNodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e) {
+            IFileAssociated entry = e.Node as IFileAssociated;
+            if(entry != null) {
+                OpenFileDefaultProgram(entry.FileAssociated.File.FullName);
+            }
+        }
+
         private void onContextMenuNodeOpenWithDefaultProgramClick(object sender, EventArgs e) {
             IFileAssociated entry = treeViewResults.SelectedNode as IFileAssociated;
             if(entry != null) {
@@ -1422,13 +1485,7 @@ namespace Shadows {
                 }
 
                 bool success = RenameFile(file, e.Label);
-                if(success) {
-                    node.Name = e.Label;
-                    int iconIndex = treeViewResults.IconManager.AddFileIcon(file.FullName);
-                    node.ImageIndex = iconIndex;
-                    node.SelectedImageIndex = iconIndex;
-                }
-                else {
+                if(!success) {
                     node.Text = file.Name;
                 }
             }
@@ -1470,6 +1527,37 @@ namespace Shadows {
                 catch(System.Runtime.InteropServices.COMException ex) {
                     MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void onTreeViewResultsKeyDown(object sender, KeyEventArgs e) {
+            IFileAssociated fileNode = treeViewResults.SelectedNode as IFileAssociated;
+            if(e.KeyCode == Keys.Enter) {
+                // If Enter was pressed and a file node is selected, open its associated file. If a directory node is selected, toggle collapse/expand.
+                if(fileNode != null) {
+                    OpenFileDefaultProgram(fileNode.FileAssociated.File.FullName);
+                }
+                else if(treeViewResults.SelectedNode is ResultsTreeViewDirectoryNode) {
+                    treeViewResults.SelectedNode.Toggle();
+                }
+            }
+            else if(e.KeyCode == Keys.Delete) {
+                // If Delete was pressed and a file node is selected, delete its associated file.
+                if(fileNode != null) {
+                    DeleteFile(fileNode.FileAssociated.File.FullName);
+                }
+            }
+            else if(e.KeyCode == Keys.F2) {
+                // If F2 was pressed and a file node is selected, open a renaming box to rename the associated file.
+                if(treeViewResults.SelectedNode is ResultsTreeViewFileNode) {
+                    treeViewResults.SelectedNode.BeginEdit();
+                }
+            }
+        }
+
+        private void onTreeViewResultsKeyPress(object sender, KeyPressEventArgs e) {
+            if(e.KeyChar == '\n' || e.KeyChar == '\r') {
+                e.Handled = true; // Necessary to prevent the 'ding' sound from Windows when pressing Enter
             }
         }
         #endregion
