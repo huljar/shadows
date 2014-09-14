@@ -2,26 +2,46 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace ShadowsLib {
     public class ResultsTreeViewDirectoryNode : ResultsTreeViewNode {
 
-        private int _ShadowCount;
-        private int _FileCount;
+        private System.IO.DirectoryInfo directory;
+        private int _ShadowCount = 0;
+        private int _FileCount = 0;
 
-        public ResultsTreeViewDirectoryNode(string name)
+        public ResultsTreeViewDirectoryNode(string name, System.IO.DirectoryInfo dir)
             : base(name) {
-
+            directory = dir;
+            UpdateText(false, true);
         }
 
-        public void UpdateText() {
+        public ResultsTreeViewDirectoryNode(string name, int imageIndex, int selectedImageIndex, System.IO.DirectoryInfo dir)
+            : base(name, imageIndex, selectedImageIndex) {
+            directory = dir;
+            UpdateText(false, true);
+        }
+
+        public void UpdateText(bool updateShadowCount = false, bool updateFileCount = false) {
+            if(updateShadowCount) {
+                _ShadowCount = 0;
+                foreach(TreeNode node in Nodes) {
+                    if(node is ResultsTreeViewFileNode) {
+                        ++_ShadowCount;
+                    }
+                }
+            }
+            if(updateFileCount) {
+                _FileCount = directory.GetFiles().Length; // TODO: hidden files?
+            }
             Text = Name + " (" + ShadowCount + "/" + FileCount + ")";
         }
 
         public int ShadowCount {
             get {
                 int ret = _ShadowCount;
-                foreach(System.Windows.Forms.TreeNode node in Nodes) {
+                foreach(TreeNode node in Nodes) {
                     if(node is ResultsTreeViewDirectoryNode) {
                         ResultsTreeViewDirectoryNode dirNode = node as ResultsTreeViewDirectoryNode;
                         ret += dirNode.ShadowCount;
@@ -38,7 +58,7 @@ namespace ShadowsLib {
         public int FileCount {
             get {
                 int ret = _FileCount;
-                foreach(System.Windows.Forms.TreeNode node in Nodes) {
+                foreach(TreeNode node in Nodes) {
                     if(node is ResultsTreeViewDirectoryNode) {
                         ResultsTreeViewDirectoryNode dirNode = node as ResultsTreeViewDirectoryNode;
                         ret += dirNode.FileCount;

@@ -57,6 +57,10 @@ namespace Shadows {
                 col.DefaultCellStyle.NullValue = null;
             }
 
+            // Set context menu strips of tree view nodes
+            treeViewResults.SetDirNodeMenu(contextMenuDirectoryNode);
+            treeViewResults.SetFileNodeMenu(contextMenuFileNode);
+
             // Apply saved settings to the form
             ApplySavedSettings();
 
@@ -1053,7 +1057,7 @@ namespace Shadows {
         #region results table events
         private void onTableViewResultsCellMouseDown(object sender, DataGridViewCellMouseEventArgs e) {
             // Select row on right-click before context menu is shown
-            if(e.Button == System.Windows.Forms.MouseButtons.Right && e.RowIndex != -1 && !tableViewResults.Rows[e.RowIndex].Selected) {
+            if(e.Button == MouseButtons.Right && e.RowIndex != -1 && !tableViewResults.Rows[e.RowIndex].Selected) {
                 tableViewResults.ClearSelection();
                 tableViewResults.Rows[e.RowIndex].Selected = true;
             }
@@ -1074,8 +1078,8 @@ namespace Shadows {
                     ResultsTableViewHeader header = tableViewResults.Rows[e.RowIndex] as ResultsTableViewHeader;
                     ToggleExpandState(header.ContainerGroup);
                 }
-                else if(tableViewResults.Rows[e.RowIndex] is ResultsTableViewEntry) {
-                    ResultsTableViewEntry entry = tableViewResults.Rows[e.RowIndex] as ResultsTableViewEntry;
+                else if(tableViewResults.Rows[e.RowIndex] is IFileAssociated) {
+                    IFileAssociated entry = tableViewResults.Rows[e.RowIndex] as IFileAssociated;
                     OpenFileDefaultProgram(entry.FileAssociated.File.FullName);
                 }
             }
@@ -1114,8 +1118,8 @@ namespace Shadows {
         private void onTableViewResultsKeyDown(object sender, KeyEventArgs e) {
             if(e.KeyCode == Keys.Enter) {
                 // If Enter was pressed and an entry is selected, open its associated file. If only headers are selected, toggle expand/collapse.
-                if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
-                    ResultsTableViewEntry entry = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
+                if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is IFileAssociated) {
+                    IFileAssociated entry = tableViewResults.SelectedRows[0] as IFileAssociated;
                     OpenFileDefaultProgram(entry.FileAssociated.File.FullName);
                 }
                 else if(OnlyHeadersSelected()) {
@@ -1228,8 +1232,8 @@ namespace Shadows {
         }
 
         private void onContextMenuOpenWithDefaultProgramClick(object sender, EventArgs e) {
-            if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
-                ResultsTableViewEntry entry = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
+            if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is IFileAssociated) {
+                IFileAssociated entry = tableViewResults.SelectedRows[0] as IFileAssociated;
                 if(entry != null) {
                     OpenFileDefaultProgram(entry.FileAssociated.File.FullName);
                 }
@@ -1255,7 +1259,7 @@ namespace Shadows {
         /// <param name="confirm">true to ask the user for confirmation first, otherwise false</param>
         private void DeleteAssociatedFiles(System.Collections.IEnumerable entries, bool confirm = true) {
             if(!confirm || MessageBox.Show(Strings.ConfirmFileDeletionText, Strings.ConfirmFileDeletionCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                foreach(ResultsTableViewEntry entry in entries) {
+                foreach(IFileAssociated entry in entries) {
                     Util.DeletionResult result = DeleteFile(entry.FileAssociated.File.FullName);
                     if(result == Util.DeletionResult.Aborted) {
                         return;
@@ -1304,7 +1308,7 @@ namespace Shadows {
                 if(tableViewResults.SelectedRows.Count < 10 || MessageBox.Show(Strings.WarningManyFoldersOpeningText, Strings.WarningManyFoldersOpeningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
                     lock(_resultsLocker) {
                         IList<FileSystemInfo> files = new List<FileSystemInfo>();
-                        foreach(ResultsTableViewEntry entry in tableViewResults.SelectedRows) {
+                        foreach(IFileAssociated entry in tableViewResults.SelectedRows) {
                             files.Add(entry.FileAssociated.File);
                         }
                         try {
@@ -1383,7 +1387,90 @@ namespace Shadows {
         #endregion
 
         #region Tree Results
+        private void onTreeViewResultsMouseDown(object sender, MouseEventArgs e) {
+            // Select node on right-click before context menu is shown
+            if(e.Button == MouseButtons.Right) {
+            TreeNode nodeClicked = treeViewResults.GetNodeAt(e.X, e.Y);
+            if(nodeClicked != null)
+                treeViewResults.SelectedNode = nodeClicked;
+            }
+        }
 
+        private void onContextMenuNodeOpenWithDefaultProgramClick(object sender, EventArgs e) {
+            IFileAssociated entry = treeViewResults.SelectedNode as IFileAssociated;
+            if(entry != null) {
+                OpenFileDefaultProgram(entry.FileAssociated.File.FullName);
+            }
+        }
+
+        private void onContextMenuNodeRenameFileClick(object sender, EventArgs e) {
+            if(treeViewResults.SelectedNode is ResultsTreeViewFileNode) {
+                treeViewResults.SelectedNode.BeginEdit();
+            }
+        }
+
+        private void onTreeViewResultsAfterLabelEdit(object sender, NodeLabelEditEventArgs e) {
+            // Try to rename the associated file and update the node accordingly.
+            ResultsTreeViewFileNode node = e.Node as ResultsTreeViewFileNode;
+            if(node != null) {
+                FileInfo file = node.FileAssociated.File;
+
+                if(e.Label == null || e.Label.Equals("")) {
+                    node.Text = file.Name;
+                    return;
+                }
+
+                bool success = RenameFile(file, e.Label);
+                if(success) {
+                    node.Name = e.Label;
+                    int iconIndex = treeViewResults.IconManager.AddFileIcon(file.FullName);
+                    node.ImageIndex = iconIndex;
+                    node.SelectedImageIndex = iconIndex;
+                }
+                else {
+                    node.Text = file.Name;
+                }
+            }
+        }
+
+        private void onContextMenuNodeDeleteFileClick(object sender, EventArgs e) {
+            if(MessageBox.Show(Strings.ConfirmFileDeletionText, Strings.ConfirmFileDeletionCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                IFileAssociated node = treeViewResults.SelectedNode as IFileAssociated;
+                if(node != null) {
+                    DeleteFile(node.FileAssociated.File.FullName);
+                }
+            }
+        }
+
+        private void onContextMenuNodeShowInExplorerClick(object sender, EventArgs e) {
+            IFileAssociated node = treeViewResults.SelectedNode as IFileAssociated;
+            if(node != null) {
+                try {
+                    ShowSelectedInExplorer.FileOrFolder(node.FileAssociated.File.FullName);
+                }
+                catch(System.Runtime.InteropServices.COMException ex) {
+                    MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void onContextMenuNodeDirShowInExplorerClick(object sender, EventArgs e) {
+            ResultsTreeViewDirectoryNode node = treeViewResults.SelectedNode as ResultsTreeViewDirectoryNode;
+            if(node != null) {
+                IList<FileSystemInfo> files = new List<FileSystemInfo>(node.Nodes.Count);
+                foreach(TreeNode subNode in node.Nodes) {
+                    if(subNode is IFileAssociated) {
+                        files.Add((subNode as IFileAssociated).FileAssociated.File);
+                    }
+                }
+                try {
+                    ShowSelectedInExplorer.FilesOrFolders(files);
+                }
+                catch(System.Runtime.InteropServices.COMException ex) {
+                    MessageBox.Show(String.Format(Strings.ErrorUnableToOpenFolderAndSelectItemsText, ex.ErrorCode, ex.Message), Strings.ErrorUnableToOpenFolderAndSelectItemsCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         #endregion
 
         #region after search

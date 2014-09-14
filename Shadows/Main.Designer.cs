@@ -140,6 +140,14 @@
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuShowInExplorerHeader = new System.Windows.Forms.ToolStripMenuItem();
             this.nofityIconMinimized = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuDirectoryNode = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuFileNode = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuNodeOpenWithDefaultProgram = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuNodeRenameFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuNodeDeleteFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuNodeShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuNodeDirShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.splitAll.Panel1.SuspendLayout();
             this.splitAll.Panel2.SuspendLayout();
             this.splitAll.SuspendLayout();
@@ -175,6 +183,8 @@
             this.statusBarBottom.SuspendLayout();
             this.contextMenuGroupEntry.SuspendLayout();
             this.contextMenuGroupHeader.SuspendLayout();
+            this.contextMenuDirectoryNode.SuspendLayout();
+            this.contextMenuFileNode.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitAll
@@ -716,7 +726,10 @@
             // treeViewResults
             // 
             resources.ApplyResources(this.treeViewResults, "treeViewResults");
+            this.treeViewResults.LabelEdit = true;
             this.treeViewResults.Name = "treeViewResults";
+            this.treeViewResults.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.onTreeViewResultsAfterLabelEdit);
+            this.treeViewResults.MouseDown += new System.Windows.Forms.MouseEventHandler(this.onTreeViewResultsMouseDown);
             // 
             // mainMenu
             // 
@@ -1066,6 +1079,59 @@
             this.nofityIconMinimized.BalloonTipClicked += new System.EventHandler(this.onNotifyIconMinimizedBalloonTipClicked);
             this.nofityIconMinimized.Click += new System.EventHandler(this.onNofityIconMinimizedClick);
             // 
+            // contextMenuDirectoryNode
+            // 
+            this.contextMenuDirectoryNode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuNodeDirShowInExplorer});
+            this.contextMenuDirectoryNode.Name = "contextMenuDirectoryNode";
+            resources.ApplyResources(this.contextMenuDirectoryNode, "contextMenuDirectoryNode");
+            // 
+            // contextMenuFileNode
+            // 
+            this.contextMenuFileNode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuNodeOpenWithDefaultProgram,
+            this.contextMenuNodeRenameFile,
+            this.contextMenuNodeDeleteFile,
+            this.toolStripMenuItem6,
+            this.contextMenuNodeShowInExplorer});
+            this.contextMenuFileNode.Name = "contextMenuFileNode";
+            resources.ApplyResources(this.contextMenuFileNode, "contextMenuFileNode");
+            // 
+            // contextMenuNodeOpenWithDefaultProgram
+            // 
+            this.contextMenuNodeOpenWithDefaultProgram.Name = "contextMenuNodeOpenWithDefaultProgram";
+            resources.ApplyResources(this.contextMenuNodeOpenWithDefaultProgram, "contextMenuNodeOpenWithDefaultProgram");
+            this.contextMenuNodeOpenWithDefaultProgram.Click += new System.EventHandler(this.onContextMenuNodeOpenWithDefaultProgramClick);
+            // 
+            // contextMenuNodeRenameFile
+            // 
+            this.contextMenuNodeRenameFile.Name = "contextMenuNodeRenameFile";
+            resources.ApplyResources(this.contextMenuNodeRenameFile, "contextMenuNodeRenameFile");
+            this.contextMenuNodeRenameFile.Click += new System.EventHandler(this.onContextMenuNodeRenameFileClick);
+            // 
+            // contextMenuNodeDeleteFile
+            // 
+            this.contextMenuNodeDeleteFile.Name = "contextMenuNodeDeleteFile";
+            resources.ApplyResources(this.contextMenuNodeDeleteFile, "contextMenuNodeDeleteFile");
+            this.contextMenuNodeDeleteFile.Click += new System.EventHandler(this.onContextMenuNodeDeleteFileClick);
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
+            // 
+            // contextMenuNodeShowInExplorer
+            // 
+            this.contextMenuNodeShowInExplorer.Name = "contextMenuNodeShowInExplorer";
+            resources.ApplyResources(this.contextMenuNodeShowInExplorer, "contextMenuNodeShowInExplorer");
+            this.contextMenuNodeShowInExplorer.Click += new System.EventHandler(this.onContextMenuNodeShowInExplorerClick);
+            // 
+            // contextMenuNodeDirShowInExplorer
+            // 
+            this.contextMenuNodeDirShowInExplorer.Name = "contextMenuNodeDirShowInExplorer";
+            resources.ApplyResources(this.contextMenuNodeDirShowInExplorer, "contextMenuNodeDirShowInExplorer");
+            this.contextMenuNodeDirShowInExplorer.Click += new System.EventHandler(this.onContextMenuNodeDirShowInExplorerClick);
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
@@ -1118,6 +1184,8 @@
             this.statusBarBottom.PerformLayout();
             this.contextMenuGroupEntry.ResumeLayout(false);
             this.contextMenuGroupHeader.ResumeLayout(false);
+            this.contextMenuDirectoryNode.ResumeLayout(false);
+            this.contextMenuFileNode.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1238,6 +1306,14 @@
         private System.Windows.Forms.Panel panelListView;
         private System.Windows.Forms.Panel panelTreeView;
         private ShadowsLib.ResultsTreeView treeViewResults;
+        private System.Windows.Forms.ContextMenuStrip contextMenuDirectoryNode;
+        private System.Windows.Forms.ContextMenuStrip contextMenuFileNode;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuNodeOpenWithDefaultProgram;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuNodeRenameFile;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuNodeDeleteFile;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuNodeShowInExplorer;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuNodeDirShowInExplorer;
     }
 }
 

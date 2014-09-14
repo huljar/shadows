@@ -1191,6 +1191,9 @@
   <data name="pictureBoxTreeView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <data name="pictureBoxTreeView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="pictureBoxTreeView.Location" type="System.Drawing.Point, System.Drawing">
     <value>973, 37</value>
   </data>
@@ -1214,6 +1217,9 @@
   </data>
   <data name="pictureBoxListView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
+  </data>
+  <data name="pictureBoxListView.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="pictureBoxListView.Location" type="System.Drawing.Point, System.Drawing">
     <value>947, 37</value>
@@ -1608,8 +1614,14 @@
   <data name="treeViewResults.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="treeViewResults.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="treeViewResults.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="treeViewResults.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="treeViewResults.Size" type="System.Drawing.Size, System.Drawing">
     <value>988, 289</value>
@@ -1801,7 +1813,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;splitAll.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <metadata name="mainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -2035,7 +2047,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mainMenu.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <metadata name="statusBarBottom.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>127, 17</value>
@@ -2086,7 +2098,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;statusBarBottom.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <metadata name="contextMenuGroupEntry.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>914, 17</value>
@@ -2171,6 +2183,63 @@
   </metadata>
   <data name="nofityIconMinimized.Text" xml:space="preserve">
     <value>0% done</value>
+  </data>
+  <metadata name="contextMenuDirectoryNode.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1266, 17</value>
+  </metadata>
+  <data name="contextMenuNodeDirShowInExplorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 22</value>
+  </data>
+  <data name="contextMenuNodeDirShowInExplorer.Text" xml:space="preserve">
+    <value>&amp;Show in Explorer</value>
+  </data>
+  <data name="contextMenuDirectoryNode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 48</value>
+  </data>
+  <data name="&gt;&gt;contextMenuDirectoryNode.Name" xml:space="preserve">
+    <value>contextMenuDirectoryNode</value>
+  </data>
+  <data name="&gt;&gt;contextMenuDirectoryNode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="contextMenuFileNode.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <data name="contextMenuNodeOpenWithDefaultProgram.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 22</value>
+  </data>
+  <data name="contextMenuNodeOpenWithDefaultProgram.Text" xml:space="preserve">
+    <value>&amp;Open (with default program)</value>
+  </data>
+  <data name="contextMenuNodeRenameFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 22</value>
+  </data>
+  <data name="contextMenuNodeRenameFile.Text" xml:space="preserve">
+    <value>&amp;Rename</value>
+  </data>
+  <data name="contextMenuNodeDeleteFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 22</value>
+  </data>
+  <data name="contextMenuNodeDeleteFile.Text" xml:space="preserve">
+    <value>&amp;Delete</value>
+  </data>
+  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 6</value>
+  </data>
+  <data name="contextMenuNodeShowInExplorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>226, 22</value>
+  </data>
+  <data name="contextMenuNodeShowInExplorer.Text" xml:space="preserve">
+    <value>&amp;Show in Explorer</value>
+  </data>
+  <data name="contextMenuFileNode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 98</value>
+  </data>
+  <data name="&gt;&gt;contextMenuFileNode.Name" xml:space="preserve">
+    <value>contextMenuFileNode</value>
+  </data>
+  <data name="&gt;&gt;contextMenuFileNode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2540,6 +2609,42 @@
   </data>
   <data name="&gt;&gt;nofityIconMinimized.Type" xml:space="preserve">
     <value>System.Windows.Forms.NotifyIcon, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeOpenWithDefaultProgram.Name" xml:space="preserve">
+    <value>contextMenuNodeOpenWithDefaultProgram</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeOpenWithDefaultProgram.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeRenameFile.Name" xml:space="preserve">
+    <value>contextMenuNodeRenameFile</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeRenameFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeDeleteFile.Name" xml:space="preserve">
+    <value>contextMenuNodeDeleteFile</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeDeleteFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem6.Name" xml:space="preserve">
+    <value>toolStripMenuItem6</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeShowInExplorer.Name" xml:space="preserve">
+    <value>contextMenuNodeShowInExplorer</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeShowInExplorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeDirShowInExplorer.Name" xml:space="preserve">
+    <value>contextMenuNodeDirShowInExplorer</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeDirShowInExplorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Main</value>

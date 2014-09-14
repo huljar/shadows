@@ -1,20 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Etier.IconHelper;
 
 namespace ShadowsLib {
     public class ResultsTreeView : System.Windows.Forms.TreeView {
 
         private IList<FolderItem> _RootFolders = new List<FolderItem>();
+        private IconListManager _IconManager;
 
-        public void AddShadow(IList<FileInfoWrapper> shadowSet) { // TODO: ROOT NODES MUST BE FOLDERS THAT WERE ADDED TO THE SEARCH!!!!!
+        private ContextMenuStrip dirNodeMenu = null;
+        private ContextMenuStrip fileNodeMenu = null;
+
+        public ResultsTreeView()
+            : base() {
+            PathSeparator = Path.DirectorySeparatorChar.ToString();
+            ImageList = new ImageList();
+            ImageList.ColorDepth = ColorDepth.Depth32Bit; // makes icons prettier
+            _IconManager = new IconListManager(ImageList, IconReader.IconSize.Small);
+            ImageList.Images.Add(IconReader.GetFolderIcon(IconReader.IconSize.Small, IconReader.FolderType.Closed));
+            ImageList.Images.Add(IconReader.GetFolderIcon(IconReader.IconSize.Small, IconReader.FolderType.Open)); // TODO: support special directory icons?
+        }
+
+        public void AddShadow(IList<FileInfoWrapper> shadowSet) {
             BeginUpdate();
             foreach(FileInfoWrapper file in shadowSet) {
-                InsertFileNode(file);
+                InsertFileNode(file, shadowSet);
             }
+            Sort();
             EndUpdate();
+        }
+
+        public void SetDirNodeMenu(ContextMenuStrip menuStrip) {
+            dirNodeMenu = menuStrip;
+        }
+
+        public void SetFileNodeMenu(ContextMenuStrip menuStrip) {
+            fileNodeMenu = menuStrip;
         }
 
         public void Reset() {
@@ -24,7 +49,7 @@ namespace ShadowsLib {
             EndUpdate();
         }
 
-        private void InsertFileNode(FileInfoWrapper file) {
+        private void InsertFileNode(FileInfoWrapper file, IList<FileInfoWrapper> shadowSet) {
             // Find the root folder that was added to the search which is a parent of the file
             FolderItem root = null;
             foreach(FolderItem rootFolder in RootFolders) {
@@ -38,32 +63,37 @@ namespace ShadowsLib {
             }
 
             // Retrieve the tree node of the root folder
-            TreeNode currentNode = null;
+            ResultsTreeViewNode currentNode = null;
             foreach(TreeNode node in Nodes) {
                 if(node.Name.Equals(root.Node.Path)) {
-                    currentNode = node;
+                    currentNode = (ResultsTreeViewNode)node;
                     break;
                 }
             }
             // Add root node if it does not exist yet
             if(currentNode == null) {
-                currentNode = new ResultsTreeViewDirectoryNode(root.Node.Path);
+                currentNode = new ResultsTreeViewDirectoryNode(root.Node.Path, 0, 1, new DirectoryInfo(root.Node.Path));
+                currentNode.ContextMenuStrip = dirNodeMenu;
                 Nodes.Add(currentNode);
             }
 
             // Iterate over the path of the file and add child nodes if necessary
-            while(!currentNode.FullPath.Equals(file.File.DirectoryName)) {
+            while(!currentNode.FullPathByName.Equals(file.File.DirectoryName)) {
                 bool childFound = false;
-                foreach(TreeNode node in currentNode.Nodes) {
-                    if(file.File.FullName.StartsWith(node.FullPath + Path.DirectorySeparatorChar)) {
+                foreach(ResultsTreeViewNode node in currentNode.Nodes) {
+                    if(file.File.FullName.StartsWith(node.FullPathByName + Path.DirectorySeparatorChar)) {
                         currentNode = node;
                         childFound = true;
                         break;
                     }
                 }
                 if(!childFound) {
-                    ResultsTreeViewDirectoryNode newNode = new ResultsTreeViewDirectoryNode(
-                        file.File.FullName.Substring(currentNode.FullPath.Length + 1, file.File.FullName.IndexOf(Path.DirectorySeparatorChar, currentNode.FullPath.Length + 1) - currentNode.FullPath.Length - 1));
+                    string path = currentNode.FullPathByName;
+                    ResultsTreeViewNode newNode = new ResultsTreeViewDirectoryNode(
+                        file.File.FullName.Substring(path.Length + 1, file.File.FullName.IndexOf(Path.DirectorySeparatorChar, path.Length + 1) - (path.Length + 1)),
+                        0, 1,
+                        new DirectoryInfo(file.File.FullName.Substring(0, file.File.FullName.IndexOf(Path.DirectorySeparatorChar, path.Length + 1))));
+                    newNode.ContextMenuStrip = dirNodeMenu;
                     currentNode.Nodes.Add(newNode);
                 }
             }
@@ -74,12 +104,26 @@ namespace ShadowsLib {
                     throw new Exception("Error: TreeView: File was already added.");
                 }
             }
-            ResultsTreeViewFileNode fileNode = new ResultsTreeViewFileNode(file.File.Name, file);
+            int iconIndex = _IconManager.AddFileIcon(file.File.FullName);
+            ResultsTreeViewNode fileNode = new ResultsTreeViewFileNode(file.File.Name, iconIndex, iconIndex, file, shadowSet);
+            fileNode.ContextMenuStrip = fileNodeMenu;
             currentNode.Nodes.Add(fileNode);
+
+            // Update the texts of all parent/grandparent etc. nodes of the new file node
+            for(TreeNode parent = currentNode; parent != null; parent = parent.Parent) {
+                ResultsTreeViewDirectoryNode dirNode = parent as ResultsTreeViewDirectoryNode;
+                if(dirNode != null) {
+                    dirNode.UpdateText(true);
+                }
+            }
         }
 
         public IList<FolderItem> RootFolders {
             get { return _RootFolders; }
+        }
+
+        public IconListManager IconManager {
+            get { return _IconManager; }
         }
     }
 }

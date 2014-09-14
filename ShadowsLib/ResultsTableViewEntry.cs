@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace ShadowsLib {
-    public class ResultsTableViewEntry : ResultsTableViewRow {
+    public class ResultsTableViewEntry : ResultsTableViewRow, IFileAssociated {
 
         private FileInfoWrapper _FileAssociated;
 
