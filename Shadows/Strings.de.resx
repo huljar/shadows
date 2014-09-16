@@ -202,13 +202,13 @@
     <value>Bereits hinzugefügt</value>
   </data>
   <data name="ErrorParentFolderAlreadyAddedText" xml:space="preserve">
-    <value>Dieser Ordner ist ein Unterordner von "{0}" und daher bereits in der Suche einbezogen.</value>
+    <value>Der Ordner "{0}" ist ein Unterordner von "{1}" und daher bereits in der Suche einbezogen.</value>
   </data>
   <data name="ErrorRecycledFolderAddedCaption" xml:space="preserve">
     <value>Gelöschter Ordner</value>
   </data>
   <data name="ErrorRecycledFolderAddedText" xml:space="preserve">
-    <value>Dieser Ordner wurde gelöscht und kann nicht durchsucht werden.</value>
+    <value>Der Ordner "{0}" wurde gelöscht und kann nicht durchsucht werden.</value>
   </data>
   <data name="ErrorSystemFilesWithoutAdminPrivilegesCaption" xml:space="preserve">
     <value>Keine Administratorrechte</value>
@@ -259,7 +259,7 @@ Fehlermeldung: {1}</value>
     <value>Virtueller Ordner</value>
   </data>
   <data name="ErrorVirtualFolderAddedText" xml:space="preserve">
-    <value>Virtuelle Ordner können nicht zur Suche hinzugefügt werden.</value>
+    <value>Der Ordner "{0}" ist ein virtuelles Verzeichnis und kann nicht zur Suche hinzugefügt werden.</value>
   </data>
   <data name="SearchCompletedBalloonText" xml:space="preserve">
     <value>{0} Schatten wurden gefunden.</value>

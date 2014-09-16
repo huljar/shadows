@@ -5,6 +5,85 @@ using System.Text;
 namespace ShadowsLib {
     public class FolderListView : System.Windows.Forms.ListBox {
 
+        public enum FolderAddStatus {
+            OK,
+            VirtualDirectory,
+            Recycled,
+            AlreadyAdded,
+            ParentAdded,
+            SingleSubdirectoryAdded,
+            MultipleSubdirectoriesAdded
+        }
+
+        public struct FolderAddResult {
+            public FolderAddResult(FolderAddStatus status, FolderItem triggeringFolder = null) {
+                this.status = status;
+                this.triggeringFolder = triggeringFolder;
+            }
+
+            public FolderAddStatus status;
+            public FolderItem triggeringFolder;
+        }
+
+        /// <summary>
+        /// Adds a folder to the list and optionally aborts with a warning if subdirectories of <i>folder</i> have already been added.
+        /// </summary>
+        /// <param name="folder">The FolderItem to be added</param>
+        /// <param name="warnAddedSubdirs">true to return with an error if subdirectories of <i>folder</i> are already in the list. Defaults to true.</param>
+        /// <returns><i>FolderAddResults</i> struct containing information about the result of the addition of the folder.</returns>
+        public FolderAddResult AddFolder(FolderItem folder, bool warnAddedSubdirs) {
+            // Check that the folder is not virtual
+            if(!folder.CheckRealFolder()) {
+                return new FolderAddResult(FolderAddStatus.VirtualDirectory);
+            }
+
+            // Check that the folder is not in the recycle bin
+            if(folder.CheckRecycled()) {
+                return new FolderAddResult(FolderAddStatus.Recycled);
+            }
+
+            // Check if the folder has already been added
+            FolderItem addedFolder = GetAddedFolder(folder);
+            if(addedFolder != null) {
+                ClearSelected();
+                SelectedItem = addedFolder;
+                return new FolderAddResult(FolderAddStatus.AlreadyAdded);
+            }
+
+            // Check if a parent folder has already been added
+            FolderItem addedParent = GetAddedParentFolder(folder);
+            if(addedParent != null) {
+                ClearSelected();
+                SelectedItem = addedParent;
+                return new FolderAddResult(FolderAddStatus.ParentAdded, addedParent);
+            }
+
+            // Check if subdirectories of the added folder have already been added
+            IList<FolderItem> addedSubfolders = GetAddedSubfolders(folder);
+            if(addedSubfolders.Count != 0) {
+                if(warnAddedSubdirs) {
+                    ClearSelected();
+                    foreach(FolderItem item in addedSubfolders) {
+                        SelectedItem = item;
+                    }
+                    if(addedSubfolders.Count == 1) {
+                        return new FolderAddResult(FolderAddStatus.SingleSubdirectoryAdded, addedSubfolders[0]);
+                    }
+                    else {
+                        return new FolderAddResult(FolderAddStatus.MultipleSubdirectoriesAdded);
+                    }
+                }
+
+                foreach(FolderItem item in addedSubfolders) {
+                    Items.Remove(item);
+                }
+            }
+
+            // Add the folder if the function reaches this point
+            Items.Add(folder);
+            return new FolderAddResult(FolderAddStatus.OK);
+        }
+
         /// <summary>
         /// Returns the <i>FolderItem</i> in the ListBox if it was already added, otherwise returns <i>null</i>.
         /// </summary>
@@ -26,7 +105,7 @@ namespace ShadowsLib {
         /// <returns>The retrieved Parent FolderItem, or null.</returns>
         public FolderItem GetAddedParentFolder(FolderItem folder) {
             foreach(FolderItem item in Items) {
-                if(((System.IO.DirectoryInfo)folder).Parent.FullName.StartsWith(item.Node.Path)) {
+                if(folder.GetDirectory().Parent.FullName.StartsWith(item.Node.Path)) {
                     return item;
                 }
             }
@@ -41,20 +120,12 @@ namespace ShadowsLib {
         public IList<FolderItem> GetAddedSubfolders(FolderItem folder) {
             IList<FolderItem> ret = new List<FolderItem>();
             foreach(FolderItem item in Items) {
-                System.IO.DirectoryInfo parent = ((System.IO.DirectoryInfo)item).Parent;
+                System.IO.DirectoryInfo parent = item.GetDirectory().Parent;
                 if(parent != null && parent.FullName.StartsWith(folder.Node.Path)) {
                     ret.Add(item);
                 }
             }
             return ret;
         }
-
-        //public IList<T> GetList<T>() {
-        //    IList<T> ret = new List<T>(Items.Count);
-        //    foreach(T item in Items) {
-        //        ret.Add(item);
-        //    }
-        //    return ret;
-        //}
     }
 }

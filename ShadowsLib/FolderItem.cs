@@ -19,13 +19,8 @@ namespace ShadowsLib {
             get { return _node; }
         }
 
-        public static explicit operator System.IO.DirectoryInfo(FolderItem folder) {
-            try {
-                return new System.IO.DirectoryInfo(folder.Node.Path);
-            }
-            catch {
-                return null;
-            }
+        public System.IO.DirectoryInfo GetDirectory() {
+            return new System.IO.DirectoryInfo(Node.Path);
         }
 
         public override string ToString() {

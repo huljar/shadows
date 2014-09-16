@@ -292,70 +292,41 @@ namespace Shadows {
 
         #region folder section events
         private void onButtonAddFolderClick(object sender, EventArgs e) {
-            AddFolderWithChecks(new FolderItem(expTreeFolders.SelectedItem), listboxFoldersAdded);
+            AddFolderToSearch(new FolderItem(expTreeFolders.SelectedItem), true);
         }
 
-        /// <summary>
-        /// Checks if a folder is allowed to be added to the search. If yes, the folder is added to the list. Shows error messages to the user if it is
-        /// not a valid folder.
-        /// </summary>
-        /// <param name="folder">The FolderItem to be added</param>
-        /// <param name="target">The FolderListView the FolderItem is supposed to be added to</param>
-        /// <returns>true, if the folder was added successfully, otherwise false</returns>
-        private bool AddFolderWithChecks(FolderItem folder, FolderListView target) {
-            // Check that the folder is not virtual
-            if(!folder.CheckRealFolder()) {
-                MessageBox.Show(Strings.ErrorVirtualFolderAddedText, Strings.ErrorVirtualFolderAddedCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            // Check that the folder is not in the recycle bin
-            if(folder.CheckRecycled()) {
-                MessageBox.Show(Strings.ErrorRecycledFolderAddedText, Strings.ErrorRecycledFolderAddedCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            // Check if the folder has already been added
-            FolderItem addedFolder = target.GetAddedFolder(folder);
-            if(addedFolder != null) {
-                target.ClearSelected();
-                target.SelectedItem = addedFolder;
-                MessageBox.Show(String.Format(Strings.ErrorFolderAlreadyAddedText, folder.Node.DisplayName), Strings.ErrorFolderAlreadyAddedCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            // Check if a parent folder has already been added
-            FolderItem addedParent = target.GetAddedParentFolder(folder);
-            if(addedParent != null) {
-                target.ClearSelected();
-                target.SelectedItem = addedParent;
-                MessageBox.Show(String.Format(Strings.ErrorParentFolderAlreadyAddedText, addedParent.Node.DisplayName), Strings.ErrorParentFolderAlreadyAddedCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            // Check if subdirectories of the added folder have already been added
-            IList<FolderItem> addedSubfolders = target.GetAddedSubfolders(folder);
-            if(addedSubfolders.Count != 0) {
-                target.ClearSelected();
-                foreach(FolderItem item in addedSubfolders) {
-                    target.SelectedItem = item;
-                }
-                string message = addedSubfolders.Count == 1
-                                 ? String.Format(Strings.WarningSingleSubfolderAlreadyAddedText, addedSubfolders[0].Node.DisplayName, folder.Node.DisplayName)
-                                 : String.Format(Strings.WarningMultipleSubfoldersAlreadyAddedText, folder.Node.DisplayName);
-                if(MessageBox.Show(message, Strings.WarningSubfolderAlreadyAddedCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
-                    foreach(FolderItem item in addedSubfolders) {
-                        target.Items.Remove(item);
+        private void AddFolderToSearch(FolderItem folder, bool warnAddedSubdirs) {
+            FolderListView.FolderAddResult result = listboxFoldersAdded.AddFolder(folder, warnAddedSubdirs);
+            switch(result.status) {
+                case FolderListView.FolderAddStatus.VirtualDirectory:
+                    MessageBox.Show(String.Format(Strings.ErrorVirtualFolderAddedText, folder.Node.DisplayName),
+                        Strings.ErrorVirtualFolderAddedCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case FolderListView.FolderAddStatus.Recycled:
+                    MessageBox.Show(String.Format(Strings.ErrorRecycledFolderAddedText, folder.Node.DisplayName),
+                        Strings.ErrorRecycledFolderAddedCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case FolderListView.FolderAddStatus.AlreadyAdded:
+                    MessageBox.Show(String.Format(Strings.ErrorFolderAlreadyAddedText, folder.Node.DisplayName),
+                        Strings.ErrorFolderAlreadyAddedCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case FolderListView.FolderAddStatus.ParentAdded:
+                    MessageBox.Show(String.Format(Strings.ErrorParentFolderAlreadyAddedText, folder.Node.DisplayName, result.triggeringFolder != null ? result.triggeringFolder.Node.DisplayName : Strings.NotAvailable),
+                        Strings.ErrorParentFolderAlreadyAddedCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case FolderListView.FolderAddStatus.SingleSubdirectoryAdded:
+                    if(MessageBox.Show(String.Format(Strings.WarningSingleSubfolderAlreadyAddedText, result.triggeringFolder != null ? result.triggeringFolder.Node.DisplayName : Strings.NotAvailable, folder.Node.DisplayName),
+                            Strings.WarningSubfolderAlreadyAddedCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                        AddFolderToSearch(folder, false);
                     }
-                }
-                else {
-                    return false;
-                }
+                    break;
+                case FolderListView.FolderAddStatus.MultipleSubdirectoriesAdded:
+                    if(MessageBox.Show(String.Format(Strings.WarningMultipleSubfoldersAlreadyAddedText, folder.Node.DisplayName),
+                            Strings.WarningSubfolderAlreadyAddedCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                        AddFolderToSearch(folder, false);
+                    }
+                    break;
             }
-
-            // Add the folder if the function reaches this point
-            target.Items.Add(folder);
-            return true;
         }
 
         private void onButtonRemoveFolderClick(object sender, EventArgs e) {
@@ -394,7 +365,7 @@ namespace Shadows {
             if(Util.CheckDragDropOnlyDirectories(e.Data)) {
                 string[] directories = (string[])e.Data.GetData(DataFormats.FileDrop);
                 foreach(string dir in directories) {
-                    AddFolderWithChecks(new FolderItem(dir), listboxFoldersAdded);
+                    AddFolderToSearch(new FolderItem(dir), true);
                 }
             }
         }
@@ -628,7 +599,7 @@ namespace Shadows {
 
             // Check if all added folders exist
             foreach(FolderItem folder in listboxFoldersAdded.Items) {
-                DirectoryInfo dir = (DirectoryInfo)folder;
+                DirectoryInfo dir = folder.GetDirectory();
                 if(dir == null || !dir.Exists) {
                     if(displayErrors) MessageBox.Show(String.Format(Strings.ErrorUnableToAccessFolderText, folder.Node.DisplayName), Strings.ErrorUnableToAccessFolderCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;

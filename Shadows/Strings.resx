@@ -202,13 +202,13 @@
     <value>Already added</value>
   </data>
   <data name="ErrorParentFolderAlreadyAddedText" xml:space="preserve">
-    <value>This directory is a subdirectory of "{0}" and therefore already included in the search.</value>
+    <value>The directory "{0}" is a subdirectory of "{1}" and therefore already included in the search.</value>
   </data>
   <data name="ErrorRecycledFolderAddedCaption" xml:space="preserve">
     <value>Deleted directory</value>
   </data>
   <data name="ErrorRecycledFolderAddedText" xml:space="preserve">
-    <value>This directory has been deleted and cannot be searched.</value>
+    <value>The directory "{0}" has been deleted and cannot be searched.</value>
   </data>
   <data name="ErrorSystemFilesWithoutAdminPrivilegesCaption" xml:space="preserve">
     <value>No administrator rights</value>
@@ -259,7 +259,7 @@ Error Message: {1}</value>
     <value>Virtual directory</value>
   </data>
   <data name="ErrorVirtualFolderAddedText" xml:space="preserve">
-    <value>Virtual directories cannot be added to the search.</value>
+    <value>The folder "{0}" is a virtual directory and cannot be added to the search.</value>
   </data>
   <data name="SearchCompletedBalloonText" xml:space="preserve">
     <value>{0} Shadows were found.</value>
@@ -342,5 +342,8 @@ Do you want to add the new directory?</value>
   </data>
   <data name="ConfirmDirectoryDeletionText" xml:space="preserve">
     <value>Do you really want to move the selected folder to the recycle bin?</value>
+  </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>n/a</value>
   </data>
 </root>

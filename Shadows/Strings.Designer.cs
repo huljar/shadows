@@ -349,7 +349,7 @@ namespace Shadows {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die This directory is a subdirectory of &quot;{0}&quot; and therefore already included in the search. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The directory &quot;{0}&quot; is a subdirectory of &quot;{1}&quot; and therefore already included in the search. ähnelt.
         /// </summary>
         internal static string ErrorParentFolderAlreadyAddedText {
             get {
@@ -367,7 +367,7 @@ namespace Shadows {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die This directory has been deleted and cannot be searched. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The directory &quot;{0}&quot; has been deleted and cannot be searched. ähnelt.
         /// </summary>
         internal static string ErrorRecycledFolderAddedText {
             get {
@@ -514,11 +514,20 @@ namespace Shadows {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Virtual directories cannot be added to the search. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The folder &quot;{0}&quot; is a virtual directory and cannot be added to the search. ähnelt.
         /// </summary>
         internal static string ErrorVirtualFolderAddedText {
             get {
                 return ResourceManager.GetString("ErrorVirtualFolderAddedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die n/a ähnelt.
+        /// </summary>
+        internal static string NotAvailable {
+            get {
+                return ResourceManager.GetString("NotAvailable", resourceCulture);
             }
         }
         

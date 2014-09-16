@@ -122,7 +122,7 @@ namespace Shadows {
         private IList<System.IO.DirectoryInfo> FolderItemListToDirInfoList(IList<FolderItem> list) {
             IList<System.IO.DirectoryInfo> ret = new List<System.IO.DirectoryInfo>(list.Count);
             foreach(FolderItem folder in list) {
-                ret.Add((System.IO.DirectoryInfo)folder);
+                ret.Add(folder.GetDirectory());
             }
             return ret;
         }
