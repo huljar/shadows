@@ -1460,6 +1460,23 @@ namespace Shadows {
             }
         }
 
+        private void onContextMenuNodeDirHideClick(object sender, EventArgs e) {
+            if(treeViewResults.SelectedNode is ResultsTreeViewDirectoryNode) {
+                lock(_resultsTreeLocker) {
+                    treeViewResults.SelectedNode.Remove();
+                }
+            }
+
+
+            if(tableViewResults.SelectedRowsAreType<ResultsTableViewHeader>()) {
+                lock(_resultsTableLocker) {
+                    foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
+                        tableViewResults.RemoveGroup(header.ContainerGroup);
+                    }
+                }
+            }
+        }
+
         private void onContextMenuNodeDirShowInExplorerClick(object sender, EventArgs e) {
             ResultsTreeViewDirectoryNode node = treeViewResults.SelectedNode as ResultsTreeViewDirectoryNode;
             if(node != null) {

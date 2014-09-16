@@ -2253,6 +2253,12 @@
   <data name="contextMenuNodeDirDelete.Text" xml:space="preserve">
     <value>&amp;Delete</value>
   </data>
+  <data name="contextMenuNodeDirHide.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 22</value>
+  </data>
+  <data name="contextMenuNodeDirHide.Text" xml:space="preserve">
+    <value>&amp;Hide</value>
+  </data>
   <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
     <value>158, 6</value>
   </data>
@@ -2263,7 +2269,7 @@
     <value>&amp;Show in Explorer</value>
   </data>
   <data name="contextMenuDirectoryNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 54</value>
+    <value>162, 76</value>
   </data>
   <data name="&gt;&gt;contextMenuDirectoryNode.Name" xml:space="preserve">
     <value>contextMenuDirectoryNode</value>
@@ -2704,6 +2710,12 @@
     <value>contextMenuNodeDirDelete</value>
   </data>
   <data name="&gt;&gt;contextMenuNodeDirDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeDirHide.Name" xml:space="preserve">
+    <value>contextMenuNodeDirHide</value>
+  </data>
+  <data name="&gt;&gt;contextMenuNodeDirHide.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem9.Name" xml:space="preserve">

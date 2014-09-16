@@ -144,6 +144,7 @@
             this.contextMenuShowInExplorerHeader = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuDirectoryNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuNodeDirDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuNodeDirHide = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuNodeDirShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuFileNode = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -1114,6 +1115,7 @@
             // 
             this.contextMenuDirectoryNode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.contextMenuNodeDirDelete,
+            this.contextMenuNodeDirHide,
             this.toolStripMenuItem9,
             this.contextMenuNodeDirShowInExplorer});
             this.contextMenuDirectoryNode.Name = "contextMenuDirectoryNode";
@@ -1124,6 +1126,12 @@
             this.contextMenuNodeDirDelete.Name = "contextMenuNodeDirDelete";
             resources.ApplyResources(this.contextMenuNodeDirDelete, "contextMenuNodeDirDelete");
             this.contextMenuNodeDirDelete.Click += new System.EventHandler(this.onContextMenuNodeDirDeleteClick);
+            // 
+            // contextMenuNodeDirHide
+            // 
+            this.contextMenuNodeDirHide.Name = "contextMenuNodeDirHide";
+            resources.ApplyResources(this.contextMenuNodeDirHide, "contextMenuNodeDirHide");
+            this.contextMenuNodeDirHide.Click += new System.EventHandler(this.onContextMenuNodeDirHideClick);
             // 
             // toolStripMenuItem9
             // 
@@ -1386,6 +1394,7 @@
         private System.Windows.Forms.ToolStripMenuItem contextMenuShowInTreeView;
         private System.Windows.Forms.ToolStripMenuItem contextMenuNodeDirDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem contextMenuNodeDirHide;
     }
 }
 
