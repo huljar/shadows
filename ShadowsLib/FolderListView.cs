@@ -84,6 +84,10 @@ namespace ShadowsLib {
             return new FolderAddResult(FolderAddStatus.OK);
         }
 
+        public void RemoveFolder(FolderItem folder) {
+            Items.Remove(folder);
+        }
+
         /// <summary>
         /// Returns the <i>FolderItem</i> in the ListBox if it was already added, otherwise returns <i>null</i>.
         /// </summary>

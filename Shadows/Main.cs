@@ -24,15 +24,6 @@ namespace Shadows {
         private readonly object _resultsTreeLocker = new object();
         private readonly object _labelLocker = new object();
 
-        private enum GridColumnIndices {
-            Expand = 0,
-            Name = 1,
-            Path = 2,
-            Size = 3,
-            ModDate = 4,
-            Type = 5
-        }
-
         /// <summary>
         /// Holds the current instance of BackgroundSearchManager. This is null if no search has been started yet.
         /// </summary>
@@ -53,7 +44,7 @@ namespace Shadows {
             LogHelper.SetUpLogger(Settings.Default.LogLevel, Settings.Default.LogActive);
 
             // Set null value of ResultsTableView image column
-            DataGridViewImageColumn col = tableViewResults.Columns[(int)GridColumnIndices.Expand] as DataGridViewImageColumn;
+            DataGridViewImageColumn col = tableViewResults.Columns[(int)Util.GridColumnIndices.Expand] as DataGridViewImageColumn;
             if(col != null) {
                 col.DefaultCellStyle.NullValue = null;
             }
@@ -120,8 +111,6 @@ namespace Shadows {
             checkboxHiddenFiles.Checked = Settings.Default.SearchIncludeHiddenFiles;
             checkboxSystemFiles.Checked = Settings.Default.SearchIncludeSystemFiles;
             checkboxMatchRegex.Checked = Settings.Default.SearchMatchRegex;
-
-            // Regex
             textboxMatchRegex.Text = Settings.Default.SearchFileNameRegex;
         }
 
@@ -330,21 +319,13 @@ namespace Shadows {
         }
 
         private void onButtonRemoveFolderClick(object sender, EventArgs e) {
-            List<FolderItem> toRemove = new List<FolderItem>(listboxFoldersAdded.SelectedItems.Count);
+            IList<FolderItem> toRemove = new List<FolderItem>(listboxFoldersAdded.SelectedItems.Count);
             foreach(FolderItem selectedFolder in listboxFoldersAdded.SelectedItems) {
-                toRemove.Add(selectedFolder);
+                toRemove.Add(selectedFolder); // Necessary because the selected item list cannot be changed while iterating over it
             }
-            RemoveFolders(toRemove, listboxFoldersAdded);
-        }
-
-        private void RemoveFolders(IEnumerable<FolderItem> toRemove, FolderListView target) {
-            foreach(FolderItem item in toRemove) {
-                RemoveFolder(item, target);
+            foreach(FolderItem folder in toRemove) {
+                listboxFoldersAdded.RemoveFolder(folder);
             }
-        }
-
-        private void RemoveFolder(FolderItem toRemove, FolderListView target) {
-            target.Items.Remove(toRemove);
         }
 
         private void onListboxFoldersAddedDragEnter(object sender, DragEventArgs e) {
@@ -856,9 +837,9 @@ namespace Shadows {
                 ResultsTableViewEntry entry = SearchEntryByFileName(e.OldFullPath);
                 if(entry != null) {
                     // Path.GetFileName necessary because FileSystemWatcher uses names relative to its own root directory
-                    entry.Cells[(int)GridColumnIndices.Name].Value = Path.GetFileName(e.FullPath);
+                    entry.Cells[(int)Util.GridColumnIndices.Name].Value = Path.GetFileName(e.FullPath);
                     entry.FileAssociated = new FileInfoWrapper(new FileInfo(e.FullPath));
-                    entry.ContainerGroup.Header.Cells[(int)GridColumnIndices.Name].Value = BuildHeaderName(entry.ContainerGroup.GetFilesAssociated());
+                    entry.ContainerGroup.Header.Cells[(int)Util.GridColumnIndices.Name].Value = BuildHeaderName(entry.ContainerGroup.GetFilesAssociated());
                 }
             }
 
@@ -908,7 +889,7 @@ namespace Shadows {
             lock(_resultsTableLocker) {
                 IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.OldFullPath, true);
                 foreach(ResultsTableViewEntry entry in entries) {
-                    DataGridViewCell pathCell = entry.Cells[(int)GridColumnIndices.Path];
+                    DataGridViewCell pathCell = entry.Cells[(int)Util.GridColumnIndices.Path];
                     pathCell.Value = ((string)pathCell.Value).Replace(e.OldFullPath, e.FullPath);
                     entry.FileAssociated = new FileInfoWrapper(new FileInfo(entry.FileAssociated.File.FullName.Replace(e.OldFullPath, e.FullPath)));
                 }
@@ -1007,7 +988,7 @@ namespace Shadows {
                 }
             }
             else {
-                entry.ContainerGroup.Header.Cells[(int)GridColumnIndices.Name].Value = BuildHeaderName(entry.ContainerGroup.GetFilesAssociated());
+                entry.ContainerGroup.Header.Cells[(int)Util.GridColumnIndices.Name].Value = BuildHeaderName(entry.ContainerGroup.GetFilesAssociated());
             }
         }
 
@@ -1140,11 +1121,11 @@ namespace Shadows {
             lock(_resultsTableLocker) {
                 if(group.Expanded) {
                     tableViewResults.CollapseGroup(group);
-                    group.Header.Cells[(int)GridColumnIndices.Expand].Value = Resources.IconExpand;
+                    group.Header.Cells[(int)Util.GridColumnIndices.Expand].Value = Resources.IconExpand;
                 }
                 else {
                     tableViewResults.ExpandGroup(group);
-                    group.Header.Cells[(int)GridColumnIndices.Expand].Value = Resources.IconCollapse;
+                    group.Header.Cells[(int)Util.GridColumnIndices.Expand].Value = Resources.IconCollapse;
                 }
             }
         }
@@ -1156,7 +1137,7 @@ namespace Shadows {
                     IFileAssociated entry = tableViewResults.SelectedRows[0] as IFileAssociated;
                     OpenFileDefaultProgram(entry.FileAssociated.File.FullName);
                 }
-                else if(OnlyHeadersSelected()) {
+                else if(tableViewResults.SelectedRowsAreType<ResultsTableViewHeader>()) {
                     foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
                         ToggleExpandState(header.ContainerGroup);
                     }
@@ -1165,7 +1146,7 @@ namespace Shadows {
             }
             else if(e.KeyCode == Keys.Delete) {
                 // If Delete was pressed and only entries are selected, delete their associated files.
-                if(OnlyEntriesSelected()) {
+                if(tableViewResults.SelectedRowsAreType<ResultsTableViewEntry>()) {
                     DeleteAssociatedFiles(tableViewResults.SelectedRows.Cast<IFileAssociated>());
                 }
             }
@@ -1178,7 +1159,7 @@ namespace Shadows {
         }
 
         private void BeginRenaming(DataGridViewRow row) {
-            tableViewResults.CurrentCell = row.Cells[(int)GridColumnIndices.Name];
+            tableViewResults.CurrentCell = row.Cells[(int)Util.GridColumnIndices.Name];
             tableViewResults.BeginEdit(true);
         }
 
@@ -1187,19 +1168,19 @@ namespace Shadows {
             ResultsTableViewEntry row = tableViewResults.Rows[e.RowIndex] as ResultsTableViewEntry;
             if(row != null) {
                 FileInfo file = row.FileAssociated.File;
-                string newName = (string)row.Cells[(int)GridColumnIndices.Name].Value;
+                string newName = (string)row.Cells[(int)Util.GridColumnIndices.Name].Value;
 
                 if(newName == "") {
-                    row.Cells[(int)GridColumnIndices.Name].Value = file.Name;
+                    row.Cells[(int)Util.GridColumnIndices.Name].Value = file.Name;
                     return;
                 }
 
                 bool success = RenameFile(file, newName);
                 if(success) {
-                    row.ContainerGroup.Header.Cells[(int)GridColumnIndices.Name].Value = BuildHeaderName(row.ContainerGroup.GetFilesAssociated());
+                    row.ContainerGroup.Header.Cells[(int)Util.GridColumnIndices.Name].Value = BuildHeaderName(row.ContainerGroup.GetFilesAssociated());
                 }
                 else {
-                    row.Cells[(int)GridColumnIndices.Name].Value = file.Name;
+                    row.Cells[(int)Util.GridColumnIndices.Name].Value = file.Name;
                 }
             }
         }
@@ -1223,7 +1204,7 @@ namespace Shadows {
 
         private void onContextMenuGroupEntryOpening(object sender, CancelEventArgs e) {
             // Set enabled states of context menu entries based on selected rows
-            bool onlyEntriesSelected = OnlyEntriesSelected();
+            bool onlyEntriesSelected = tableViewResults.SelectedRowsAreType<ResultsTableViewEntry>();
             contextMenuOpenWithDefaultProgram.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuRenameFile.Enabled = tableViewResults.SelectedRows.Count == 1;
             contextMenuDeleteFile.Enabled = onlyEntriesSelected;
@@ -1234,36 +1215,10 @@ namespace Shadows {
 
         private void onContextMenuGroupHeaderOpening(object sender, CancelEventArgs e) {
             // Set enabled states of context menu entries based on selected rows
-            bool onlyHeadersSelected = OnlyHeadersSelected();
+            bool onlyHeadersSelected = tableViewResults.SelectedRowsAreType<ResultsTableViewHeader>();
             contextMenuExpandCollapse.Enabled = onlyHeadersSelected;
             contextMenuHide.Enabled = onlyHeadersSelected;
             contextMenuShowInExplorerHeader.Enabled = onlyHeadersSelected;
-        }
-
-        /// <summary>
-        /// Checks if only headers are selected in the Results Table.
-        /// </summary>
-        /// <returns>true if only headers are selected, otherwise false</returns>
-        private bool OnlyHeadersSelected() {
-            foreach(ResultsTableViewRow row in tableViewResults.SelectedRows) {
-                if(!(row is ResultsTableViewHeader)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Checks if only entries are selected in the Results Table.
-        /// </summary>
-        /// <returns>true if only entries are selected, otherwise false</returns>
-        private bool OnlyEntriesSelected() {
-            foreach(ResultsTableViewRow row in tableViewResults.SelectedRows) {
-                if(!(row is ResultsTableViewEntry)) {
-                    return false;
-                }
-            }
-            return true;
         }
 
         private void onContextMenuOpenWithDefaultProgramClick(object sender, EventArgs e) {
@@ -1282,7 +1237,7 @@ namespace Shadows {
         }
 
         private void onContextMenuDeleteFileClick(object sender, EventArgs e) {
-            if(OnlyEntriesSelected()) {
+            if(tableViewResults.SelectedRowsAreType<ResultsTableViewEntry>()) {
                 DeleteAssociatedFiles(tableViewResults.SelectedRows.Cast<IFileAssociated>());
             }
         }
@@ -1369,7 +1324,7 @@ namespace Shadows {
         }
 
         private void onContextMenuShowInExplorerEntryClick(object sender, EventArgs e) {
-            if(OnlyEntriesSelected()) { // TODO: rethink counting entries / count different paths
+            if(tableViewResults.SelectedRowsAreType<ResultsTableViewEntry>()) { // TODO: rethink counting entries / count different paths
                 if(tableViewResults.SelectedRows.Count < 10 || MessageBox.Show(Strings.WarningManyFoldersOpeningText, Strings.WarningManyFoldersOpeningCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
                     lock(_resultsTableLocker) {
                         IList<FileSystemInfo> files = new List<FileSystemInfo>();
@@ -1408,7 +1363,7 @@ namespace Shadows {
         }
 
         private void onContextMenuExpandCollapseClick(object sender, EventArgs e) {
-            if(OnlyHeadersSelected()) {
+            if(tableViewResults.SelectedRowsAreType<ResultsTableViewHeader>()) {
                 lock(_resultsTableLocker) {
                     foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
                         ToggleExpandState(header.ContainerGroup);
@@ -1418,7 +1373,7 @@ namespace Shadows {
         }
 
         private void onContextMenuHideClick(object sender, EventArgs e) {
-            if(OnlyHeadersSelected()) {
+            if(tableViewResults.SelectedRowsAreType<ResultsTableViewHeader>()) {
                 lock(_resultsTableLocker) {
                     foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
                         tableViewResults.RemoveGroup(header.ContainerGroup);
@@ -1428,7 +1383,7 @@ namespace Shadows {
         }
 
         private void onContextMenuShowInExplorerHeaderClick(object sender, EventArgs e) {
-            if(OnlyHeadersSelected()) {
+            if(tableViewResults.SelectedRowsAreType<ResultsTableViewHeader>()) {
                 int selectedEntries = 0;
                 foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
                     selectedEntries += header.ContainerGroup.Entries.Count;
@@ -1661,12 +1616,12 @@ namespace Shadows {
             }
 
             ret.CreateCells(table);
-            ret.Cells[(int)GridColumnIndices.Expand].Value = expanded ? Resources.IconCollapse : Resources.IconExpand;
-            ret.Cells[(int)GridColumnIndices.Name].Value = name;
-            ret.Cells[(int)GridColumnIndices.Path].Value = "";
-            ret.Cells[(int)GridColumnIndices.Size].Value = size;
-            ret.Cells[(int)GridColumnIndices.ModDate].Value = "";
-            ret.Cells[(int)GridColumnIndices.Type].Value = "";
+            ret.Cells[(int)Util.GridColumnIndices.Expand].Value = expanded ? Resources.IconCollapse : Resources.IconExpand;
+            ret.Cells[(int)Util.GridColumnIndices.Name].Value = name;
+            ret.Cells[(int)Util.GridColumnIndices.Path].Value = "";
+            ret.Cells[(int)Util.GridColumnIndices.Size].Value = size;
+            ret.Cells[(int)Util.GridColumnIndices.ModDate].Value = "";
+            ret.Cells[(int)Util.GridColumnIndices.Type].Value = "";
 
             ret.ContextMenuStrip = contextMenuGroupHeader;
             ret.DefaultCellStyle.BackColor = SystemColors.ControlLight;
@@ -1726,11 +1681,11 @@ namespace Shadows {
             ResultsTableViewEntry ret = new ResultsTableViewEntry(file);
 
             ret.CreateCells(table);
-            ret.Cells[(int)GridColumnIndices.Name].Value = file.File.Name;
-            ret.Cells[(int)GridColumnIndices.Path].Value = file.File.DirectoryName;
-            ret.Cells[(int)GridColumnIndices.Size].Value = Util.HumanReadableSize(file.File.Length);
-            ret.Cells[(int)GridColumnIndices.ModDate].Value = file.File.LastWriteTime.ToString(Settings.Default.ResultsModificationDateFormat);
-            ret.Cells[(int)GridColumnIndices.Type].Value = ""; // TODO: implement using SHGetFileInfo
+            ret.Cells[(int)Util.GridColumnIndices.Name].Value = file.File.Name;
+            ret.Cells[(int)Util.GridColumnIndices.Path].Value = file.File.DirectoryName;
+            ret.Cells[(int)Util.GridColumnIndices.Size].Value = Util.HumanReadableSize(file.File.Length);
+            ret.Cells[(int)Util.GridColumnIndices.ModDate].Value = file.File.LastWriteTime.ToString(Settings.Default.ResultsModificationDateFormat);
+            ret.Cells[(int)Util.GridColumnIndices.Type].Value = ""; // TODO: implement using SHGetFileInfo
 
             ret.ContextMenuStrip = contextMenuGroupEntry;
 

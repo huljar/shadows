@@ -35,6 +35,15 @@ namespace Shadows {
             Aborted
         }
 
+        public enum GridColumnIndices {
+            Expand = 0,
+            Name = 1,
+            Path = 2,
+            Size = 3,
+            ModDate = 4,
+            Type = 5
+        }
+
         public static bool IsValidExtensionInput(string input) {
             // Check for illegal characters
             foreach(char illegalChar in System.IO.Path.GetInvalidFileNameChars()) {

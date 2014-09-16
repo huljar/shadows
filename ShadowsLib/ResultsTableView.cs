@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 
 namespace ShadowsLib {
-    public class ResultsTableView : System.Windows.Forms.DataGridView {
+    public class ResultsTableView : DataGridView {
 
         private IList<ResultsGroup> groups = new List<ResultsGroup>(); 
 
@@ -49,6 +50,20 @@ namespace ShadowsLib {
 
         public System.Collections.ObjectModel.ReadOnlyCollection<ResultsGroup> GetGroups() {
             return new System.Collections.ObjectModel.ReadOnlyCollection<ResultsGroup>(groups);
+        }
+
+        /// <summary>
+        /// Checks if all selected rows are of a certain type.
+        /// </summary>
+        /// <typeparam name="T">the type that all selected rows must be or derive from</typeparam>
+        /// <returns></returns>
+        public bool SelectedRowsAreType<T>() where T : DataGridViewRow {
+            foreach(DataGridViewRow row in SelectedRows) {
+                if(!(row is T)) {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public void Reset() {
