@@ -66,6 +66,48 @@ namespace ShadowsLib {
             return true;
         }
 
+        /// <summary>
+        /// Searches the table for an entry that has a specific file associated.
+        /// </summary>
+        /// <param name="fullName">the full name of the file</param>
+        /// <returns>the corresponding entry or null, if no entry has the specified file associated</returns>
+        public ResultsTableViewEntry SearchEntryByFileName(string fullName) {
+            foreach(ResultsGroup group in groups) {
+                foreach(ResultsTableViewEntry entry in group.Entries) {
+                    if(entry.FileAssociated.File.FullName.Equals(fullName)) {
+                        return entry;
+                    }
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Searches the table for entries that have files associated that are within the specified directory.
+        /// </summary>
+        /// <param name="fullName">the full name of the directory</param>
+        /// <param name="includeSubdirectories">specifies whether to search subdirectories, too</param>
+        /// <returns>a list of entries that were found (empty list if none were found)</returns>
+        public IList<ResultsTableViewEntry> SearchEntriesByDirectoryName(string fullName, bool includeSubdirectories) {
+            string startString = fullName + "\\";
+            IList<ResultsTableViewEntry> ret = new List<ResultsTableViewEntry>();
+            foreach(ResultsGroup group in groups) {
+                foreach(ResultsTableViewEntry entry in group.Entries) {
+                    if(includeSubdirectories) {
+                        if(entry.FileAssociated.File.FullName.StartsWith(startString)) {
+                            ret.Add(entry);
+                        }
+                    }
+                    else {
+                        if(entry.FileAssociated.File.DirectoryName.Equals(fullName)) {
+                            ret.Add(entry);
+                        }
+                    }
+                }
+            }
+            return ret;
+        }
+
         public void Reset() {
             foreach(ResultsGroup group in groups) {
                 group.Dispose();

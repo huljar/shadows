@@ -812,7 +812,7 @@ namespace Shadows {
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
                 // Handle file deletion
                 lock(_resultsTableLocker) {
-                    ResultsTableViewEntry entry = SearchEntryByFileName(e.FullPath);
+                    ResultsTableViewEntry entry = tableViewResults.SearchEntryByFileName(e.FullPath);
                     if(entry != null) {
                         RemoveGroupEntry(entry);
                     }
@@ -834,7 +834,7 @@ namespace Shadows {
         private void onFileWatcherRenamed(object sender, RenamedEventArgs e) {
             // Update entry and header when a file has been renamed
             lock(_resultsTableLocker) {
-                ResultsTableViewEntry entry = SearchEntryByFileName(e.OldFullPath);
+                ResultsTableViewEntry entry = tableViewResults.SearchEntryByFileName(e.OldFullPath);
                 if(entry != null) {
                     // Path.GetFileName necessary because FileSystemWatcher uses names relative to its own root directory
                     entry.Cells[(int)Util.GridColumnIndices.Name].Value = Path.GetFileName(e.FullPath);
@@ -865,7 +865,7 @@ namespace Shadows {
             // Update groups and table for all affected files when a directory has been deleted
             if(e.ChangeType == WatcherChangeTypes.Deleted) {
                 lock(_resultsTableLocker) {
-                    IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.FullPath, true);
+                    IList<ResultsTableViewEntry> entries = tableViewResults.SearchEntriesByDirectoryName(e.FullPath, true);
                     foreach(ResultsTableViewEntry entry in entries) {
                         RemoveGroupEntry(entry);
                     }
@@ -887,7 +887,7 @@ namespace Shadows {
         void onDirWatcherRenamed(object sender, RenamedEventArgs e) {
             // Update entries for all affected files when a directory has been renamed
             lock(_resultsTableLocker) {
-                IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(e.OldFullPath, true);
+                IList<ResultsTableViewEntry> entries = tableViewResults.SearchEntriesByDirectoryName(e.OldFullPath, true);
                 foreach(ResultsTableViewEntry entry in entries) {
                     DataGridViewCell pathCell = entry.Cells[(int)Util.GridColumnIndices.Path];
                     pathCell.Value = ((string)pathCell.Value).Replace(e.OldFullPath, e.FullPath);
@@ -912,48 +912,6 @@ namespace Shadows {
                     });
                 }
             }
-        }
-
-        /// <summary>
-        /// Searches the Results Table for an entry that has a specific file associated.
-        /// </summary>
-        /// <param name="fullName">the full name of the file</param>
-        /// <returns>the corresponding entry or null, if no entry has the specified file associated</returns>
-        private ResultsTableViewEntry SearchEntryByFileName(string fullName) {
-            foreach(ResultsGroup group in tableViewResults.GetGroups()) {
-                foreach(ResultsTableViewEntry entry in group.Entries) {
-                    if(entry.FileAssociated.File.FullName.Equals(fullName)) {
-                        return entry;
-                    }
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
-        /// Searches the Results Table for entries that have files associated that are within the specified directory.
-        /// </summary>
-        /// <param name="fullName">the full name of the directory</param>
-        /// <param name="includeSubdirectories">specifies whether to search subdirectories, too</param>
-        /// <returns>a list of entries that were found (empty list if none were found)</returns>
-        private IList<ResultsTableViewEntry> SearchEntriesByDirectoryName(string fullName, bool includeSubdirectories) {
-            string startString = fullName + "\\";
-            IList<ResultsTableViewEntry> ret = new List<ResultsTableViewEntry>();
-            foreach(ResultsGroup group in tableViewResults.GetGroups()) {
-                foreach(ResultsTableViewEntry entry in group.Entries) {
-                    if(includeSubdirectories) {
-                        if(entry.FileAssociated.File.FullName.StartsWith(startString)) {
-                            ret.Add(entry);
-                        }
-                    }
-                    else {
-                        if(entry.FileAssociated.File.DirectoryName == fullName) {
-                            ret.Add(entry);
-                        }
-                    }
-                }
-            }
-            return ret;
         }
 
         private void RemoveGroupEntry(ResultsTableViewEntry entry) {
@@ -1347,7 +1305,7 @@ namespace Shadows {
             if(tableViewResults.SelectedRows.Count == 1 && tableViewResults.SelectedRows[0] is ResultsTableViewEntry) {
                 lock(_resultsTableLocker) {
                     ResultsTableViewEntry selected = tableViewResults.SelectedRows[0] as ResultsTableViewEntry;
-                    IList<ResultsTableViewEntry> entries = SearchEntriesByDirectoryName(selected.FileAssociated.File.DirectoryName, false);
+                    IList<ResultsTableViewEntry> entries = tableViewResults.SearchEntriesByDirectoryName(selected.FileAssociated.File.DirectoryName, false);
                     IList<FileSystemInfo> files = new List<FileSystemInfo>(entries.Count);
                     foreach(ResultsTableViewEntry entry in entries) {
                         files.Add(entry.FileAssociated.File);
@@ -1470,7 +1428,7 @@ namespace Shadows {
         private void onContextMenuNodeShowInTableViewClick(object sender, EventArgs e) {
             IFileAssociated fileNode = treeViewResults.SelectedNode as IFileAssociated;
             if(fileNode != null) {
-                ResultsTableViewEntry entry = SearchEntryByFileName(fileNode.FileAssociated.File.FullName);
+                ResultsTableViewEntry entry = tableViewResults.SearchEntryByFileName(fileNode.FileAssociated.File.FullName);
                 if(entry != null) {
                     if(!entry.ContainerGroup.Expanded) {
                         ToggleExpandState(entry.ContainerGroup);
