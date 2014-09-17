@@ -87,11 +87,11 @@ namespace ShadowsLib {
             }
 
             // Retrieve the tree node of the root folder
-            ResultsTreeViewNode currentNode = GetNodeByPath(root.Node.Path);
+            ResultsTreeViewNode currentNode = GetNodeByPath(RemoveSeparator(root.Node.Path));
 
             // Add root node if it does not exist yet
             if(currentNode == null) {
-                currentNode = new ResultsTreeViewDirectoryNode(root.Node.Path, 0, 1, new DirectoryInfo(root.Node.Path));
+                currentNode = new ResultsTreeViewDirectoryNode(RemoveSeparator(root.Node.Path), 0, 1, new DirectoryInfo(root.Node.Path));
                 currentNode.ContextMenuStrip = dirNodeMenu;
                 Nodes.Add(currentNode);
             }
@@ -166,6 +166,13 @@ namespace ShadowsLib {
                 return path;
             }
             return path + Path.DirectorySeparatorChar;
+        }
+
+        private string RemoveSeparator(string path) {
+            if(path.EndsWith(Path.DirectorySeparatorChar.ToString())) {
+                return path.Substring(0, path.Length - 1);
+            }
+            return path;
         }
     }
 }
