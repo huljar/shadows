@@ -109,7 +109,8 @@ namespace ShadowsLib {
         /// <returns>The retrieved Parent FolderItem, or null.</returns>
         public FolderItem GetAddedParentFolder(FolderItem folder) {
             foreach(FolderItem item in Items) {
-                if(folder.GetDirectory().Parent.FullName.StartsWith(item.Node.Path)) {
+                System.IO.DirectoryInfo itemParent = folder.GetDirectory().Parent;
+                if(itemParent != null && itemParent.FullName.StartsWith(item.Node.Path)) {
                     return item;
                 }
             }
