@@ -100,7 +100,7 @@ namespace ShadowsLib {
             while(!currentNode.FullPathByName.Equals(file.File.DirectoryName)) {
                 bool childFound = false;
                 foreach(ResultsTreeViewNode node in currentNode.Nodes) {
-                    if(file.File.FullName.StartsWith(node.FullPathByName + Path.DirectorySeparatorChar)) {
+                    if(file.File.FullName.StartsWith(AppendSeparator(node.FullPathByName))) {
                         currentNode = node;
                         childFound = true;
                         break;
@@ -134,7 +134,7 @@ namespace ShadowsLib {
 
         private FolderItem FindRoot(string fullFileName) {
             foreach(FolderItem rootFolder in RootFolders) {
-                if(fullFileName.StartsWith(rootFolder.Node.Path + Path.DirectorySeparatorChar)) {
+                if(fullFileName.StartsWith(AppendSeparator(rootFolder.Node.Path))) {
                     return rootFolder;
                 }
             }
@@ -146,7 +146,7 @@ namespace ShadowsLib {
                 if(fullPath.Equals(child.FullPathByName)) {
                     return child;
                 }
-                if(fullPath.StartsWith(child.FullPathByName + Path.DirectorySeparatorChar)) {
+                if(fullPath.StartsWith(AppendSeparator(child.FullPathByName))) {
                     return DescendTree(fullPath, child.Nodes);
                 }
             }
@@ -159,6 +159,13 @@ namespace ShadowsLib {
 
         public IconListManager IconManager {
             get { return _IconManager; }
+        }
+
+        private string AppendSeparator(string path) {
+            if(path.EndsWith(Path.DirectorySeparatorChar.ToString())) {
+                return path;
+            }
+            return path + Path.DirectorySeparatorChar;
         }
     }
 }
