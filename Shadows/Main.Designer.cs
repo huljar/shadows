@@ -39,7 +39,6 @@
             this.splitFoldersAdded = new System.Windows.Forms.SplitContainer();
             this.buttonAddFolder = new System.Windows.Forms.Button();
             this.buttonRemoveFolder = new System.Windows.Forms.Button();
-            this.listboxFoldersAdded = new ShadowsLib.FolderListView();
             this.contextMenuAddedFolders = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextItemSelectAll = new System.Windows.Forms.ToolStripMenuItem();
             this.contextItemSelectNone = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,16 +79,8 @@
             this.groupResults = new System.Windows.Forms.GroupBox();
             this.panelListView = new System.Windows.Forms.Panel();
             this.splitTable = new System.Windows.Forms.SplitContainer();
-            this.tableViewResults = new ShadowsLib.ResultsTableView();
-            this.gridcolumnExpand = new System.Windows.Forms.DataGridViewImageColumn();
-            this.gridcolumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridcolumnPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridcolumnSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridcolumnModDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gridcolumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTreeView = new System.Windows.Forms.Panel();
             this.splitTreeview = new System.Windows.Forms.SplitContainer();
-            this.treeViewResults = new ShadowsLib.ResultsTreeView();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.menuItemProgram = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemOptions = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,6 +147,15 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuNodeShowInExplorer = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIconMinimized = new System.Windows.Forms.NotifyIcon(this.components);
+            this.listboxFoldersAdded = new ShadowsLib.FolderListView();
+            this.tableViewResults = new ShadowsLib.ResultsTableView();
+            this.treeViewResults = new ShadowsLib.ResultsTreeView();
+            this.gridcolumnExpand = new System.Windows.Forms.DataGridViewImageColumn();
+            this.gridcolumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridcolumnPath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridcolumnSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridcolumnModDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridcolumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitAll.Panel1.SuspendLayout();
             this.splitAll.Panel2.SuspendLayout();
             this.splitAll.SuspendLayout();
@@ -185,7 +185,6 @@
             this.panelListView.SuspendLayout();
             this.splitTable.Panel1.SuspendLayout();
             this.splitTable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableViewResults)).BeginInit();
             this.panelTreeView.SuspendLayout();
             this.splitTreeview.Panel1.SuspendLayout();
             this.splitTreeview.SuspendLayout();
@@ -195,6 +194,7 @@
             this.contextMenuGroupHeader.SuspendLayout();
             this.contextMenuDirectoryNode.SuspendLayout();
             this.contextMenuFileNode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableViewResults)).BeginInit();
             this.SuspendLayout();
             // 
             // splitAll
@@ -314,18 +314,6 @@
             this.tooltipDefault.SetToolTip(this.buttonRemoveFolder, resources.GetString("buttonRemoveFolder.ToolTip"));
             this.buttonRemoveFolder.UseVisualStyleBackColor = true;
             this.buttonRemoveFolder.Click += new System.EventHandler(this.onButtonRemoveFolderClick);
-            // 
-            // listboxFoldersAdded
-            // 
-            this.listboxFoldersAdded.AllowDrop = true;
-            this.listboxFoldersAdded.ContextMenuStrip = this.contextMenuAddedFolders;
-            resources.ApplyResources(this.listboxFoldersAdded, "listboxFoldersAdded");
-            this.listboxFoldersAdded.FormattingEnabled = true;
-            this.listboxFoldersAdded.Name = "listboxFoldersAdded";
-            this.listboxFoldersAdded.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listboxFoldersAdded.DragDrop += new System.Windows.Forms.DragEventHandler(this.onListboxFoldersAddedDragDrop);
-            this.listboxFoldersAdded.DragEnter += new System.Windows.Forms.DragEventHandler(this.onListboxFoldersAddedDragEnter);
-            this.listboxFoldersAdded.DragLeave += new System.EventHandler(this.onListboxFoldersAddedDragLeave);
             // 
             // contextMenuAddedFolders
             // 
@@ -645,88 +633,6 @@
             // 
             this.splitTable.Panel1.Controls.Add(this.tableViewResults);
             // 
-            // tableViewResults
-            // 
-            this.tableViewResults.AllowUserToAddRows = false;
-            this.tableViewResults.AllowUserToDeleteRows = false;
-            this.tableViewResults.AllowUserToOrderColumns = true;
-            this.tableViewResults.AllowUserToResizeRows = false;
-            this.tableViewResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.tableViewResults.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.tableViewResults.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.tableViewResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.tableViewResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.gridcolumnExpand,
-            this.gridcolumnName,
-            this.gridcolumnPath,
-            this.gridcolumnSize,
-            this.gridcolumnModDate,
-            this.gridcolumnType});
-            resources.ApplyResources(this.tableViewResults, "tableViewResults");
-            this.tableViewResults.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.tableViewResults.Name = "tableViewResults";
-            this.tableViewResults.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.tableViewResults.RowHeadersVisible = false;
-            this.tableViewResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.tableViewResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableViewResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellClick);
-            this.tableViewResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellDoubleClick);
-            this.tableViewResults.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellEndEdit);
-            this.tableViewResults.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.onTableViewResultsCellMouseDown);
-            this.tableViewResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onTableViewResultsKeyDown);
-            // 
-            // gridcolumnExpand
-            // 
-            this.gridcolumnExpand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle1;
-            this.gridcolumnExpand.Frozen = true;
-            resources.ApplyResources(this.gridcolumnExpand, "gridcolumnExpand");
-            this.gridcolumnExpand.Name = "gridcolumnExpand";
-            this.gridcolumnExpand.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // gridcolumnName
-            // 
-            this.gridcolumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gridcolumnName.FillWeight = 25F;
-            resources.ApplyResources(this.gridcolumnName, "gridcolumnName");
-            this.gridcolumnName.Name = "gridcolumnName";
-            this.gridcolumnName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // gridcolumnPath
-            // 
-            this.gridcolumnPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gridcolumnPath.FillWeight = 40F;
-            resources.ApplyResources(this.gridcolumnPath, "gridcolumnPath");
-            this.gridcolumnPath.Name = "gridcolumnPath";
-            this.gridcolumnPath.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // gridcolumnSize
-            // 
-            this.gridcolumnSize.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gridcolumnSize.FillWeight = 10F;
-            resources.ApplyResources(this.gridcolumnSize, "gridcolumnSize");
-            this.gridcolumnSize.Name = "gridcolumnSize";
-            this.gridcolumnSize.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // gridcolumnModDate
-            // 
-            this.gridcolumnModDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gridcolumnModDate.FillWeight = 18F;
-            resources.ApplyResources(this.gridcolumnModDate, "gridcolumnModDate");
-            this.gridcolumnModDate.Name = "gridcolumnModDate";
-            this.gridcolumnModDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // gridcolumnType
-            // 
-            this.gridcolumnType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.gridcolumnType.FillWeight = 10F;
-            resources.ApplyResources(this.gridcolumnType, "gridcolumnType");
-            this.gridcolumnType.Name = "gridcolumnType";
-            this.gridcolumnType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // panelTreeView
             // 
             this.panelTreeView.Controls.Add(this.splitTreeview);
@@ -742,19 +648,6 @@
             // splitTreeview.Panel1
             // 
             this.splitTreeview.Panel1.Controls.Add(this.treeViewResults);
-            // 
-            // treeViewResults
-            // 
-            resources.ApplyResources(this.treeViewResults, "treeViewResults");
-            this.treeViewResults.HideSelection = false;
-            this.treeViewResults.ItemHeight = 18;
-            this.treeViewResults.LabelEdit = true;
-            this.treeViewResults.Name = "treeViewResults";
-            this.treeViewResults.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.onTreeViewResultsAfterLabelEdit);
-            this.treeViewResults.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.onTreeViewResultsNodeMouseDoubleClick);
-            this.treeViewResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onTreeViewResultsKeyDown);
-            this.treeViewResults.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onTreeViewResultsKeyPress);
-            this.treeViewResults.MouseDown += new System.Windows.Forms.MouseEventHandler(this.onTreeViewResultsMouseDown);
             // 
             // mainMenu
             // 
@@ -1203,6 +1096,113 @@
             this.notifyIconMinimized.BalloonTipClicked += new System.EventHandler(this.onNotifyIconMinimizedBalloonTipClicked);
             this.notifyIconMinimized.Click += new System.EventHandler(this.onNofityIconMinimizedClick);
             // 
+            // listboxFoldersAdded
+            // 
+            this.listboxFoldersAdded.AllowDrop = true;
+            this.listboxFoldersAdded.ContextMenuStrip = this.contextMenuAddedFolders;
+            resources.ApplyResources(this.listboxFoldersAdded, "listboxFoldersAdded");
+            this.listboxFoldersAdded.FormattingEnabled = true;
+            this.listboxFoldersAdded.Name = "listboxFoldersAdded";
+            this.listboxFoldersAdded.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.listboxFoldersAdded.DragDrop += new System.Windows.Forms.DragEventHandler(this.onListboxFoldersAddedDragDrop);
+            this.listboxFoldersAdded.DragEnter += new System.Windows.Forms.DragEventHandler(this.onListboxFoldersAddedDragEnter);
+            this.listboxFoldersAdded.DragLeave += new System.EventHandler(this.onListboxFoldersAddedDragLeave);
+            // 
+            // tableViewResults
+            // 
+            this.tableViewResults.AllowUserToAddRows = false;
+            this.tableViewResults.AllowUserToDeleteRows = false;
+            this.tableViewResults.AllowUserToOrderColumns = true;
+            this.tableViewResults.AllowUserToResizeRows = false;
+            this.tableViewResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tableViewResults.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.tableViewResults.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.tableViewResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.tableViewResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridcolumnExpand,
+            this.gridcolumnName,
+            this.gridcolumnPath,
+            this.gridcolumnSize,
+            this.gridcolumnModDate,
+            this.gridcolumnType});
+            resources.ApplyResources(this.tableViewResults, "tableViewResults");
+            this.tableViewResults.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.tableViewResults.Name = "tableViewResults";
+            this.tableViewResults.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.tableViewResults.RowHeadersVisible = false;
+            this.tableViewResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            this.tableViewResults.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.tableViewResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.tableViewResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellClick);
+            this.tableViewResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellDoubleClick);
+            this.tableViewResults.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.onTableViewResultsCellEndEdit);
+            this.tableViewResults.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.onTableViewResultsCellMouseDown);
+            this.tableViewResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onTableViewResultsKeyDown);
+            // 
+            // treeViewResults
+            // 
+            resources.ApplyResources(this.treeViewResults, "treeViewResults");
+            this.treeViewResults.HideSelection = false;
+            this.treeViewResults.ItemHeight = 18;
+            this.treeViewResults.LabelEdit = true;
+            this.treeViewResults.Name = "treeViewResults";
+            this.treeViewResults.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.onTreeViewResultsAfterLabelEdit);
+            this.treeViewResults.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.onTreeViewResultsNodeMouseDoubleClick);
+            this.treeViewResults.KeyDown += new System.Windows.Forms.KeyEventHandler(this.onTreeViewResultsKeyDown);
+            this.treeViewResults.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onTreeViewResultsKeyPress);
+            this.treeViewResults.MouseDown += new System.Windows.Forms.MouseEventHandler(this.onTreeViewResultsMouseDown);
+            // 
+            // gridcolumnExpand
+            // 
+            this.gridcolumnExpand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.gridcolumnExpand.DefaultCellStyle = dataGridViewCellStyle1;
+            this.gridcolumnExpand.Frozen = true;
+            resources.ApplyResources(this.gridcolumnExpand, "gridcolumnExpand");
+            this.gridcolumnExpand.Name = "gridcolumnExpand";
+            this.gridcolumnExpand.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // gridcolumnName
+            // 
+            this.gridcolumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gridcolumnName.FillWeight = 25F;
+            resources.ApplyResources(this.gridcolumnName, "gridcolumnName");
+            this.gridcolumnName.Name = "gridcolumnName";
+            this.gridcolumnName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // gridcolumnPath
+            // 
+            this.gridcolumnPath.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gridcolumnPath.FillWeight = 40F;
+            resources.ApplyResources(this.gridcolumnPath, "gridcolumnPath");
+            this.gridcolumnPath.Name = "gridcolumnPath";
+            this.gridcolumnPath.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // gridcolumnSize
+            // 
+            this.gridcolumnSize.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gridcolumnSize.FillWeight = 10F;
+            resources.ApplyResources(this.gridcolumnSize, "gridcolumnSize");
+            this.gridcolumnSize.Name = "gridcolumnSize";
+            this.gridcolumnSize.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // gridcolumnModDate
+            // 
+            this.gridcolumnModDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gridcolumnModDate.FillWeight = 15F;
+            resources.ApplyResources(this.gridcolumnModDate, "gridcolumnModDate");
+            this.gridcolumnModDate.Name = "gridcolumnModDate";
+            this.gridcolumnModDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // gridcolumnType
+            // 
+            this.gridcolumnType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.gridcolumnType.FillWeight = 18F;
+            resources.ApplyResources(this.gridcolumnType, "gridcolumnType");
+            this.gridcolumnType.Name = "gridcolumnType";
+            this.gridcolumnType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
@@ -1247,7 +1247,6 @@
             this.panelListView.ResumeLayout(false);
             this.splitTable.Panel1.ResumeLayout(false);
             this.splitTable.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tableViewResults)).EndInit();
             this.panelTreeView.ResumeLayout(false);
             this.splitTreeview.Panel1.ResumeLayout(false);
             this.splitTreeview.ResumeLayout(false);
@@ -1259,6 +1258,7 @@
             this.contextMenuGroupHeader.ResumeLayout(false);
             this.contextMenuDirectoryNode.ResumeLayout(false);
             this.contextMenuFileNode.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tableViewResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1368,12 +1368,6 @@
         private System.Windows.Forms.ToolStripMenuItem contextMenuHide;
         private System.Windows.Forms.ToolStripMenuItem menuItemExtras;
         private System.Windows.Forms.ToolStripMenuItem menuItemEmptyFoldersTool;
-        private System.Windows.Forms.DataGridViewImageColumn gridcolumnExpand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnPath;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnSize;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnModDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnType;
         private System.Windows.Forms.PictureBox pictureBoxTreeView;
         private System.Windows.Forms.PictureBox pictureBoxListView;
         private System.Windows.Forms.Panel panelListView;
@@ -1395,6 +1389,12 @@
         private System.Windows.Forms.ToolStripMenuItem contextMenuNodeDirDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem contextMenuNodeDirHide;
+        private System.Windows.Forms.DataGridViewImageColumn gridcolumnExpand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnPath;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnSize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnModDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gridcolumnType;
     }
 }
 

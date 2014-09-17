@@ -78,6 +78,7 @@
     <Compile Include="ShadowFoundEventArgs.cs" />
     <Compile Include="DirectorySkippedEventArgs.cs" />
     <Compile Include="ShowSelectedInExplorer.cs" />
+    <Compile Include="TypeHelper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

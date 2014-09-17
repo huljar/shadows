@@ -1660,7 +1660,7 @@ namespace Shadows {
             ret.Cells[(int)Util.GridColumnIndices.Path].Value = file.File.DirectoryName;
             ret.Cells[(int)Util.GridColumnIndices.Size].Value = Util.HumanReadableSize(file.File.Length);
             ret.Cells[(int)Util.GridColumnIndices.ModDate].Value = file.File.LastWriteTime.ToString(Settings.Default.ResultsModificationDateFormat);
-            ret.Cells[(int)Util.GridColumnIndices.Type].Value = ""; // TODO: implement using SHGetFileInfo
+            ret.Cells[(int)Util.GridColumnIndices.Type].Value = TypeHelper.GetFileTypeDescription(file.File.FullName);
 
             ret.ContextMenuStrip = contextMenuGroupEntry;
 
