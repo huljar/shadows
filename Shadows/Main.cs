@@ -1460,19 +1460,18 @@ namespace Shadows {
             }
         }
 
+        private void onContextMenuDeleteAllShadowsInThisFolderClick(object sender, EventArgs e) {
+            ResultsTreeViewDirectoryNode node = treeViewResults.SelectedNode as ResultsTreeViewDirectoryNode;
+            if(node != null) {
+                // TODO: ask if Shadows where all files are contained within this folder should be deleted as well
+                DeleteAssociatedFiles(treeViewResults.GetAllChildrenFiles(node).Cast<IFileAssociated>());
+            }
+        }
+
         private void onContextMenuNodeDirHideClick(object sender, EventArgs e) {
             if(treeViewResults.SelectedNode is ResultsTreeViewDirectoryNode) {
                 lock(_resultsTreeLocker) {
                     treeViewResults.SelectedNode.Remove();
-                }
-            }
-
-
-            if(tableViewResults.SelectedRowsAreType<ResultsTableViewHeader>()) {
-                lock(_resultsTableLocker) {
-                    foreach(ResultsTableViewHeader header in tableViewResults.SelectedRows) {
-                        tableViewResults.RemoveGroup(header.ContainerGroup);
-                    }
                 }
             }
         }

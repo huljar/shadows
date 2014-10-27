@@ -232,6 +232,9 @@
   <data name="checkboxCompareFileContents.Text" xml:space="preserve">
     <value>Gesamter Dateiinhalt (kann Suche verlangsamen)</value>
   </data>
+  <data name="tabPageFileTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 135</value>
+  </data>
   <data name="tabPageFileTypes.Text" xml:space="preserve">
     <value>Dateitypen</value>
   </data>
@@ -279,6 +282,9 @@
   </data>
   <data name="checkboxCustomTypes.ToolTip" xml:space="preserve">
     <value>Anhaken, um eigene Dateiendungen zu definieren. Geben Sie diese durch Kommas getrennt ein, z.B. "doc, pdf, mp3".</value>
+  </data>
+  <data name="tabPageAdvancedSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>394, 135</value>
   </data>
   <data name="tabPageAdvancedSettings.Text" xml:space="preserve">
     <value>Erweitert</value>
@@ -505,29 +511,35 @@
   <data name="contextMenuShowInExplorerHeader.Text" xml:space="preserve">
     <value>In Explorer &amp;zeigen</value>
   </data>
-  <data name="contextMenuDirectoryNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 76</value>
-  </data>
   <data name="contextMenuNodeDirDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>281, 22</value>
   </data>
   <data name="contextMenuNodeDirDelete.Text" xml:space="preserve">
     <value>&amp;Löschen</value>
   </data>
+  <data name="contextMenuDeleteAllShadowsInThisFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 22</value>
+  </data>
+  <data name="contextMenuDeleteAllShadowsInThisFolder.Text" xml:space="preserve">
+    <value>Alle &amp;Schatten in diesem Ordner löschen</value>
+  </data>
   <data name="contextMenuNodeDirHide.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>281, 22</value>
   </data>
   <data name="contextMenuNodeDirHide.Text" xml:space="preserve">
     <value>&amp;Ausblenden</value>
   </data>
   <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 6</value>
+    <value>278, 6</value>
   </data>
   <data name="contextMenuNodeDirShowInExplorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 22</value>
+    <value>281, 22</value>
   </data>
   <data name="contextMenuNodeDirShowInExplorer.Text" xml:space="preserve">
     <value>In Explorer &amp;zeigen</value>
+  </data>
+  <data name="contextMenuDirectoryNode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 98</value>
   </data>
   <data name="contextMenuFileNode.Size" type="System.Drawing.Size, System.Drawing">
     <value>275, 126</value>
@@ -567,5 +579,9 @@
   </data>
   <data name="contextMenuNodeShowInExplorer.Text" xml:space="preserve">
     <value>In Explorer &amp;zeigen</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
 </root>

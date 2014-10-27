@@ -38,6 +38,23 @@ namespace ShadowsLib {
             return DescendTree(fullPath, Nodes);
         }
 
+        public IList<ResultsTreeViewFileNode> GetAllChildrenFiles(ResultsTreeViewDirectoryNode dir) {
+            List<ResultsTreeViewFileNode> ret = new List<ResultsTreeViewFileNode>();
+            foreach(TreeNode subNode in dir.Nodes) {
+                ResultsTreeViewDirectoryNode dirSubNode = subNode as ResultsTreeViewDirectoryNode;
+                if(dirSubNode != null) {
+                    ret.AddRange(GetAllChildrenFiles(dirSubNode));
+                }
+                else {
+                    ResultsTreeViewFileNode fileSubNode = subNode as ResultsTreeViewFileNode;
+                    if(fileSubNode != null) {
+                        ret.Add(fileSubNode);
+                    }
+                }
+            }
+            return ret;
+        }
+
         public void UpdateAllParents(TreeNode node, bool updateShadowCount, bool updateFileCount, bool updateAllValues = true) {
             bool updated = false;
             for(TreeNode parent = node; parent != null; parent = parent.Parent) {
